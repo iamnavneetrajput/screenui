@@ -20,7 +20,7 @@ export default function IntroBanner({
   navText = 'Get Started with Tailwind v4',
 }: IntroBannerProps) {
   return (
-    <div className="pb-8 border-b border-dotted bg-[hsl(var(--background))]">
+    <div className="pb-4 border-b border-dotted bg-[hsl(var(--background))]">
       {/* Navigation */}
       <nav className="py-2 px-2">
         <div className="max-w-[1400px] mx-auto">

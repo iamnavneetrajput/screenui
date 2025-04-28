@@ -1,10 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Sidebar from '@/components/ui/library/sidebar';
 import ComponentDisplay from '@/components/ui/library/componentdisplay';
 import { ComponentData, getComponentByPath } from '@/components/data/components';
-import Pagination from '@/components/ui/library/Pagination'; // 
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Layout: React.FC = () => {
@@ -23,7 +22,7 @@ const Layout: React.FC = () => {
     <div className="min-h-screen flex flex-col md:flex-row w-full pt-14">
 
       {/* Mobile Header with Toggle */}
-      <div className="md:hidden p-4 flex items-center justify-between border-b border-gray-200">
+      <div className="md:hidden pb-4 flex items-center justify-between border-b border-gray-200">
         <h1 className="text-xl font-bold">Component Library</h1>
         <button
           onClick={() => setSidebarOpen(true)}

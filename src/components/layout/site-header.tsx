@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Docs', href: '/' },
   { name: 'Library', href: '/library' },
   { name: 'Colors', href: '/color' },
-  { name: 'Examples', href: '/example' },
+  { name: 'Awaken', href: '/awaken' },
 ];
 
 

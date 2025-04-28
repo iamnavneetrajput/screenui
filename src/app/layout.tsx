@@ -20,6 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <link rel="icon" href="/trans-sui-logo.png" />
       <body className={`${inter.className} relative min-h-screen bg-background text-foreground`}>
         <ThemeProvider>
           {/* Header */}

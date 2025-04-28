@@ -1,5 +1,6 @@
 "use client";
 import IntroBanner from "@/components/ui/main/banner";
+import Demo from "@/components/demo/demo";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         navText="Get Started with Tailwind v4"
       />
       {/* Other content can go here */}
+
+      <Demo/>
 
     </main>
   );

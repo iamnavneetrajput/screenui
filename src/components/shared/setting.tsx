@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { X, Maximize2, Minimize2, Layout, Settings } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import Image from 'next/image'
 import { cn } from '@/lib/utils';
 import PerformanceSection from '@/components/ui/sharedui/PerformanceSection';
 import ThemeSection from '@/components/ui/sharedui/ThemeSection';
@@ -75,17 +76,24 @@ export default function DevPanel() {
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
-          'fixed bg-primary text-primary-foreground p-2 rounded-full shadow-lg z-50 transition-all duration-300',
+          'fixed z-50 transition-all duration-300',
           isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         )}
         style={{
           right: 20,
           top: placement === 'top-right' ? 60 : undefined,
           bottom: placement === 'bottom-right' ? 20 : undefined,
+          
         }}
         aria-label="Open Dev Panel"
       >
-        <Settings className="w-5 h-5" />
+        <Image
+          src="/b-d-sui-logo.png"
+          alt="Dev Panel"
+          className='rounded-full border-2 border-gray-300 cursor-pointer'
+          width={34}
+          height={34}
+        />
       </button>
 
       {/* Panel */}

@@ -2,27 +2,19 @@
 
 /* globals.css */
 :root {
-  --background: 0, 0%, 98%;
-  --foreground: 222.2 47.4% 11.2%;
-  --surface: 0 0% 90%;
-  --surface-component: 0 0% 12%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --primary: 240 100% 60%;
-  --accent: 210 100% 96%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --background: 0, 0%, 98%;  /* Light mode background */
+  --foreground: 210, 40%, 10%; /* Light mode foreground */
+  --surface: 0, 0%, 98%; /* Light mode surface */
+  --border: 210,20%,92%; /* Light mode border */
+  --color-border: 240, 100%, 60%; /* Light mode border color */
 }
 
 [data-theme='dark'] {
   --background: 0 0% 8%;
   --foreground: 210 40% 98%;
-  --surface: 0 0% 10%;
-  --surface-component: 0 0% 12%;
-  --muted: 217 33% 18%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --primary: 240 100% 70%;
-  --accent: 217 33% 25%;
-  --accent-foreground: 210 40% 98%;
+  --surface: 0 0% 9%;
+  --border: 217, 14%, 20%;
+  --color-border: 240, 100%, 70%; /* Light mode border color */
 }
 
 
