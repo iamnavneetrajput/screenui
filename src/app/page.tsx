@@ -12,6 +12,7 @@ export default function Home() {
         installCmd="npm i screenui/react"
         buttonLabel="Get Started"
         navText="Get Started with Tailwind v4"
+        buttonLink="/library"
       />
       {/* Other content can go here */}
 

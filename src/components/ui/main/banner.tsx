@@ -3,6 +3,7 @@
 import { ArrowRight, Terminal } from 'lucide-react';
 import Button from '@/components/ui/main/button';
 import CopyButton from '@/components/ui/main/copybutton';
+import Link from 'next/link';
 
 interface IntroBannerProps {
   title: string;
@@ -10,6 +11,7 @@ interface IntroBannerProps {
   installCmd: string;
   buttonLabel?: string; // Optional
   navText?: string;
+  buttonLink?: string; // Optional
 }
 
 export default function IntroBanner({
@@ -18,6 +20,7 @@ export default function IntroBanner({
   installCmd,
   buttonLabel, // now optional
   navText = 'Get Started with Tailwind v4',
+  buttonLink = '#', // default link if not provided
 }: IntroBannerProps) {
   return (
     <div className="pb-4 border-b border-dotted bg-[hsl(var(--background))]">
@@ -38,7 +41,11 @@ export default function IntroBanner({
             <h1 className="text-2xl font-bold tracking-tight mb-2">{title}</h1>
             <p className="text-xl mb-10">{description}</p>
             <div className="flex items-center gap-4">
-              {buttonLabel && <Button>{buttonLabel}</Button>}
+              {buttonLabel && (
+                <Link href={buttonLink}>
+                  <Button>{buttonLabel}</Button>
+                </Link>
+              )}
               <div className="flex items-center bg-gray-950 text-white border border-gray-800 px-4 py-2 rounded-md font-mono text-sm">
                 <Terminal className="w-4 h-4 text-gray-400 mr-2" />
                 <code>{installCmd}</code>

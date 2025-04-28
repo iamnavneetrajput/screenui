@@ -6,7 +6,7 @@ export default function Footer() {
           <p className="text-center md:text-left">
             Built by <span className="font-medium text-foreground">screen/ui</span>. The source code is available on{' '}
             <a
-              href="https://github.com"
+              href="https://github.com/iamnavneetrajput/screenui"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-foreground inline-flex items-center gap-1"

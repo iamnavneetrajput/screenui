@@ -5,6 +5,7 @@ import DevPanel from '@/components/shared/setting';
 import { ThemeProvider } from '@/components/shared/theame-provider';
 import SiteHeader from '@/components/layout/site-header';
 import Footer from '@/components/layout/footer';
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,7 +37,10 @@ export default function RootLayout({
 
           {/* Main Content Container */}
           <div className="custom-container relative mx-auto px-4 py-6">
-            <main>{children}</main>
+            <main>
+            {children}
+            <Analytics />
+            </main>
           </div>
 
           {/* Always show DevPanel */}

@@ -72,7 +72,7 @@ export default function Navigation() {
 
           {/* GitHub link */}
           <a
-            href="https://github.com"
+            href="https://github.com/iamnavneetrajput"
             target="_blank"
             rel="noopener noreferrer"
             className="pl-2.5 hover:bg-accent rounded-full transition-colors"
