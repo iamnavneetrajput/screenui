@@ -9,7 +9,7 @@ export default function Home() {
       <IntroBanner
         title="Craft components your way"
         description="Plug-and-play components. Share, reuse, and build fast — all open source."
-        installCmd="npm i screenui/react"
+        installCmd="npx create-screenui"
         buttonLabel="Get Started"
         navText="Get Started with Tailwind v4"
         buttonLink="/library"

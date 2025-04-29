@@ -148,7 +148,7 @@ const App = () => {
     <IntroBanner
       title="Color Palette Generator"
       description="Generate and copy color palettes in different formats."
-      installCmd="npm i @screen-ui/react"
+      installCmd="npx create-screenui"
       navText="Get Started with Tailwind v4"
     />
     <div className="min-h-screen pt-12">
