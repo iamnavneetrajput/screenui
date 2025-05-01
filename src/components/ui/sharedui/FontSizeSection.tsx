@@ -8,7 +8,7 @@ export default function FontSizeSection({
   setFontSize: (size: number) => void;
 }) {
   return (
-    <div className="border-b border-dotted border-muted/50 p-1">
+    <div className="border-b border-dotted border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
       <label className="block font-medium mb-1 flex items-center gap-1">
        Font Size: {fontSize}px
       </label>

@@ -5,6 +5,7 @@ import { componentCategories } from '@/components/data/components';
 
 interface SidebarProps {
   onSelectComponent: (path: string) => void;
+  selectedComponentPath?: string;
 }
 
 interface CategoryItemProps {
@@ -13,6 +14,7 @@ interface CategoryItemProps {
   toggleOpen: () => void;
   components: { name: string; path: string }[];
   onSelectComponent: (path: string) => void;
+  selectedComponentPath?: string;
 }
 
 const CategoryItem: React.FC<CategoryItemProps> = ({
@@ -20,7 +22,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
   isOpen,
   toggleOpen,
   components,
-  onSelectComponent
+  onSelectComponent,
+  selectedComponentPath
 }) => {
   return (
     <div className="mb-2">
@@ -34,25 +37,31 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 
       {isOpen && (
         <div className="ml-4 mt-1 border-l border-muted-foreground pl-2">
-          {components.map((component) => (
-            <button
-              key={component.path}
-              onClick={() => onSelectComponent(component.path)}
-              className="w-full text-left p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors text-sm"
-            >
-              {component.name}
-            </button>
-          ))}
+          {components.map((component) => {
+            const isSelected = component.path === selectedComponentPath;
+            return (
+              <button
+                key={component.path}
+                onClick={() => onSelectComponent(component.path)}
+                className={`w-full text-left p-2 rounded-md transition-colors text-sm ${
+                  isSelected
+                    ? 'bg-muted text-foreground font-semibold'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                }`}
+              >
+                {component.name}
+              </button>
+            );
+          })}
         </div>
       )}
-
     </div>
   );
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent }) => {
+const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent, selectedComponentPath }) => {
   const [openCategories, setOpenCategories] = useState<string[]>([
-    componentCategories[0].name // Open the first category by default
+    componentCategories[0].name // Open first category by default
   ]);
 
   const toggleCategory = (categoryName: string) => {
@@ -81,10 +90,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent }) => {
             toggleOpen={() => toggleCategory(category.name)}
             components={category.components}
             onSelectComponent={onSelectComponent}
+            selectedComponentPath={selectedComponentPath}
           />
         ))}
       </div>
     </div>
   );
 };
+
 export default Sidebar;

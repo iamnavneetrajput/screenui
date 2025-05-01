@@ -5,7 +5,7 @@
   --background: 0, 0%, 98%;  /* Light mode background */
   --foreground: 210, 40%, 10%; /* Light mode foreground */
   --surface: 0, 0%, 98%; /* Light mode surface */
-  --border: 210,20%,92%; /* Light mode border */
+  --border: 210,20%,80%; /* Light mode border */
   --color-border: 240, 100%, 60%; /* Light mode border color */
 }
 

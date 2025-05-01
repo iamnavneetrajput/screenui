@@ -35,7 +35,7 @@ function SectionItem({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border rounded-md bg-muted/40">
+    <div className="border border-[hsl(var(--border))] rounded-md bg-muted/40">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-muted rounded-md transition"
@@ -137,7 +137,7 @@ export default function DevPanel() {
       {/* Panel */}
       <div
         className={cn(
-          'fixed w-80 bg-[hsl(var(--background))] border border-muted rounded-2xl z-50 transition-all duration-300 text-sm',
+          'fixed w-80 bg-[hsl(var(--background))] border border-[hsl(var(--border))] border-muted rounded-2xl z-50 transition-all duration-300 text-sm',
           isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none',
           isMinimized ? 'h-10 w-48' : ''
         )}

@@ -9,7 +9,7 @@ export default function ThemeSection({
   setTheme: (theme: string) => void;
 }) {
   return (
-    <div className="border-b border-dotted border-muted/50 p-1">
+    <div className="border-b border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
       <label className="block font-medium mb-1 flex items-center gap-1">
         Theme Preference
       </label>

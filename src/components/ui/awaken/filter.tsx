@@ -7,7 +7,7 @@ interface FilterNavProps {
 
 const FilterNav: React.FC<FilterNavProps> = ({ categories, onCategorySelect }) => {
   return (
-    <nav className="mb-6 border-b border-gray-200">
+    <nav className="mb-6 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       <div className="flex overflow-x-auto space-x-4">
         {categories.map((category) => (
           <button

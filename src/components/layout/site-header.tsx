@@ -31,7 +31,7 @@ export default function Navigation() {
   
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted bg-[hsl(var(--background))]">
+    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       <div className="custom-container mx-auto px-4 flex items-center justify-between h-12">
         {/* Left Section: Logo + Nav */}
         <div className="flex items-center gap-6 flex-1 md:flex-none">
@@ -114,7 +114,7 @@ export default function Navigation() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-40 bg-background blur-sm backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-[hsl(var(--background))] bg-opacity-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

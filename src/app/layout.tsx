@@ -30,8 +30,8 @@ export default function RootLayout({
           {/* Full-screen dotted vertical lines aligned with content width */}
           <div className="hidden z-50 md:block absolute top-0 bottom-0 left-1/2 w-full -translate-x-1/2 pointer-events-none">
             <div className="custom-container absolute left-0 right-0 mx-auto h-full">
-              <div className="absolute top-0 bottom-0 left-0 w-px border-l border-dotted border-muted" />
-              <div className="absolute top-0 bottom-0 right-0 w-px border-l border-dotted border-muted" />
+              <div className="absolute top-0 bottom-0 left-0 w-px border-l border-dotted border-[hsl(var(--border))] border-muted" />
+              <div className="absolute top-0 bottom-0 right-0 w-px border-l border-dotted border-[hsl(var(--border))] border-muted" />
             </div>
           </div>
 

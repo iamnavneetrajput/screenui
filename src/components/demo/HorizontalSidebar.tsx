@@ -8,7 +8,7 @@ interface HorizontalSidebarProps {
 
 const HorizontalSidebar: React.FC<HorizontalSidebarProps> = ({ onSelectComponent }) => {
   return (
-    <div className="w-full flex gap-3 overflow-x-auto px-4 py-2 border-b border-dotted bg-[hsl(var(--background))]">
+    <div className="w-full flex gap-3 overflow-x-auto px-4 py-2 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       {componentCategories.flatMap((category) =>
         category.components.map((component) => (
           <button

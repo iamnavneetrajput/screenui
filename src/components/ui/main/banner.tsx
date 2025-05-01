@@ -23,7 +23,7 @@ export default function IntroBanner({
   buttonLink = '#',
 }: IntroBannerProps) {
   return (
-    <div className="pb-4 border-b border-dotted bg-[hsl(var(--background))]">
+    <div className="pb-4 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       {/* Optional Navigation */}
       {navText && (
         <nav className="py-2 px-2">

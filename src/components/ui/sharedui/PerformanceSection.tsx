@@ -30,7 +30,7 @@ export default function PerformanceSection({ fps }: { fps: number }) {
   }, []);
 
   return (
-    <div className="border-b border-dotted border-muted/50 p-1">
+    <div className="border-b border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
       <h3 className="font-medium mb-2 flex items-center gap-1">
          Performance
       </h3>
