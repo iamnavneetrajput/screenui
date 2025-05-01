@@ -24,8 +24,7 @@ export default function Demo() {
                     <div className="max-w-lg p-8 text-center">
                         <h2 className="text-2xl font-bold mb-4">screen/ui component demo</h2>
                         <p className="mb-6">
-                            Select a component from the nav to view its demo.
-                            This library includes both React components and core HTML/CSS implementations.
+                            Select a component from the left sidebar to view its demo.
                         </p>
                     </div>
                 </div>

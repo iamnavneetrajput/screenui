@@ -1,4 +1,4 @@
-import { Text, RefreshCw } from 'lucide-react';
+import {RefreshCw } from 'lucide-react';
 
 export default function FontSizeSection({
   fontSize,
@@ -10,7 +10,7 @@ export default function FontSizeSection({
   return (
     <div className="border-b border-dotted border-muted/50 p-1">
       <label className="block font-medium mb-1 flex items-center gap-1">
-        <Text className="w-4 h-4" /> Font Size: {fontSize}px
+       Font Size: {fontSize}px
       </label>
       
       {/* Font Size Range Input */}

@@ -5,16 +5,18 @@ import { usePathname } from 'next/navigation';
 import { Menu, Github, X, EllipsisVertical } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import CommandSearch from '../ui/main/commandsearch';
+
 
 const navItems = [
-  { name: 'Docs', href: '/' },
+  { name: 'Docs', href: '/docs' },
   { name: 'Library', href: '/library' },
   { name: 'Colors', href: '/color' },
   { name: 'Awaken', href: '/awaken' },
 ];
 
 
-export default function Navigation() {
+export default function Navigation() { 
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -26,13 +28,19 @@ export default function Navigation() {
     return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
+  
+
   return (
-<header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted bg-[hsl(var(--background))]">
+    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted bg-[hsl(var(--background))]">
       <div className="custom-container mx-auto px-4 flex items-center justify-between h-12">
         {/* Left Section: Logo + Nav */}
         <div className="flex items-center gap-6 flex-1 md:flex-none">
           {/* Logo visible from md down to 360px, hidden below 360px */}
-          <div className="text-lg font-semibold block max-[450px]:hidden">screen/ui</div>
+          <div className="text-lg font-semibold block max-[450px]:hidden">
+            <Link href="/" className="text-foreground">
+              screen/ui
+            </Link>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
@@ -51,10 +59,14 @@ export default function Navigation() {
 
           {/* Mobile Search replaces logo below md */}
           <div className="block md:hidden flex-1">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full px-3 py-0.5 text-sm rounded-md border bg-background border-muted-foreground text-foreground outline-none"
+            <CommandSearch
+              components={navItems.map((item) => item.name)}
+              onSelectComponent={(component) => {
+                const selectedItem = navItems.find((item) => item.name === component);
+                if (selectedItem) {
+                  window.location.href = selectedItem.href;
+                }
+              }}
             />
           </div>
         </div>
@@ -63,10 +75,14 @@ export default function Navigation() {
         <div className="flex items-center  ">
           {/* Desktop Search */}
           <div className="hidden md:block">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="px-3 py-0.5 text-sm rounded-md border bg-background border-muted-foreground text-foreground outline-none"
+            <CommandSearch
+              components={navItems.map((item) => item.name)}
+              onSelectComponent={(component) => {
+                const selectedItem = navItems.find((item) => item.name === component);
+                if (selectedItem) {
+                  window.location.href = selectedItem.href;
+                }
+              }}
             />
           </div>
 
@@ -132,8 +148,8 @@ export default function Navigation() {
                     key={item.name}
                     href={item.href}
                     className={`py-2 px-1 text-sm transition-colors rounded-md ${pathname === item.href
-                        ? 'text-foreground font-medium bg-accent'
-                        : 'text-muted-foreground hover:text-foreground'
+                      ? 'text-foreground font-medium bg-accent'
+                      : 'text-muted-foreground hover:text-foreground'
                       }`}
                     onClick={() => setOpen(false)}
                   >

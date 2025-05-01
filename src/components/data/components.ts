@@ -42,7 +42,7 @@ export const componentCategories = [
   }
 ];
 
-const components: ComponentData[] = [
+export const components: ComponentData[] = [
   {
     name: 'Button',
     path: 'elements/button',

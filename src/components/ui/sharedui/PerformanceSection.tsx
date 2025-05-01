@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BarChart2, Wifi, WifiOff, Globe } from 'lucide-react';
+import { BarChart2,Wifi, WifiOff, Globe } from 'lucide-react';
 
 export default function PerformanceSection({ fps }: { fps: number }) {
   const [isOnline, setIsOnline] = useState(true);
@@ -32,7 +32,7 @@ export default function PerformanceSection({ fps }: { fps: number }) {
   return (
     <div className="border-b border-dotted border-muted/50 p-1">
       <h3 className="font-medium mb-2 flex items-center gap-1">
-        <BarChart2 className="w-4 h-4" /> Performance
+         Performance
       </h3>
       <div className="grid grid-cols-3 gap-2">
         <MetricCard

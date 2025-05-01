@@ -1,9 +1,20 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
-import { X, Maximize2, Minimize2, Layout, Settings } from 'lucide-react';
+import { useEffect, useState, useMemo, ReactNode } from 'react';
+import {
+  X,
+  Maximize2,
+  Minimize2,
+  Layout,
+  Settings,
+  ChevronDown,
+  ChevronRight,
+  MoveVertical,
+  Text,
+  BarChart2,
+} from 'lucide-react';
 import { useTheme } from 'next-themes';
-import Image from 'next/image'
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import PerformanceSection from '@/components/ui/sharedui/PerformanceSection';
 import ThemeSection from '@/components/ui/sharedui/ThemeSection';
@@ -11,6 +22,34 @@ import PlacementSection from '@/components/ui/sharedui/PlacementSection';
 import FontSizeSection from '@/components/ui/sharedui/FontSizeSection';
 
 type Placement = 'top-right' | 'bottom-right';
+
+function SectionItem({
+  title,
+  icon,
+  children,
+}: {
+  title: string;
+  icon?: ReactNode;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border rounded-md bg-muted/40">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-muted rounded-md transition"
+      >
+        <div className="flex items-center gap-2">
+          {icon}
+          <span className="font-medium">{title}</span>
+        </div>
+        {open ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+      </button>
+      {open && <div className="p-3 pt-1">{children}</div>}
+    </div>
+  );
+}
 
 export default function DevPanel() {
   const { theme, setTheme } = useTheme();
@@ -83,14 +122,13 @@ export default function DevPanel() {
           right: 20,
           top: placement === 'top-right' ? 60 : undefined,
           bottom: placement === 'bottom-right' ? 20 : undefined,
-          
         }}
         aria-label="Open Dev Panel"
       >
         <Image
           src="/b-d-sui-logo.png"
           alt="Dev Panel"
-          className='rounded-full border-2 border-gray-300 cursor-pointer'
+          className="rounded-full border-2 border-gray-300 cursor-pointer"
           width={34}
           height={34}
         />
@@ -132,11 +170,22 @@ export default function DevPanel() {
 
         {/* Body */}
         {!isMinimized && (
-          <div className="p-4 space-y-4">
-            <PerformanceSection fps={fps} />
-            <ThemeSection theme={theme} setTheme={setTheme} />
-            <PlacementSection placement={placement} setPlacement={setPlacement} />
-            <FontSizeSection fontSize={fontSize} setFontSize={setFontSize} />
+          <div className="p-2 space-y-2">
+            <SectionItem title="Performance" icon={<BarChart2 className="w-4 h-4" />}>
+              <PerformanceSection fps={fps} />
+            </SectionItem>
+
+            <SectionItem title="Theme" icon={<Settings className="w-4 h-4" />}>
+              <ThemeSection theme={theme} setTheme={setTheme} />
+            </SectionItem>
+
+            <SectionItem title="Placement" icon={<MoveVertical className="w-4 h-4" />}>
+              <PlacementSection placement={placement} setPlacement={setPlacement} />
+            </SectionItem>
+
+            <SectionItem title="Font Size" icon={<Text className="w-4 h-4" />}>
+              <FontSizeSection fontSize={fontSize} setFontSize={setFontSize} />
+            </SectionItem>
           </div>
         )}
       </div>
