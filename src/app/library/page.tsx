@@ -5,6 +5,7 @@ import Sidebar from '@/components/ui/library/sidebar';
 import ComponentDisplay from '@/components/ui/library/componentdisplay';
 import { ComponentData, getComponentByPath, componentCategories } from '@/components/data/components';
 import { AnimatePresence, motion } from 'framer-motion';
+import AnimatedCheckbox from '@/components/ui/library/Checkbox';
 
 const Layout: React.FC = () => {
   const firstComponentPath = componentCategories[0]?.components[0]?.path;
@@ -24,13 +25,12 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row w-full pt-14">
       {/* Mobile Header with Toggle */}
-      <div className="md:hidden pb-4 flex items-center justify-between border-b border-gray-200">
-        <h1 className="text-xl font-bold">Component Library</h1>
+      <div className="md:hidden pb-4 flex items-center justify-between">
         <button
           onClick={() => setSidebarOpen(true)}
-          className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+          className="p-2"
         >
-          <Menu size={24} />
+          < AnimatedCheckbox  id={'open menu'} label={'open menu'} value={'open menu'}/>
         </button>
       </div>
 

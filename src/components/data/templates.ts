@@ -5,6 +5,8 @@ export interface Template {
     demoUrl: string;
     githubUrl: string;
     category: string;
+    terminalCommand?: string;
+    installCommandDescription?: string;
 }
 
 export const staticTemplates: Template[] = [
@@ -15,5 +17,6 @@ export const staticTemplates: Template[] = [
         demoUrl: 'https://chrono.screenui.com/',
         githubUrl: 'https://github.com/iamnavneetrajput/create-screenui/tree/main/templates/nextjs/clock',
         category: 'Clock',
+        terminalCommand: 'npx create-screenui clock',
     },
 ];
