@@ -9,35 +9,11 @@ export interface Template {
 
 export const staticTemplates: Template[] = [
     {
-        title: 'Next.js Template',
-        description: 'A modern Next.js template with TypeScript and Tailwind CSS.',
-        tags: ['Next.js', 'TypeScript', 'Tailwind'],
-        demoUrl: '#',
-        githubUrl: '#',
-        category: 'Frontend',
-    },
-    {
-        title: 'Dashboard Template',
-        description: 'Professional admin dashboard with charts and analytics.',
-        tags: ['React', 'TypeScript', 'Analytics'],
-        demoUrl: '#',
-        githubUrl: '#',
-        category: 'Admin',
-    },
-    {
-        title: 'E-commerce Store',
-        description: 'Full-featured e-commerce template with cart and checkout.',
-        tags: ['Commerce', 'Payments', 'React'],
-        demoUrl: '#',
-        githubUrl: '#',
-        category: 'Commerce',
-    },
-    {
-        title: 'Blog Template',
-        description: 'Clean and minimal blog template with dark mode support.',
-        tags: ['Blog', 'MDX', 'Dark Mode'],
-        demoUrl: '#',
-        githubUrl: '#',
-        category: 'Content',
+        title: 'Chrono',
+        description: 'A beautiful, modern clock application with multiple features including analog/digital clocks, world clock, stopwatch, and timer functionality.',
+        tags: ['Next.js', 'Vite-react', 'TypeScript', 'Tailwind'],
+        demoUrl: 'https://create-screenui.vercel.app/',
+        githubUrl: 'https://github.com/iamnavneetrajput/create-screenui/tree/main/templates/nextjs/clock',
+        category: 'Clock',
     },
 ];
