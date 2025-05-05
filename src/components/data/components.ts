@@ -96,19 +96,19 @@ export const Button: React.FC<ButtonProps> = ({
 };`,
     coreCode: `<!-- Button Component -->
 <button class="button button-primary">
-  Primary Button
+  Primary
 </button>
 
 <button class="button button-secondary">
-  Secondary Button
+  Secondary
 </button>
 
 <button class="button button-outline">
-  Outline Button
+  Outline
 </button>
 
 <button class="button button-ghost">
-  Ghost Button
+  Ghost
 </button>
 
 <style>

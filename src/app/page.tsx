@@ -11,7 +11,6 @@ export default function Home() {
         description="Plug-and-play components. Share, reuse, and build fast — all open source."
         installCmd="npx create-screenui"
         buttonLabel="Get Started"
-        navText="Get Started with Tailwind v4"
         buttonLink="/library"
       />
       {/* Other content can go here */}

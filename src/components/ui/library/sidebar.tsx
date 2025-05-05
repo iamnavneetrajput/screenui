@@ -30,13 +30,15 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
       <button
         onClick={toggleOpen}
         className="w-full flex items-center justify-between p-2 hover:bg-accent rounded-md transition-colors"
+        aria-expanded={isOpen}
+        aria-controls={`category-${name}`}
       >
         <span className="font-medium">{name}</span>
         {isOpen ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
       </button>
 
       {isOpen && (
-        <div className="ml-4 mt-1 border-l border-muted-foreground pl-2">
+        <div id={`category-${name}`} className="ml-4 mt-1 border-l border-[hsl(var(--border))] pl-2">
           {components.map((component) => {
             const isSelected = component.path === selectedComponentPath;
             return (
@@ -65,17 +67,17 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent, selectedComponentP
   ]);
 
   const toggleCategory = (categoryName: string) => {
-    if (openCategories.includes(categoryName)) {
-      setOpenCategories(openCategories.filter(name => name !== categoryName));
-    } else {
-      setOpenCategories([...openCategories, categoryName]);
-    }
+    setOpenCategories((prevOpenCategories) =>
+      prevOpenCategories.includes(categoryName)
+        ? prevOpenCategories.filter((name) => name !== categoryName)
+        : [...prevOpenCategories, categoryName]
+    );
   };
 
   return (
-    <div className="h-full bg-[hsl(var(--background))] flex flex-col text-foreground border-[hsl(var(--border))]">
+    <nav className="h-full bg-[hsl(var(--background))] flex flex-col text-[hsl(var(--foreground))] border-[hsl(var(--border))]">
       {/* Header */}
-      <div className="p-4 border-b border-muted-foreground">
+      <div className="p-4 border-b border-[hsl(var(--border))]">
         <h1 className="text-xl font-bold">Component Library</h1>
         <p className="text-sm text-muted-foreground mt-1">Documentation & Examples</p>
       </div>
@@ -94,7 +96,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent, selectedComponentP
           />
         ))}
       </div>
-    </div>
+    </nav>
   );
 };
 

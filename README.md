@@ -8,4 +8,4 @@ npx create-screenui project-name
 
 ## Demo
 
-Open [https://screenui.vercel.app/](https://screenui.vercel.app/) with your browser to see this project in action.
+Open [https://screenui.com/](https://screenui.com/) with your browser to see this project in action.

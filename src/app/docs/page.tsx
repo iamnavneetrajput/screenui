@@ -13,8 +13,7 @@ export default function Home() {
     <main className="min-h-screen w-full pt-14 bg-[hsl(var(--background))]">
       <IntroBanner
         title="create-screenui"
-        description="A CLI tool for scaffolding ready-made full-stack frontend projects built using either Next.js (with TypeScript) or Vite React (with TypeScript)." installCmd={'npx create-screenui'}
-      />
+        description="A CLI tool for scaffolding ready-made full-stack frontend projects built using either Next.js (with TypeScript) or Vite React (with TypeScript)." />
       < InstallationSteps />
     </main>
   );

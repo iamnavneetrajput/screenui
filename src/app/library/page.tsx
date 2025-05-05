@@ -1,40 +1,49 @@
 'use client';
-import React, { useState } from 'react';
-import { Menu } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Sidebar from '@/components/ui/library/sidebar';
 import ComponentDisplay from '@/components/ui/library/componentdisplay';
 import { ComponentData, getComponentByPath, componentCategories } from '@/components/data/components';
 import { AnimatePresence, motion } from 'framer-motion';
-import AnimatedCheckbox from '@/components/ui/library/Checkbox';
+import { Menu } from 'lucide-react';
 
-const Layout: React.FC = () => {
+const Page: React.FC = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const queryComponent = searchParams.get('component');
+
   const firstComponentPath = componentCategories[0]?.components[0]?.path;
   const [selectedComponent, setSelectedComponent] = useState<ComponentData | null>(
-    firstComponentPath ? getComponentByPath(firstComponentPath) : null
+    queryComponent ? getComponentByPath(queryComponent) : firstComponentPath ? getComponentByPath(firstComponentPath) : null
   );
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleComponentSelect = (path: string) => {
     const component = getComponentByPath(path);
-    setSelectedComponent(component);
-    if (window.innerWidth < 768) {
-      setSidebarOpen(false);
+    if (component) {
+      setSelectedComponent(component);
+      router.push(`/library?component=${path}`);
+      if (window.innerWidth < 768) setSidebarOpen(false);
     }
   };
 
+  useEffect(() => {
+    if (queryComponent) {
+      const component = getComponentByPath(queryComponent);
+      setSelectedComponent(component);
+    }
+  }, [queryComponent]);
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row w-full pt-14">
-      {/* Mobile Header with Toggle */}
+      {/* Mobile Header */}
       <div className="md:hidden pb-4 flex items-center justify-between">
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="p-2"
-        >
-          < AnimatedCheckbox  id={'open menu'} label={'open menu'} value={'open menu'}/>
+        <button onClick={() => setSidebarOpen(true)} className="p-2">
+          <Menu size={24} />
         </button>
       </div>
 
-      {/* Mobile Bottom Drawer Sidebar */}
+      {/* Mobile Sidebar Drawer */}
       <AnimatePresence>
         {sidebarOpen && (
           <>
@@ -71,7 +80,7 @@ const Layout: React.FC = () => {
         />
       </div>
 
-      {/* Main content */}
+      {/* Main Content */}
       <div className="flex-1 bg-[hsl(var(--background))] p-0 md:p-6 transition-all duration-300">
         {selectedComponent && (
           <ComponentDisplay component={selectedComponent} />
@@ -81,4 +90,4 @@ const Layout: React.FC = () => {
   );
 };
 
-export default Layout;
+export default Page;

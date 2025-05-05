@@ -8,7 +8,7 @@ import Link from 'next/link';
 interface IntroBannerProps {
   title: string;
   description: string;
-  installCmd: string;
+  installCmd?: string;
   buttonLabel?: string;
   navText?: string;
   buttonLink?: string;
@@ -55,7 +55,7 @@ export default function IntroBanner({
                   <Button>{buttonLabel}</Button>
                 </Link>
               )}
-              <TerminalCommand command={installCmd} />
+              {installCmd && <TerminalCommand command={installCmd} />}
             </div>
           </div>
         </div>

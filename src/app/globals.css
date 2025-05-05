@@ -2,18 +2,18 @@
 
 /* globals.css */
 :root {
-  --background: 0, 0%, 98%;  /* Light mode background */
+  --background: 0, 0%, 95%;  /* Light mode background */
   --foreground: 210, 40%, 10%; /* Light mode foreground */
-  --surface: 0, 0%, 98%; /* Light mode surface */
-  --border: 210,20%,80%; /* Light mode border */
+  --surface: 0, 0%, 92%; /* Light mode surface */
+  --border: 210,20%,65%; /* Light mode border */
   --color-border: 240, 100%, 60%; /* Light mode border color */
 }
 
 [data-theme='dark'] {
-  --background: 0 0% 8%;
+  --background: 0 0% 10%;
   --foreground: 210 40% 98%;
   --surface: 0 0% 9%;
-  --border: 217, 14%, 20%;
+  --border: 217, 14%, 30%;
   --color-border: 240, 100%, 70%; /* Light mode border color */
 }
 
@@ -34,7 +34,7 @@
 
 /* Global body styles */
 body {
-  background-color: var(--background);
+  background-color: hsl(var(--background));
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
