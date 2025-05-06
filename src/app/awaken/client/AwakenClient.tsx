@@ -25,7 +25,7 @@ export default function AwakenClient({ templates }: Props) {
       <IntroBanner
         title="Explore Templates"
         description="Please read the docs to learn how to use the templates."
-        installCmd="npx create-screenui"
+        installCmd="npx create-screenui@latest"
         buttonLabel="Installation Guide"
         buttonLink="/docs"
       />

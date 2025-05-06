@@ -9,7 +9,7 @@ export default function Home() {
       <IntroBanner
         title="Craft components your way"
         description="Plug-and-play components. Share, reuse, and build fast — all open source."
-        installCmd="npx create-screenui"
+        installCmd="npx create-screenui@latest"
         buttonLabel="Get Started"
         buttonLink="/library"
       />

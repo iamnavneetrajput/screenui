@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import DevPanel from '@/components/layout/setting';
-import { ThemeProvider } from '@/components/layout/theame-provider';
+import { ThemeProvider } from '@/components/layout/theme-provider';
 import SiteHeader from '@/components/layout/site-header';
 import Footer from '@/components/layout/footer';
 import { Analytics } from "@vercel/analytics/react"
@@ -12,6 +12,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'screenui',
   description: '',
+  icons: {
+    icon: '/trans-sui-logo.png', 
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <link rel="icon" href="/trans-sui-logo.png" />
+      {/* <link rel="icon" href="/trans-sui-logo.png" /> */}
       <body className={`${inter.className} relative min-h-screen bg-background text-foreground`}>
         <ThemeProvider>
           {/* Header */}
