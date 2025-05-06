@@ -9,8 +9,8 @@ interface TeamTabProps {
 const TeamTab: React.FC<TeamTabProps> = ({ members, onSelect }) => {
   const renderStatusBadge = (status: StatusType) => {
     switch (status) {
-      case 'online':
-        return <span className="text-xs text-green-400">Online</span>;
+      case 'available':
+        return <span className="text-xs text-green-400">available</span>;
       case 'away':
         return <span className="text-xs px-2 py-0.5 rounded bg-gray-600 text-gray-300">Away</span>;
       case 'in-meeting':
