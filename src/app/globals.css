@@ -23,12 +23,21 @@
   max-width: 90rem; /* 1440px */
 }
 
-.scrollbar-none {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+/* Custom scrollbar for the command palette */
+::-webkit-scrollbar {
+  width: 1px;
 }
-.scrollbar-none::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
 }
 
 

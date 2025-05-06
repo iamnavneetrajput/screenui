@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import ComponentPageClient from './ComponentPageClient';
+import ComponentPageClient from './client/ComponentPageClient';
 
 export default function LibraryPage() {
   return (

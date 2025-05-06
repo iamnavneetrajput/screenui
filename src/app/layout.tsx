@@ -1,8 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import DevPanel from '@/components/shared/setting';
-import { ThemeProvider } from '@/components/shared/theame-provider';
+import DevPanel from '@/components/layout/setting';
+import { ThemeProvider } from '@/components/layout/theame-provider';
 import SiteHeader from '@/components/layout/site-header';
 import Footer from '@/components/layout/footer';
 import { Analytics } from "@vercel/analytics/react"

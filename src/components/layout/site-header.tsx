@@ -5,16 +5,18 @@ import { usePathname } from 'next/navigation';
 import { Menu, Github, X, EllipsisVertical } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import CommandSearch from '../ui/main/commandsearch';
-
+import CommandSearch from '@/components/ui/command-search/CommandSearch';
 
 const navItems = [
+  { name: 'screen/ui', href: '/' },
   { name: 'Docs', href: '/docs' },
   { name: 'Library', href: '/library' },
   { name: 'Colors', href: '/color' },
   { name: 'Awaken', href: '/awaken' },
 ];
 
+// Filter out 'screen/ui' for desktop-only navigation/search.
+const desktopNavItems = navItems.filter(item => item.name !== 'screen/ui');
 
 export default function Navigation() { 
   const [open, setOpen] = useState(false);
@@ -28,8 +30,6 @@ export default function Navigation() {
     return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
-  
-
   return (
     <header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       <div className="custom-container mx-auto px-4 flex items-center justify-between h-12">
@@ -42,48 +42,38 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav - excludes 'screen/ui' */}
           <nav className="hidden md:flex items-center gap-6">
-            {navItems.map((item) => (
+            {desktopNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm transition-colors hover:text-foreground ${pathname === item.href ? 'text-foreground font-medium' : 'text-muted-foreground'
-                  }`}
+                className={`text-sm transition-colors hover:text-foreground ${
+                  pathname === item.href
+                    ? 'text-foreground font-medium'
+                    : 'text-muted-foreground'
+                }`}
               >
                 {item.name}
               </Link>
             ))}
-
           </nav>
 
           {/* Mobile Search replaces logo below md */}
           <div className="block md:hidden flex-1">
-            <CommandSearch
-              components={navItems.map((item) => item.name)}
-              onSelectComponent={(component) => {
-                const selectedItem = navItems.find((item) => item.name === component);
-                if (selectedItem) {
-                  window.location.href = selectedItem.href;
-                }
-              }}
-            />
+            <CommandSearch components={[]} onSelectComponent={function (component: string): void {
+              throw new Error('Function not implemented.');
+            } }/>
           </div>
         </div>
 
         {/* Right Section: Search (desktop), GitHub, Mobile Menu */}
-        <div className="flex items-center  ">
-          {/* Desktop Search */}
+        <div className="flex items-center">
+          {/* Desktop Search - excludes 'screen/ui' */}
           <div className="hidden md:block">
-            <CommandSearch
-              components={navItems.map((item) => item.name)}
-              onSelectComponent={(component) => {
-                const selectedItem = navItems.find((item) => item.name === component);
-                if (selectedItem) {
-                  window.location.href = selectedItem.href;
-                }
-              }}
-            />
+            <CommandSearch components={[]} onSelectComponent={function (component: string): void {
+              throw new Error('Function not implemented.');
+            } } />
           </div>
 
           {/* GitHub link */}
@@ -141,22 +131,22 @@ export default function Navigation() {
                 </button>
               </div>
 
-              {/* Mobile Links */}
+              {/* Mobile Links - uses full navItems */}
               <div className="flex flex-col space-y-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`py-2 px-1 text-sm transition-colors rounded-md ${pathname === item.href
-                      ? 'text-foreground font-medium bg-accent'
-                      : 'text-muted-foreground hover:text-foreground'
-                      }`}
+                    className={`py-2 px-1 text-sm transition-colors rounded-md ${
+                      pathname === item.href
+                        ? 'text-foreground font-medium bg-accent'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
                     onClick={() => setOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-
               </div>
             </motion.aside>
           </>
