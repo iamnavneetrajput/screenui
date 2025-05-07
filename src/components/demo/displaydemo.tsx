@@ -28,7 +28,7 @@ const ComponentDisplay: React.FC<ComponentDisplayProps> = ({ component }) => {
       </div>
 
       {/* Implementation Switcher */}
-      <div className="flex border-b border-[hsl(var(--border))]">
+      {/* <div className="flex border-b border-[hsl(var(--border))]">
         <button
           onClick={() => setImplementation('react')}
           className={`flex-1 px-4 py-3 text-sm font-medium ${
@@ -49,7 +49,7 @@ const ComponentDisplay: React.FC<ComponentDisplayProps> = ({ component }) => {
         >
           HTML/CSS
         </button>
-      </div>
+      </div> */}
 
       {/* Demo Preview */}
       <div className="p-6">

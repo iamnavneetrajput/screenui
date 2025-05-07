@@ -6,21 +6,21 @@ import {
   MOCK_TEAM_MEMBERS, 
   NAVIGATION_ITEMS, 
   Components_ITEMS, 
-  TOOL_ITEMS 
+  SOCIAL_ITEMS 
 } from '@/components/data/command';
 import NavigateTab from './tabs/NavigateTab';
 import ComponentTab from './tabs/Components';
-import ToolsTab from './tabs/ToolsTab';
+import ToolsTab from './tabs/SocialTab';
 import TeamTab from './tabs/TeamTab';
 
 const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectComponent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'navigate' | 'components' | 'team' | 'tools'>('navigate');
+  const [activeTab, setActiveTab] = useState<'navigate' | 'components' | 'team' | 'social'>('navigate');
   
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
-      if ((e.key === 'i' || e.key === 'I') && (e.metaKey || e.ctrlKey)) {
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setIsOpen((prev) => !prev);
       } else if (e.key === 'Escape' && isOpen) {
@@ -61,7 +61,7 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
     item.description.toLowerCase().includes(query.toLowerCase())
   );
 
-  const filteredToolItems = TOOL_ITEMS.filter(
+  const filteredToolItems = SOCIAL_ITEMS.filter(
     item => !query || item.title.toLowerCase().includes(query.toLowerCase()) || 
     item.description.toLowerCase().includes(query.toLowerCase())
   );
@@ -113,7 +113,7 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
               </div>
 
               <div className="flex border-b border-gray-800">
-                {(['navigate', 'components', 'team', 'tools'] as const).map((tab) => (
+                {(['navigate', 'components', 'team', 'social'] as const).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
@@ -130,12 +130,18 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
 
               <div className="max-h-72 overflow-y-auto">
                 {activeTab === 'navigate' && (
-                  <NavigateTab items={filteredNavigationItems} onSelect={handleComponentClick} />
+                  <NavigateTab
+                    items={filteredNavigationItems}
+                    onSelect={(title) => {
+                      console.log(`Navigated to: ${title}`);
+                      handleClose(); // ✅ added this line to close after select
+                    }}
+                  />
                 )}
                 {activeTab === 'components' && (
                   <ComponentTab items={filteredActionItems} onSelect={handleComponentClick} />
                 )}
-                {activeTab === 'tools' && (
+                {activeTab === 'social' && (
                   <ToolsTab items={filteredToolItems} onSelect={handleComponentClick} />
                 )}
                 {activeTab === 'team' && (

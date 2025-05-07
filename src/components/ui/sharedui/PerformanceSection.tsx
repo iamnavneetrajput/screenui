@@ -31,9 +31,6 @@ export default function PerformanceSection({ fps }: { fps: number }) {
 
   return (
     <div className="border-b border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
-      <h3 className="font-medium mb-2 flex items-center gap-1">
-         Performance
-      </h3>
       <div className="grid grid-cols-3 gap-2">
         <MetricCard
           label="FPS"

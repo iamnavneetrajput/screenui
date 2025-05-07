@@ -7,6 +7,7 @@ import ComponentDisplay from '@/components/ui/library/componentdisplay';
 import { ComponentData, getComponentByPath, componentCategories } from '@/components/data/components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
+import HamburgerToggle from '@/components/ui/library/menu';
 
 const ComponentPageClient: React.FC = () => {
   const router = useRouter();
@@ -36,11 +37,11 @@ const ComponentPageClient: React.FC = () => {
   }, [queryComponent]);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row w-full pt-14">
+    <div className="min-h-screen flex flex-col md:flex-row w-full pt-12">
       {/* Mobile Header */}
       <div className="md:hidden pb-4 flex items-center justify-between">
-        <button onClick={() => setSidebarOpen(true)} className="p-2">
-          <Menu size={24} />
+        <button onClick={() => setSidebarOpen(true)} className="">
+          <HamburgerToggle />
         </button>
       </div>
 
@@ -60,7 +61,7 @@ const ComponentPageClient: React.FC = () => {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed bottom-0 left-0 right-0 z-40 bg-background border-t shadow-2xl h-[75vh] overflow-y-auto rounded-t-xl md:hidden"
+              className="fixed bottom-0 left-0 right-0 z-40 bg-background border-t shadow-2xl h-[70vh] overflow-y-auto rounded-t-xl md:hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-10 h-1.5 bg-muted-foreground rounded-full mx-auto my-2" />

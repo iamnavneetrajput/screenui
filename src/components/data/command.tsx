@@ -1,5 +1,5 @@
-import { Command, FileText, Settings, User, PenTool as Tool } from 'lucide-react';
-import { TeamMember, NavigationItem, Components, ToolItem } from '../ui/command-search/types';
+import { GithubIcon, FileText, Settings, User, PenTool as Tool } from 'lucide-react';
+import { TeamMember, NavigationItem, Components, SocialItem } from '../ui/command-search/types';
 import { componentCategories } from '@/components/data/components';
 
 export const MOCK_TEAM_MEMBERS: TeamMember[] = [
@@ -13,7 +13,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     description: 'Explore our components and documentation',
     icon: <FileText size={16} />,
     shortcut: '⌘H',
-    href: '/' // Added href for navigation
+    href: '/'
   },
   {
     id: 'docs',
@@ -21,7 +21,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     description: 'Read our API and usage guides',
     icon: <FileText size={16} />,
     shortcut: '⌘D',
-    href: '/docs' // Added href for navigation
+    href: '/docs'
   },
   {
     id: 'library',
@@ -29,7 +29,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     description: 'Browse our component library',
     icon: <FileText size={16} />,
     shortcut: '⌘L',
-    href: '/library' // Added href for navigation
+    href: '/library'
   },
   {
     id: 'colors',
@@ -37,7 +37,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     description: 'Explore our color palette',
     icon: <FileText size={16} />,
     shortcut: '⌘C',
-    href: '/color' // Added href for navigation
+    href: '/color'
   },
   {
     id: 'awaken',
@@ -45,7 +45,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     description: 'Discover new features and updates',
     icon: <FileText size={16} />,
     shortcut: '⌘A',
-    href: '/awaken' // Added href for navigation
+    href: '/awaken'
   },
 ];
 
@@ -74,28 +74,16 @@ export const Components_ITEMS: Components[] = [
   }
 ];
 
-export const TOOL_ITEMS: ToolItem[] = [
+export const SOCIAL_ITEMS: SocialItem[] = [
   {
-    id: 'code-generator',
-    title: 'Code Generator',
-    description: 'Generate boilerplate code',
-    icon: <Tool size={16} />,
-    category: 'Development'
+    id: 'github',
+    title: 'Github',
+    description: 'Code sharing platform',
+    icon: <GithubIcon size={16} />,
+    category: 'Development',
+    link: 'https://github.com/iamnavneetrajput'
   },
-  {
-    id: 'api-tester',
-    title: 'API Tester',
-    description: 'Test API endpoints',
-    icon: <Tool size={16} />,
-    category: 'Development'
-  },
-  {
-    id: 'database',
-    title: 'Database Manager',
-    description: 'Manage database connections',
-    icon: <Tool size={16} />,
-    category: 'Data'
-  }
+
 ];
 
 export const MOCK_RECENT_SEARCHES = [

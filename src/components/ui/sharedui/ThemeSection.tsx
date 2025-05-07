@@ -10,9 +10,6 @@ export default function ThemeSection({
 }) {
   return (
     <div className="border-b border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
-      <label className="block font-medium mb-1 flex items-center gap-1">
-        Theme Preference
-      </label>
       <div className="flex justify-between items-center bg-[hsl(var(--background))] p-2 rounded-lg">
         <div className="flex items-center gap-2 text-muted-foreground capitalize text-sm">
           {theme}

@@ -9,10 +9,6 @@ export default function FontSizeSection({
 }) {
   return (
     <div className="border-b border-dotted border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
-      <label className="block font-medium mb-1 flex items-center gap-1">
-       Font Size: {fontSize}px
-      </label>
-      
       {/* Font Size Range Input */}
       <input
         type="range"

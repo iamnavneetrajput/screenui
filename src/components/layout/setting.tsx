@@ -137,7 +137,7 @@ export default function DevPanel() {
       {/* Panel */}
       <div
         className={cn(
-          'fixed w-80 bg-[hsl(var(--background))] border border-[hsl(var(--border))] border-muted rounded-2xl z-50 transition-all duration-300 text-sm',
+          'fixed w-70 bg-[hsl(var(--background))] border border-[hsl(var(--border))] border-muted rounded-2xl z-50 transition-all duration-300 text-sm',
           isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none',
           isMinimized ? 'h-10 w-48' : ''
         )}
@@ -146,7 +146,7 @@ export default function DevPanel() {
         {/* Header */}
         <div className="flex items-center justify-between p-2 bg-muted/60 rounded-t-2xl">
           <span className="text-xs font-medium flex gap-1 items-center">
-            <Layout className="w-4 h-4" /> Panel
+            <Layout className="w-4 h-4" /> Screen/ui
           </span>
           <div className="flex gap-1">
             <button

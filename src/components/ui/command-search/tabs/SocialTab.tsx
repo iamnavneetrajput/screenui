@@ -1,14 +1,14 @@
 import React from 'react';
-import { ToolItem } from '../types';
+import { SocialItem } from '../types';
 
 interface ToolsTabProps {
-  items: ToolItem[];
+  items: SocialItem[];
   onSelect: (title: string) => void;
 }
 
 const ToolsTab: React.FC<ToolsTabProps> = ({ items, onSelect }) => (
   <div className="p-2">
-    <div className="text-xs text-gray-500 uppercase px-2 py-1">Development Tools</div>
+    <div className="text-xs text-gray-500 uppercase px-2 py-1">Social</div>
     <ul>
       {items.map((item) => (
         <li 

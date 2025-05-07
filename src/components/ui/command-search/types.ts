@@ -30,12 +30,13 @@ export interface Components {
 }
 
 // Tool item interface
-export interface ToolItem {
+export interface SocialItem {
   id: string;
   title: string;
   description: string;
   icon: React.ReactNode;
   category: string;
+  link: string;
 }
 
 export interface CommandSearchProps {
