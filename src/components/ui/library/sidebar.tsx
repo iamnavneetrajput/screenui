@@ -75,7 +75,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectComponent, selectedComponentP
   };
 
   return (
-    <nav className="h-full bg-[hsl(var(--background))] flex flex-col text-[hsl(var(--foreground))] border-[hsl(var(--border))]">
+    <nav className="h-screen bg-[hsl(var(--background))] flex flex-col text-[hsl(var(--foreground))] border-[hsl(var(--border))]">
       {/* Header */}
       <div className="p-4 border-b border-[hsl(var(--border))]">
         <h1 className="text-xl font-bold">Component Library</h1>

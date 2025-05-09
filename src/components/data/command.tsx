@@ -53,24 +53,41 @@ export const Components_ITEMS: Components[] = [
   {
     id: 'button',
     title: 'Button',
-    description: 'A clickable button component',
+    description: '',
     icon: <FileText size={16} />,
-    category: 'UI',
+    category: 'Elements',
     href: '/library?component=elements/button'
   },
   {
-    id: 'invite-team',
-    title: 'Invite Team Member',
-    description: 'Send an invitation to join your team',
-    icon: <User size={16} />,
-    category: 'Team'
+    id: 'badge',
+    title: 'Badge',
+    description: '',
+    icon: <FileText size={16} />,
+    category: 'Elements',
+    href: '/library?component=elements/badge'
   },
   {
-    id: 'system-preferences',
-    title: 'System Preferences',
-    description: 'Modify system-wide settings',
+    id: 'alert',
+    title: 'Alert',
+    description: '',
     icon: <Settings size={16} />,
-    category: 'System'
+    category: 'Feedback',
+    href: '/library?component=feedback/alert'
+  },
+  {
+    id: 'card',
+    title: 'Card',
+    description: '',
+    icon: <Settings size={16} />,
+    category: 'Layout',
+    href: '/library?component=layout/card'
+  },
+  {
+    id: 'setting',
+    title: 'Setting',
+    description: 'Open setting',
+    icon: <Settings/>,
+    category: 'ui',
   }
 ];
 

@@ -389,7 +389,7 @@ export const Alert: React.FC<AlertProps> = ({
     border-color: #fecaca;
     color: #b91c1c;
   }
-  
+
   .alert-icon {
     flex-shrink: 0;
   }
