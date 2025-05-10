@@ -74,7 +74,7 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
       >
         <Search size={16} className="mr-2 text-[hsl(var(--foreground))]" />
         <span className="text-[hsl(var(--foreground))]">Type a command...</span>
-        <span className="ml-auto text-xs text-[hsl(var(--foreground))]">⌘I</span>
+        <span className="ml-auto text-xs text-[hsl(var(--foreground))]">⌘k</span>
       </button>
 
       <AnimatePresence>

@@ -25,7 +25,7 @@ export const metadata: Metadata = mergeMetadata({
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full pt-14 bg-[hsl(var(--background))]">
+    <main className="min-h-screen w-full pt-12 bg-[hsl(var(--background))]">
       <IntroBanner
         title="Craft components your way"
         description="Plug-and-play components. Share, reuse, and build fast — all open source."

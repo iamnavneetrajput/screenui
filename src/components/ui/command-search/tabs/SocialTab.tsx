@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { SocialItem } from '../types';
 
 interface ToolsTabProps {
@@ -11,7 +12,7 @@ const ToolsTab: React.FC<ToolsTabProps> = ({ items, onSelect }) => (
     <div className="text-xs text-gray-500 uppercase px-2 py-1">Social</div>
     <ul>
       {items.map((item) => (
-        <li 
+        <li
           key={item.id}
           className="flex items-center px-2 py-2 my-1 rounded hover:bg-gray-800 cursor-pointer group"
           onClick={() => onSelect(item.title)}
@@ -19,9 +20,10 @@ const ToolsTab: React.FC<ToolsTabProps> = ({ items, onSelect }) => (
           <div className="w-6 h-6 rounded bg-gray-700 flex items-center justify-center mr-3">
             {item.icon}
           </div>
-          <div className="flex-1">
+
+          <div className="flex-1"><Link href={item.href || '#'}>
             <div className="text-gray-200">{item.title}</div>
-            <div className="text-xs text-gray-400">{item.description}</div>
+            <div className="text-xs text-gray-400">{item.description}</div></Link>
           </div>
           <span className="text-xs text-gray-500">{item.category}</span>
         </li>

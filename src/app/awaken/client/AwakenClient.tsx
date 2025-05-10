@@ -21,7 +21,7 @@ export default function AwakenClient({ templates }: Props) {
       : templates.filter((t) => t.category === filteredCategory);
 
   return (
-    <main className="min-h-screen w-full pt-14">
+    <main className="min-h-screen w-full pt-12">
       <IntroBanner
         title="Explore Templates"
         description="Please read the docs to learn how to use the templates."

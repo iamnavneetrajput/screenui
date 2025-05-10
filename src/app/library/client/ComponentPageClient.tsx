@@ -1,3 +1,4 @@
+//src/app/library/client/ComponentPageClient.tsx
 'use client';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';

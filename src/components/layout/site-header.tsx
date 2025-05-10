@@ -18,7 +18,7 @@ const navItems = [
 // Filter out 'screen/ui' for desktop-only navigation/search.
 const desktopNavItems = navItems.filter(item => item.name !== 'screen/ui');
 
-export default function Navigation() { 
+export default function Navigation() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -48,11 +48,10 @@ export default function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm transition-colors hover:text-foreground ${
-                  pathname === item.href
+                className={`text-sm transition-colors hover:text-foreground ${pathname === item.href
                     ? 'text-foreground font-medium'
                     : 'text-muted-foreground'
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>
@@ -62,8 +61,7 @@ export default function Navigation() {
           {/* Mobile Search replaces logo below md */}
           <div className="block md:hidden flex-1">
             <CommandSearch components={[]} onSelectComponent={function (component: string): void {
-              throw new Error('Function not implemented.');
-            } }/>
+            }} />
           </div>
         </div>
 
@@ -72,8 +70,7 @@ export default function Navigation() {
           {/* Desktop Search - excludes 'screen/ui' */}
           <div className="hidden md:block">
             <CommandSearch components={[]} onSelectComponent={function (component: string): void {
-              throw new Error('Function not implemented.');
-            } } />
+            }} />
           </div>
 
           {/* GitHub link */}
@@ -137,11 +134,10 @@ export default function Navigation() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`py-2 px-1 text-sm transition-colors rounded-md ${
-                      pathname === item.href
+                    className={`py-2 px-1 text-sm transition-colors rounded-md ${pathname === item.href
                         ? 'text-foreground font-medium bg-accent'
                         : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                      }`}
                     onClick={() => setOpen(false)}
                   >
                     {item.name}

@@ -10,7 +10,7 @@ interface ActionsTabProps {
 
 const ActionsTab: React.FC<ActionsTabProps> = ({ items, onSelect }) => (
   <div className="p-2">
-    <div className="text-xs text-gray-500 uppercase px-2 py-1">Quick Actions</div>
+    <div className="text-xs text-gray-500 uppercase px-2 py-1">Components List</div>
     <ul>
       {items.map((item) => (
         <li

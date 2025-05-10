@@ -72,12 +72,10 @@ const App = () => {
   }, []);
 
   return (
-    <main className="min-h-screen w-full pt-14">
+    <main className="min-h-screen w-full pt-12">
       <IntroBanner
         title="Color Palette Generator"
         description="Generate and copy color palettes in different formats."
-        installCmd="npx create-screenui@latest"
-        navText="Get Started with Tailwind v4"
       />
 
       <div className="min-h-screen pt-12">

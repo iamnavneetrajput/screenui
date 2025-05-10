@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full pt-14 bg-[hsl(var(--background))]">
+    <main className="min-h-screen w-full pt-12 bg-[hsl(var(--background))]">
       <IntroBanner
         title="create-screenui"
         description="A CLI tool for scaffolding ready-made full-stack frontend projects built using either Next.js (with TypeScript) or Vite React (with TypeScript)." />

@@ -1,4 +1,4 @@
-import { GithubIcon, FileText, Settings, User, PenTool as Tool } from 'lucide-react';
+import { GithubIcon, FileText, PenTool as Tool } from 'lucide-react';
 import { TeamMember, NavigationItem, Components, SocialItem } from '../ui/command-search/types';
 import { componentCategories } from '@/components/data/components';
 
@@ -53,7 +53,7 @@ export const Components_ITEMS: Components[] = [
   {
     id: 'button',
     title: 'Button',
-    description: '',
+    description: 'Buttons are used to trigger actions or events, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.',
     icon: <FileText size={16} />,
     category: 'Elements',
     href: '/library?component=elements/button'
@@ -61,7 +61,7 @@ export const Components_ITEMS: Components[] = [
   {
     id: 'badge',
     title: 'Badge',
-    description: '',
+    description: 'Badges are small elements that represent a status, category, or count. They are commonly used in navigation, notifications, and labels.',
     icon: <FileText size={16} />,
     category: 'Elements',
     href: '/library?component=elements/badge'
@@ -69,26 +69,19 @@ export const Components_ITEMS: Components[] = [
   {
     id: 'alert',
     title: 'Alert',
-    description: '',
-    icon: <Settings size={16} />,
+    description: 'Alerts display short, important messages that attract the user`s attention without interrupting their task.',
+    icon: <FileText size={16} />,
     category: 'Feedback',
     href: '/library?component=feedback/alert'
   },
   {
     id: 'card',
     title: 'Card',
-    description: '',
-    icon: <Settings size={16} />,
+    description: 'Cards are flexible containers that group related content and actions. They can contain text, images, buttons, and other UI components.',
+    icon: <FileText size={16} />,
     category: 'Layout',
     href: '/library?component=layout/card'
   },
-  {
-    id: 'setting',
-    title: 'Setting',
-    description: 'Open setting',
-    icon: <Settings/>,
-    category: 'ui',
-  }
 ];
 
 export const SOCIAL_ITEMS: SocialItem[] = [
@@ -98,7 +91,7 @@ export const SOCIAL_ITEMS: SocialItem[] = [
     description: 'Code sharing platform',
     icon: <GithubIcon size={16} />,
     category: 'Development',
-    link: 'https://github.com/iamnavneetrajput'
+    href: 'https://github.com/iamnavneetrajput'
   },
 
 ];
