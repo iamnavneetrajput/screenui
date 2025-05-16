@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import HorizontalSidebar from '@/components/demo/HorizontalSidebar';
 import ComponentDisplay from '@/components/demo/displaydemo';
 import { ComponentData, getComponentByPath, componentCategories } from '@/components/data/components';
+import Loader from '../ui/main/loader';
 
 const Demo: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<ComponentData | null>(null);
@@ -22,7 +23,8 @@ const Demo: React.FC = () => {
   };
 
   if (!selectedComponent) {
-    return <div>Loading...</div>;
+    return <div className='mt-6'><Loader variant="spinner" text="Loading..."/>
+    </div>;
   }
 
   return (

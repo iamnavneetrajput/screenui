@@ -7,6 +7,7 @@ import ComponentDisplay from '@/components/ui/library/componentdisplay';
 import { ComponentData, getComponentByPath, componentCategories } from '@/components/data/components';
 import { AnimatePresence, motion } from 'framer-motion';
 import HamburgerToggle from '@/components/ui/library/menu';
+import Loader from '@/components/ui/main/loader';
 
 // Custom hook to get the selected component
 const useSelectedComponent = (queryComponent: string | null): ComponentData | null => {
@@ -90,7 +91,7 @@ const ComponentPageClient: React.FC = () => {
         {selectedComponent ? (
           <ComponentDisplay component={selectedComponent} />
         ) : (
-          <div>Loading...</div> // Add a loading state until the component is available
+          <div className='mt-6'><Loader variant='spinner' text='Loading...'/></div> // Add a loading state until the component is available
         )}
       </div>
     </div>
