@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, Github, X, EllipsisVertical } from 'lucide-react';
+import { GithubIcon, X, EllipsisVertical } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import CommandSearch from '@/components/ui/command-search/CommandSearch';
+import CommandSearch from '@/components/search/CommandSearch';
 
 const navItems = [
   { name: 'screen/ui', href: '/' },
   { name: 'Docs', href: '/docs' },
-  { name: 'Library', href: '/library' },
+  { name: 'Component', href: '/library' },
   { name: 'Colors', href: '/color' },
   { name: 'Awaken', href: '/awaken' },
 ];
@@ -31,7 +31,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dashed border-[hsl(var(--border))] bg-[hsl(var(--background))] text-[hsla(var(--foreground))]">
       <div className="custom-container mx-auto px-4 flex items-center justify-between h-12">
         {/* Left Section: Logo + Nav */}
         <div className="flex items-center gap-6 flex-1 md:flex-none">
@@ -74,14 +74,15 @@ export default function Navigation() {
           </div>
 
           {/* GitHub link */}
+          <div className='flex items-center gap-2 ml-4'>
           <a
             href="https://github.com/iamnavneetrajput"
             target="_blank"
             rel="noopener noreferrer"
-            className="pl-2.5 hover:bg-accent rounded-full transition-colors"
+            className=" hover:bg-accent rounded-full transition-colors"
             aria-label="GitHub"
           >
-            <Github size={20} />
+            <GithubIcon size={18} />
           </a>
 
           {/* Mobile Menu Toggle */}
@@ -90,8 +91,9 @@ export default function Navigation() {
             className="md:hidden rounded-md hover:bg-accent transition-colors"
             aria-label="Open menu"
           >
-            <EllipsisVertical size={22} />
+            <EllipsisVertical size={18} />
           </button>
+          </div>
         </div>
       </div>
 
@@ -124,7 +126,7 @@ export default function Navigation() {
                   className="p-2 rounded-md hover:bg-accent transition-colors"
                   aria-label="Close menu"
                 >
-                  <X size={22} />
+                  <X size={20} />
                 </button>
               </div>
 

@@ -23,7 +23,7 @@ export default function IntroBanner({
   buttonLink = '#',
 }: IntroBannerProps) {
   return (
-    <div className="pb-4 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+    <div className="pb-2 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       {/* Optional Navigation */}
       {navText && (
         <nav className="py-2 px-2">
@@ -48,7 +48,7 @@ export default function IntroBanner({
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-2xl py-2">
             <h1 className="text-2xl font-bold tracking-tight mb-2">{title}</h1>
-            <p className="text-xl mb-10">{description}</p>
+            <p className="text-xl mb-4">{description}</p>
             <div className="flex items-center gap-4">
               {buttonLabel && (
                 <Link href={buttonLink}>

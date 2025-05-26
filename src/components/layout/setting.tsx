@@ -126,7 +126,7 @@ export default function DevPanel() {
         aria-label="Open Dev Panel"
       >
         <Image
-          src="/b-d-sui-logo.png"
+          src="/favicon.svg"
           alt="Dev Panel"
           className="rounded-full border-2 border-gray-300 cursor-pointer"
           width={34}

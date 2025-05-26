@@ -1,6 +1,5 @@
 import { GithubIcon, FileText, PenTool as Tool } from 'lucide-react';
-import { TeamMember, NavigationItem, Components, SocialItem } from '../ui/command-search/types';
-import { componentCategories } from '@/components/data/components';
+import { TeamMember, NavigationItem, Components, SocialItem } from '../search/types';
 
 export const MOCK_TEAM_MEMBERS: TeamMember[] = [
   { id: 'n', name: 'Navneet', status: 'available', initials: 'N' },
@@ -24,8 +23,8 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/docs'
   },
   {
-    id: 'library',
-    title: 'Library',
+    id: 'components',
+    title: 'Components',
     description: 'Browse our component library',
     icon: <FileText size={16} />,
     shortcut: '⌘L',
@@ -56,15 +55,7 @@ export const Components_ITEMS: Components[] = [
     description: 'Buttons are used to trigger actions or events, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.',
     icon: <FileText size={16} />,
     category: 'Elements',
-    href: '/library?component=elements/button'
-  },
-  {
-    id: 'badge',
-    title: 'Badge',
-    description: 'Badges are small elements that represent a status, category, or count. They are commonly used in navigation, notifications, and labels.',
-    icon: <FileText size={16} />,
-    category: 'Elements',
-    href: '/library?component=elements/badge'
+    href: '/components/button'
   },
   {
     id: 'alert',
@@ -72,16 +63,16 @@ export const Components_ITEMS: Components[] = [
     description: 'Alerts display short, important messages that attract the user`s attention without interrupting their task.',
     icon: <FileText size={16} />,
     category: 'Feedback',
-    href: '/library?component=feedback/alert'
+    href: '/components/alert'
   },
-  {
-    id: 'card',
-    title: 'Card',
-    description: 'Cards are flexible containers that group related content and actions. They can contain text, images, buttons, and other UI components.',
+  { 
+    id: 'accordion',
+    title: 'Accordion',
+    description: 'Accordions are used to display collapsible content panels for presenting information in a limited amount of space.',
     icon: <FileText size={16} />,
     category: 'Layout',
-    href: '/library?component=layout/card'
-  },
+    href: '/components/accordion'
+  }
 ];
 
 export const SOCIAL_ITEMS: SocialItem[] = [

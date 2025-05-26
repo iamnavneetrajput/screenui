@@ -26,6 +26,7 @@
 /* Custom scrollbar for the command palette */
 ::-webkit-scrollbar {
   width: 1px;
+  height: 1px !important;
 }
 
 ::-webkit-scrollbar-track {

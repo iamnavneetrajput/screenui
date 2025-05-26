@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { Template } from '@/components/data/templates';
 import IntroBanner from '@/components/ui/main/banner';
-import FilterNav from '@/components/ui/awaken/filter';
-import TemplateCard from '@/components/ui/awaken/TemplateCard';
+import FilterNav from '@/app/awaken/component/filter';
+import TemplateCard from '@/app/awaken/component/TemplateCard';
 
 interface Props {
   templates: Template[];

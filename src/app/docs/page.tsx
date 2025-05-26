@@ -1,6 +1,6 @@
 
 import IntroBanner from '@/components/ui/main/banner';
-import { InstallationSteps } from '@/components/ui/docs/InstallationSteps';
+import { InstallationSteps } from '@/app/docs/component/InstallationSteps';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

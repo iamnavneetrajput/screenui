@@ -5,6 +5,26 @@ import dynamic from 'next/dynamic';
 import { ChevronDown } from 'lucide-react';
 import IntroBanner from '@/components/ui/main/banner';
 import { colorPalettes } from '@/lib/palettes'; 
+import { mergeMetadata } from '@/lib/seo.utils';
+import { Metadata } from "next";
+
+// export const metadata: Metadata = mergeMetadata({
+//   title: 'Color Palette Generator',
+//   description: 'Generate and copy color palettes in different formats.',
+//   openGraph: {
+//     images: [
+//       {
+//         url:'/favicon.ico',
+//         width: 1200,
+//         height: 630,
+//         alt: 'screenui',
+//       },
+//     ],
+//   },
+//   twitter: {
+//     images: ['https://www.screenui.com/trans-sui-logo.png'],
+//   },
+// });
 
 const ColorPaletteCard = dynamic(() => import('@/components/ui/main/ColorPaletteGrid'));
 
@@ -78,7 +98,7 @@ const App = () => {
         description="Generate and copy color palettes in different formats."
       />
 
-      <div className="min-h-screen pt-12">
+      <div className="min-h-screen pt-4">
         <div className="mx-auto">
           <div className="flex justify-end">
             <div ref={dropdownRef} className="relative">
