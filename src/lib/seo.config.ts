@@ -2,7 +2,7 @@
 
 export const SITE_URL = 'https://www.screenui.com';
 export const SITE_NAME = 'ScreenUI';
-export const DEFAULT_IMAGE = 'https://www.screenui.com/trans-sui-logo.png';
+export const DEFAULT_IMAGE = 'https://www.screenui.com/favicon-96x96.png';
 
 export const DEFAULT_SEO = {
   title: SITE_NAME,
