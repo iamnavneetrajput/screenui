@@ -41,7 +41,7 @@ export default function BadgePage() {
           description="Badges come in different variants to indicate different states and priorities."
           component="Badge"
           dependencyCommand="npm install lucide-react"
-          npmCommand="screenui add badge --lang js --path src/components/ui"
+          npmCommandTs="screenui add badge --lang js --path src/components/ui"
           tsCode={badgeTsCode}
           jsCode={badgeJsCode}
           nextjsCode={badgeNextjsCode}
