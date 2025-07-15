@@ -1,6 +1,7 @@
 // src/app/page.tsx
 
 import IntroBanner from "@/components/ui/main/banner";
+import Feature from "@/components/ui/main/Feature";
 import { mergeMetadata } from '@/lib/seo.utils';
 import { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default function Home() {
         buttonLabel="Get Started"
         buttonLink="/library"
       />
+      <Feature />
       {/* Other content can go here */}
     </main>
   );

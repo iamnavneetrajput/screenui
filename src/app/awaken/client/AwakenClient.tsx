@@ -27,7 +27,7 @@ export default function AwakenClient({ templates }: Props) {
         description="Please read the docs to learn how to use the templates."
         installCmd="npx create-screenui@latest"
         buttonLabel="Installation Guide"
-        buttonLink="/docs"
+        buttonLink="/docs?guide=awaken"
       />
 
       <div className="container mx-auto">

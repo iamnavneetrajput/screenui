@@ -63,8 +63,8 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="w-64 mt-8 border-r border-dashed border-[hsl(var(--border))] bg-[hsl(var(--background))] hidden md:block">
-      <div className="p-6 border-b border-dashed border-[hsl(var(--border))]">
+    <aside className="w-64 mt-8 border-r border-[hsl(var(--border))] bg-[hsl(var(--background))] hidden md:block">
+      <div className="p-6 border-b border-[hsl(var(--border))]">
         <Link href="/" className="flex items-center gap-2 group">
           <Package className="h-6 w-6 text-[hsl(var(--foreground))] transition-transform group-hover:scale-110" />
           <h1 className="text-sm font-bold text-[hsl(var(--foreground))]">Components ui</h1>

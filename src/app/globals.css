@@ -17,6 +17,19 @@
   --color-border: 240, 100%, 70%; /* Light mode border color */
 }
 
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: linear-gradient(
+        to right,
+        hsla(0, 0%, 89%, 0.865) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsla(0, 0%, 89%, 0.865) 1px, white 1px);
+    background-size: 20px 20px;
+  }
+}
+
+
 
 /* Custom container */
 .custom-container {
