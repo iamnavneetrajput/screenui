@@ -32,7 +32,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-900 text-white shadow hover:bg-gray-800 focus-visible:ring-gray-950",
+        default: "bg-[hsl(var(--button))] text-[hsl(var(--foreground))] shadow focus-visible:ring-gray-950",
         secondary: "bg-gray-100 text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:ring-gray-500",
         outline: "border border-gray-300 bg-transparent text-gray-900 shadow-sm hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-gray-500",
         ghost: "text-gray-900 hover:bg-gray-100 focus-visible:ring-gray-500",

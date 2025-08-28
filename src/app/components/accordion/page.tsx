@@ -6,7 +6,6 @@ import { accordionItems } from '@/data/demo-data/accordion-items';
 import {
   accordionTsCode,
   accordionJsCode,
-  accordionNextjsCode,
   accordionMultipleTsCode,
   accordionMultipleJsCode,
 } from '@/data/code-snippets/accordion';
@@ -29,7 +28,8 @@ export default function AccordionPage() {
           npmCommandJs="npm install @radix-ui/react-accordion"
           tsCode={accordionTsCode}
           jsCode={accordionJsCode}
-          nextjsCode={accordionNextjsCode}
+          showJavascript={false}
+          showTypescript={false}
         >
           <div className="flex flex-wrap gap-4">
             <Accordion items={accordionItems} />
@@ -42,7 +42,8 @@ export default function AccordionPage() {
           component="Accordion"
           tsCode={accordionMultipleTsCode}
           jsCode={accordionMultipleJsCode}
-          nextjsCode={accordionNextjsCode}
+          showJavascript={false}
+          showTypescript={false}
         >
           <div className="flex flex-wrap gap-4">
             <Accordion items={accordionItems} allowMultiple />

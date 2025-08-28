@@ -16,7 +16,7 @@ import TeamTab from './tabs/TeamTab';
 const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectComponent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'navigate' | 'components' | 'team' | 'social'>('navigate');
+  const [activeTab, setActiveTab] = useState<'navigate' | 'components' | 'team' | 'social'>('components');
   
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {

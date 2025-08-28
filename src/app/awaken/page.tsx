@@ -1,7 +1,12 @@
-import { staticTemplates } from '@/components/data/templates';
-import AwakenClient from './client/AwakenClient';
+import React from 'react';
 
-export default function AwakenPage() {
-  
-  return <AwakenClient templates={staticTemplates} />;
-}
+const AwakenPage: React.FC = () => {
+  return (
+    <main>
+      <h1>Awaken Page</h1>
+      <p>Welcome to the Awaken page!</p>
+    </main>
+  );
+};
+
+export default AwakenPage;

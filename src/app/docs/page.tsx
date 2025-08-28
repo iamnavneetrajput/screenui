@@ -1,29 +1,21 @@
 'use client';
-import IntroBanner from '@/components/ui/main/banner';
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-import { Metadata } from 'next';
 
-// Dynamic import just in case it helps delay hydration issues
-const InstallationSteps = dynamic(() => import('@/app/docs/component/InstallationSteps'), {
-  ssr: false,
-});
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-// export const metadata: Metadata = {
-//   title: 'screenui docs',
-//   description: 'Build beautiful interfaces faster with our component library and development tools.',
-// };
+export default function DocsPage() {
+  const router = useRouter();
 
-export default function Home() {
+  useEffect(() => {
+    const lastTab = localStorage.getItem('screenui-last-tab') || 'component';
+    router.replace(`/docs/${lastTab}`);
+  }, [router]);
+
   return (
-    <main className="min-h-screen w-full pt-12 bg-[hsl(var(--background))]">
-      <IntroBanner
-        title="Screenui Docs"
-        description="Build beautiful interfaces faster with our component library and development tools."
-      />
-      <Suspense fallback={<div>Loading steps...</div>}>
-        <InstallationSteps />
-      </Suspense>
-    </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <div role="status" aria-live="polite" className="text-center text-muted-foreground">
+        <div className="animate-pulse">Redirecting to component docs...</div>
+      </div>
+    </div>
   );
 }

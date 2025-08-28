@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Check, Clipboard } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -32,7 +33,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className={`relative rounded-xl overflow-hidden border border-gray-200 bg-gray-900 shadow-2xl ${className}`}>
+    <div className={`relative rounded-xl overflow-hidden border border-[hsl(var(--border))] bg-gray-900 shadow-2xl ${className}`}>
       {/* Header with filename */}
       {filename && (
         <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-gray-700">

@@ -1,30 +1,9 @@
 import { MainLayout } from '@/components/layout/main-layout';
 import { ComponentHeader } from '@/app/library/component/component-header';
 import { ComponentDemo } from '@/app/library/component/component-demo';
-import { Badge } from '@/components/ui/badge';
-
-const badgeTsCode = `import { Badge } from "@/components/ui/badge";
-
-export function BadgeDemo() {
-  return (
-    <div className="flex flex-wrap gap-4">
-      <Badge>Default</Badge>
-      <Badge variant="secondary">Secondary</Badge>
-    </div>
-  );
-}`;
-
-const badgeJsCode = 
-`✅ This component works out of the box with **React** (both JavaScript and TypeScript).
-No additional setup is required.
-Refer to the "Usage" section above for example code.`;
-
-const badgeNextjsCode = 
-`✅ This component is fully compatible with **Next.js** (Pages Router and App Router).
-No extra configuration is needed.
-> 💡 Using **Next.js App Router**?  
-> Add [use client] at the top of your file when using interactive components.
-Refer to the "Usage" section above for example code.`;
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { alertJsCode, alertTsCode, CommandJs, CommandTs, Component, Lastupdated, Description, Title } from '@/data/code-snippets/alert';
+import { UsageNotes } from './usage';
 
 
 export default function BadgePage() {
@@ -32,39 +11,69 @@ export default function BadgePage() {
     <MainLayout>
       <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
         <ComponentHeader
-          title="Badge"
-          description="Badges are used to highlight an item's status for quick recognition."
+          title={Component}
+          description={Description}
         />
 
         <ComponentDemo
-          title="Badge Variants"
-          description="Badges come in different variants to indicate different states and priorities."
-          component="Badge"
-          dependencyCommand="npm install lucide-react"
-          npmCommandTs="screenui add badge --lang js --path src/components/ui"
-          tsCode={badgeTsCode}
-          jsCode={badgeJsCode}
-          nextjsCode={badgeNextjsCode}
+          title={Title}
+          description={''}
+          component={Component}
+          dependencyCommand={''}
+          npmCommandTs={CommandTs}
+          npmCommandJs={CommandJs}
+          tsCode={alertTsCode}
+          jsCode={alertJsCode}
+          showInstallation={true}
+          showTabs={true}
+          showJavascript={false}
+          showTypescript={false}
+          category="Feedback"
+          version="0.1.0"
+          lastUpdated={Lastupdated}
         >
-          <div className="flex flex-wrap gap-4">
-            <Badge>Default</Badge>
-            {/* <Badge variant="secondary">Secondary</Badge> */}
-            <Badge variant="outline">Outline</Badge>
-            {/* <Badge variant="destructive">Destructive</Badge> */}
+          <div className='space-y-12'>
+            <div className="space-y-6">
+              <div className="flex flex-wrap gap-4">
+                <Alert variant="success" dismissible>
+                  <AlertTitle>Success!</AlertTitle>
+                  <AlertDescription>
+                    Your changes have been saved.
+                  </AlertDescription>
+                </Alert>
+              </div>
+            </div>
           </div>
         </ComponentDemo>
 
-        <div className="border border-dashed border-[hsl(var(--border))]  rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">Usage Notes</h2>
-          <p className="text-muted-foreground mb-4">
-            Badges are used for labeling, categorization, and indicating status. Use them sparingly to avoid visual noise.
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-            <li>Use <code className="text-primary bg-primary/10 px-1 py-0.5 rounded">Default</code> badges for standard status indicators</li>
-            <li>Use <code className="text-primary bg-primary/10 px-1 py-0.5 rounded">Secondary</code> badges for less important information</li>
-            <li>Use <code className="text-primary bg-primary/10 px-1 py-0.5 rounded">Outline</code> badges for subtle indicators</li>
-            <li>Use <code className="text-primary bg-primary/10 px-1 py-0.5 rounded">Destructive</code> badges for error or warning states</li>
-          </ul>
+        <ComponentDemo
+          title="Example"
+          description=""
+          component="Alert"
+          showInstallation={false}
+          showTabs={false}
+          dependencyCommand=""
+          npmCommandTs=""
+          npmCommandJs=""
+          tsCode={''}
+          jsCode={''}
+        >
+          <div className='space-y-12'>
+            <div className="space-y-6">
+              <div className="flex flex-wrap gap-4">
+                <Alert variant="warning">
+                  <AlertTitle>Warning!</AlertTitle>
+                  <AlertDescription>
+                    Warning! Please check your input.
+                  </AlertDescription>
+                </Alert>
+              </div>
+            </div>
+          </div>
+        </ComponentDemo>
+
+        <div className="border border-[hsl(var(--border))]  rounded-lg ">
+          <UsageNotes />
         </div>
       </div>
     </MainLayout>

@@ -1,39 +1,34 @@
-@import "tailwindcss"; /* Import Tailwind */
+@import "tailwindcss";
+/* Import Tailwind */
 
 /* globals.css */
 :root {
-  --background: 0, 0%, 95%;  /* Light mode background */
-  --foreground: 210, 40%, 10%; /* Light mode foreground */
-  --surface: 0, 0%, 92%; /* Light mode surface */
-  --border: 210,20%,65%; /* Light mode border */
-  --color-border: 240, 100%, 60%; /* Light mode border color */
+  --background: 0, 0%, 90%;
+  --foreground: 0, 0%, 10%;
+  --border: 0, 0%, 60%;
+  --surface: 0, 0%, 88%;
+  --button: 240, 100%, 40%;
+  --sucess: 120, 100%, 40%;
+  --warning: 60, 100%, 40%;
+  --error: 0, 100%, 40%;
 }
 
 [data-theme='dark'] {
   --background: 0 0% 10%;
-  --foreground: 210 40% 98%;
-  --surface: 0 0% 9%;
-  --border: 217, 14%, 30%;
-  --color-border: 240, 100%, 70%; /* Light mode border color */
+  --foreground: 0 0% 90%;
+  --border: 0, 0%, 20%;
+  --surface: 0, 0%, 12%;
+  --button: 240, 100%, 25%;
+  --sucess: 120, 100%, 25%;
+  --warning: 60, 100%, 25%;
+  --error: 0, 100%, 25%;
 }
-
-@layer utilities {
-  .bg-grid-pattern {
-    background-image: linear-gradient(
-        to right,
-        hsla(0, 0%, 89%, 0.865) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, hsla(0, 0%, 89%, 0.865) 1px, white 1px);
-    background-size: 20px 20px;
-  }
-}
-
 
 
 /* Custom container */
 .custom-container {
-  max-width: 90rem; /* 1440px */
+  max-width: 90rem;
+  /* 1440px */
 }
 
 /* Custom scrollbar for the command palette */

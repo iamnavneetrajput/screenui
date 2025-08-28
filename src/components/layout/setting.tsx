@@ -16,10 +16,10 @@ import {
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import PerformanceSection from '@/components/ui/sharedui/PerformanceSection';
-import ThemeSection from '@/components/ui/sharedui/ThemeSection';
-import PlacementSection from '@/components/ui/sharedui/PlacementSection';
-import FontSizeSection from '@/components/ui/sharedui/FontSizeSection';
+import PerformanceSection from '@/components/ui/main/PerformanceSection';
+import ThemeSection from '@/components/ui/main/ThemeSection';
+import PlacementSection from '@/components/ui/main/PlacementSection';
+import FontSizeSection from '@/components/ui/main/FontSizeSection';
 
 type Placement = 'top-right' | 'bottom-right';
 

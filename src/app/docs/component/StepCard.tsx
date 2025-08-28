@@ -25,8 +25,8 @@ export const StepCard = ({
         <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[hsl(var(--foreground))] rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
           <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-[hsl(var(--background))]" />
         </div>
-        <div className="absolute -top-1 -right-1 w-6 h-6 bg-[hsl(var(--color-border))] rounded-full flex items-center justify-center shadow-sm">
-          <span className="text-xs font-bold text-[hsl(var(--background))]">{step}</span>
+        <div className="absolute -top-1 -right-1 w-6 h-6 bg-[hsl(var(--surface))] rounded-full flex items-center justify-center shadow-sm">
+          <span className="text-xs font-bold text-[hsl(var(--forefround))]">{step}</span>
         </div>
       </div>
       {!isLast && <div className="w-px h-16 sm:h-20 bg-[hsl(var(--border))] mt-4"></div>}
@@ -39,18 +39,18 @@ export const StepCard = ({
 
       {code && <TerminalCommand command={code} />}
 
-      {step === 2 && (
+      {step === 3 && (
         <div className="mt-4 p-4">
           <TerminalCommand
             command={`? Select a template: (Use arrow keys)
-❯ React-vite + JavaScript
-  Next + TypeScript`}
+❯ nextjs
+  vite-react`}
             copy={false}
           />
         </div>
       )}
 
-      {step === 4 && (
+      {step === 7 && (
         <div className="mt-4 p-4 sm:p-6 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--surface))]">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="h-5 w-5 text-[hsl(var(--color-border))]" />

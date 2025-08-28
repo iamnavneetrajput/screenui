@@ -8,7 +8,7 @@ export default function FontSizeSection({
   setFontSize: (size: number) => void;
 }) {
   return (
-    <div className="border-b border-dotted border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
+    <div className="border-b border-dotted border-[hsl(var(--border))] border-muted/50 p-1">
       {/* Font Size Range Input */}
       <input
         type="range"

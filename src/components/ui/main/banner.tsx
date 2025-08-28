@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import Button from '@/components/ui/main/button';
 import TerminalCommand from '@/components/ui/main/TerminalCommand';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 interface IntroBannerProps {
   title: string;
@@ -12,6 +13,7 @@ interface IntroBannerProps {
   buttonLabel?: string;
   navText?: string;
   buttonLink?: string;
+  customButton?: ReactNode; // ✅ new prop for full JSX button
 }
 
 export default function IntroBanner({
@@ -21,9 +23,10 @@ export default function IntroBanner({
   buttonLabel,
   navText,
   buttonLink = '#',
+  customButton,
 }: IntroBannerProps) {
   return (
-    <div className="pb-2 border-b border-dotted border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+    <div className="pb-2 border-b border-dashed border-[hsl(var(--border))] bg-[hsl(var(--background))]">
       {/* Optional Navigation */}
       {navText && (
         <nav className="py-2 px-2">
@@ -50,11 +53,15 @@ export default function IntroBanner({
             <h1 className="text-2xl font-bold tracking-tight mb-2">{title}</h1>
             <p className="text-xl mb-4">{description}</p>
             <div className="flex items-center gap-4">
-              {buttonLabel && (
+              {/* Custom button (preferred) or fallback to label-based button */}
+              {customButton ? (
+                customButton
+              ) : buttonLabel ? (
                 <Link href={buttonLink}>
                   <Button>{buttonLabel}</Button>
                 </Link>
-              )}
+              ) : null}
+
               {installCmd && <TerminalCommand command={installCmd} />}
             </div>
           </div>

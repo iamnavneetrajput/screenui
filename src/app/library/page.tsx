@@ -1,18 +1,15 @@
 import { MainLayout } from '@/components/layout/main-layout';
-import { Button } from '@/components/ui/button';
+import   Button  from '@/components/ui/main/button';
 import Link from 'next/link';
 import { ArrowRight, Package } from 'lucide-react';
 
 export default function Home() {
   return (
     <MainLayout>
-      <div className="flex flex-col items-center justify-center min-h-screen p-6 md:p-12">
+      <div className="flex flex-col items-center justify-center min-h-screen p-6">
         <div className="w-full max-w-3xl space-y-8 text-center">
-          <div className="bg-primary/10 rounded-full p-3 w-16 h-16 flex items-center justify-center mx-auto">
-            <Package className="h-8 w-8 text-primary" />
-          </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl font-bold tracking-tight">
             Screenui Component Library
           </h1>
           
