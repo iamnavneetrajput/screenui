@@ -9,11 +9,10 @@ export function UsageNotes() {
       <div>
         <h3 className="text-xl font-semibold mb-2">Variants</h3>
         <ul className="list-disc list-inside text-muted-foreground space-y-2">
-          <UsageNoteItem label="default" description="Use for general or informational messages." colorClass="bg-blue-100 text-blue-900" />
-          <UsageNoteItem label="success" description="Indicates successful operations like form submissions or saves." colorClass="bg-green-100 text-green-900" />
-          <UsageNoteItem label="warning" description="Warns the user about potential issues or required actions." colorClass="bg-yellow-100 text-yellow-900" />
-          <UsageNoteItem label="destructive" description="Use for critical errors, deletions, or irreversible actions." colorClass="bg-red-100 text-red-900" />
-          <UsageNoteItem label="info" description="For supplemental guidance or neutral messages." colorClass="bg-cyan-100 text-cyan-900" />
+          <UsageNoteItem label="default" description="Standard alert, use for general messages." />
+          <UsageNoteItem label="filled" description="Filled background, ideal for high-emphasis alerts." />
+          <UsageNoteItem label="outlined" description="Outline style, use for subtle alerts." />
+          <UsageNoteItem label="soft" description="Soft background for gentle emphasis." />
         </ul>
       </div>
 
@@ -21,21 +20,21 @@ export function UsageNotes() {
       <div>
         <h3 className="text-xl font-semibold mb-2">Sizes</h3>
         <ul className="list-disc list-inside text-muted-foreground space-y-2">
-          <UsageNoteItem label="sm" description="Compact variant suitable for tight layouts like modals or sidebars." />
-          <UsageNoteItem label="default" description="Balanced size for most use cases." />
-          <UsageNoteItem label="lg" description="Use when you want to give the alert more emphasis and space." />
+          <UsageNoteItem label="sm" description="Compact size, fits tight layouts like modals." />
+          <UsageNoteItem label="md" description="Default size for standard use." />
+          <UsageNoteItem label="lg" description="Larger size for prominent alerts." />
         </ul>
       </div>
 
-      {/* Dismissible */}
+      {/* Dismissible Notes */}
       <div>
         <h3 className="text-xl font-semibold mb-2">Dismissible</h3>
         <p className="text-muted-foreground mb-2">
           To allow users to close the alert manually, use the{" "}
-          <code className="bg-muted px-1 py-0.5 rounded">dismissible</code> prop. Useful for temporary or non-blocking messages.
+          <code className="bg-muted px-1 py-0.5 rounded">dismissible</code> prop.
         </p>
         <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
-          &lt;Alert variant="success" dismissible&gt;...&lt;/Alert&gt;
+          &lt;Alert dismissible&gt;...&lt;/Alert&gt;
         </code>
       </div>
 
@@ -43,10 +42,10 @@ export function UsageNotes() {
       <div>
         <h3 className="text-xl font-semibold mb-2">With Icons</h3>
         <p className="text-muted-foreground mb-2">
-          Add an icon before the content to visually indicate the alert type. Icons inherit the variant’s color automatically.
+          Add an icon before the content to visually indicate the alert type. Icons inherit colors from the user-defined classes.
         </p>
         <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
-          &lt;Alert variant="warning"&gt;&#123;&lt;AlertTriangle /&gt;&#125; Message...&lt;/Alert&gt;
+          &lt;Alert&gt;&#123;&lt;AlertCircle /&gt;&#125; Message...&lt;/Alert&gt;
         </code>
       </div>
     </div>

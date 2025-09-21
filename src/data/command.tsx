@@ -1,12 +1,13 @@
-import { GithubIcon, FileText, PenTool as Tool } from 'lucide-react';
-import { TeamMember, NavigationItem, Components, SocialItem } from '../search/types';
+//components/data/command.tsx
+import { GithubIcon, FileText, PenTool as Tool, Instagram } from 'lucide-react';
+import { TeamMember, NavigationItem, Components, SocialItem } from '../components/search/types';
 
 export const MOCK_TEAM_MEMBERS: TeamMember[] = [
   { id: 'n', name: 'Navneet', status: 'available', initials: 'N' },
 ];
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { 
+  {
     id: 'home',
     title: 'Screen/UI',
     description: 'Explore our components and documentation',
@@ -58,6 +59,22 @@ export const Components_ITEMS: Components[] = [
     href: '/components/button'
   },
   {
+    id: 'badge',
+    title: 'Badge',
+    description: 'Badges are used to display small counts or status indicators, such as unread messages, notifications, or status labels.',
+    icon: <FileText size={16} />,
+    category: 'Elements',
+    href: '/components/badge'
+  },
+  {
+    id: 'avatar',
+    title: 'Avatar',
+    description: 'Avatars are used to represent users or entities, typically displaying a profile picture or initials.',
+    icon: <FileText size={16} />,
+    category: 'Elements',
+    href: '/components/avatar'
+  },
+  {
     id: 'alert',
     title: 'Alert',
     description: 'Alerts display short, important messages that attract the user`s attention without interrupting their task.',
@@ -65,7 +82,7 @@ export const Components_ITEMS: Components[] = [
     category: 'Feedback',
     href: '/components/alert'
   },
-  { 
+  {
     id: 'accordion',
     title: 'Accordion',
     description: 'Accordions are used to display collapsible content panels for presenting information in a limited amount of space.',
@@ -84,7 +101,14 @@ export const SOCIAL_ITEMS: SocialItem[] = [
     category: 'Development',
     href: 'https://github.com/iamnavneetrajput'
   },
-
+  {
+    id: 'instagram',
+    title: 'Instagram',
+    description: 'Photo and video sharing social network',
+    icon: <Instagram size={16} />,
+    category: 'Social',
+    href: 'https://www.instagram.com/thescreenui'
+  }
 ];
 
 export const MOCK_RECENT_SEARCHES = [

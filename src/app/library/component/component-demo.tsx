@@ -209,7 +209,7 @@ export function ComponentDemo({
     >
       {/* Header */}
       <div className="p-4 sm:p-6 bg-[hsl(var(--background))]">
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+        <div className="flex max-[375px]:flex-col sm:flex-row items-start justify-between gap-4">
           <div className="space-y-2 flex-1">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--foreground))]">{title}</h2>

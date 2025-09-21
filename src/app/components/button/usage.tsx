@@ -9,12 +9,11 @@ export function UsageNotes() {
       <div>
         <h3 className="text-xl font-semibold mb-2">Variants</h3>
         <ul className="list-disc list-inside text-muted-foreground space-y-2">
-          <UsageNoteItem label="Default" description="Use for primary actions like “Submit” or “Save”." colorClass="text-primary bg-primary/10" />
-          <UsageNoteItem label="Secondary" description="Use for supporting actions that aren’t the main focus." colorClass="text-secondary bg-secondary/10" />
-          <UsageNoteItem label="Outline" description="Best for actions that should look minimal or subtle." colorClass="text-border bg-border/10" />
-          <UsageNoteItem label="Ghost" description="Ideal when the button sits on colored backgrounds or inside cards." colorClass="text-muted-foreground bg-muted/40" />
-          <UsageNoteItem label="Destructive" description="Use for delete, remove, or irreversible actions." colorClass="text-destructive bg-destructive/10" />
-          <UsageNoteItem label="Link" description="Styled as a link. Use when you want a less “button-like” call-to-action." colorClass="text-blue-600 bg-blue-100" />
+          <UsageNoteItem label="solid" description="Default variant for most actions." />
+          <UsageNoteItem label="outline" description="Adds a border and transparent background. Useful for secondary actions." />
+          <UsageNoteItem label="ghost" description="Minimal style with subtle hover feedback." />
+          <UsageNoteItem label="link" description="Renders like a text link with underline on hover." />
+          <UsageNoteItem label="soft" description="Lightweight background option with softer emphasis." />
         </ul>
       </div>
 
@@ -22,43 +21,56 @@ export function UsageNotes() {
       <div>
         <h3 className="text-xl font-semibold mb-2">Sizes</h3>
         <ul className="list-disc list-inside text-muted-foreground space-y-2">
-          <UsageNoteItem label="sm" description="Use in compact spaces like forms, modals, or toolbars." />
-          <UsageNoteItem label="md" description="Default size. Good for general use." />
-          <UsageNoteItem label="lg" description="Use when the action needs emphasis, like hero sections." />
-          <UsageNoteItem label="icon" description="Use when the button only contains an icon (e.g., delete or settings)." />
+          <UsageNoteItem label="sm" description="Compact size for tight layouts such as modals or sidebars." />
+          <UsageNoteItem label="md" description="Default balanced size suitable for most use cases." />
+          <UsageNoteItem label="lg" description="Larger size for important actions or more emphasis." />
+          <UsageNoteItem label="xl" description="Extra-large buttons for high visibility or call-to-actions." />
+          <UsageNoteItem label="icon" description="Square button optimized for icon-only actions." />
         </ul>
       </div>
 
-      {/* Icon Notes */}
+      {/* With Icons */}
       <div>
         <h3 className="text-xl font-semibold mb-2">With Icons</h3>
         <p className="text-muted-foreground mb-2">
-          You can add icons to the left of the button label to visually represent the action.
+          Place an icon before the label to improve clarity. Icons automatically adjust spacing with the button size.
         </p>
         <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
-          &lt;Button icon=&#123;&lt;Mail /&gt;&#125;&gt;Email&lt;/Button&gt;
+          &lt;Button icon=&#123;&lt;Plus /&gt;&#125;&gt;Add Item&lt;/Button&gt;
         </code>
       </div>
 
-      {/* Loading Notes */}
+      {/* Loading State */}
       <div>
         <h3 className="text-xl font-semibold mb-2">Loading State</h3>
         <p className="text-muted-foreground mb-2">
-          To show loading state, use the <code className="bg-muted px-1 py-0.5 rounded">loading</code> prop. It automatically disables the button and shows a spinner.
+          Set <code className="bg-muted px-1 py-0.5 rounded">loading</code> to true to show a spinner and disable the button automatically.
         </p>
         <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
-          &lt;Button loading&gt;Saving...&lt;/Button&gt;
+          &lt;Button loading&gt;Submitting...&lt;/Button&gt;
         </code>
       </div>
 
-      {/* Full Width Notes */}
+      {/* Full Width */}
       <div>
         <h3 className="text-xl font-semibold mb-2">Full Width</h3>
         <p className="text-muted-foreground mb-2">
-          To make a button stretch across its container, pass the <code className="bg-muted px-1 py-0.5 rounded">fullWidth</code> prop.
+          Use <code className="bg-muted px-1 py-0.5 rounded">fullWidth</code> to make the button span its container.
         </p>
         <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
-          &lt;Button fullWidth&gt;Submit&lt;/Button&gt;
+          &lt;Button fullWidth&gt;Continue&lt;/Button&gt;
+        </code>
+      </div>
+
+      {/* Anchor Support */}
+      <div>
+        <h3 className="text-xl font-semibold mb-2">Anchor Links</h3>
+        <p className="text-muted-foreground mb-2">
+          Render the button as an anchor by setting <code className="bg-muted px-1 py-0.5 rounded">as="a"</code> with a valid{" "}
+          <code className="bg-muted px-1 py-0.5 rounded">href</code>.
+        </p>
+        <code className="block bg-muted text-sm px-2 py-1 rounded w-fit">
+          &lt;Button as="a" href="/dashboard"&gt;Go to Dashboard&lt;/Button&gt;
         </code>
       </div>
     </div>

@@ -1,80 +1,96 @@
-// --- Main Examples ---
+// src/data/code-snippets/button.ts
 
-export const buttonTsCode = `import { Button } from "@/components/ui/button";
+// --- TypeScript Examples ---
+export const TsCode1 = `
+import { Button } from "@/components/button";
 
-export function ButtonDemo() {
-  return <Button variant="default">Primary</Button>;
-};`;
+export function Example() {
+  return (
+    <Button className="bg-blue-500 text-white hover:bg-blue-600">
+      Click Me
+    </Button>
+  );
+}
+`;
 
-export const buttonJsCode = `import { Button } from "@/components/ui/button";
+export const TsCode2 = `
+import { Button } from "@/components/button";
 
-export function ButtonDemo() {
-  return <Button variant="default">Primary</Button>;
-};`;
+export function Example() {
+  return (
+    <Button 
+      variant="outline" 
+      icon={<Trash />}
+      className="border-red-500 text-red-500 hover:bg-red-50"
+    >
+      Delete
+    </Button>
+  );
+}
+`;
 
-export const sizebuttonTsCode = `import { Button } from "@/components/ui/button";
+export const TsCode3 = `
+import { Button } from "@/components/button";
 
-export function ButtonDemo() {
-  return  <Button size="lg">Large</Button>;
-};`;
+export function Example({ isLoading }: { isLoading: boolean }) {
+  return (
+    <Button 
+      className="bg-green-500 text-white" 
+      icon={<Plus />} 
+      loading={isLoading}
+    >
+      Add Item
+    </Button>
+  );
+}
+`;
 
-export const sizebuttonJsCode = `import { Button } from "@/components/ui/button";
+export const TsCode4 = `
+import { Button } from "@/components/button";
 
-export function ButtonDemo() {
-  return  <Button size="lg">Large</Button>;
-};`;
-
-export const iconbuttonTsCode = `import { Button } from "@/components/ui/button";
-
-export function ButtonDemo() {
-  return  
-   
-  <Button variant="outline" icon={<ExternalLink className="h-4 w-4" />}>
-  Open Link
-  </Button>;
-           
-};`;
-
-export const iconbuttonJsCode = `import { Button } from "@/components/ui/button";
-
-export function ButtonDemo() {
-  return   
-
-  <Button variant="outline" icon={<ExternalLink className="h-4 w-4" />}>
-  Open Link
-  </Button>;
-            
-};`;
-
-export const loadingbuttonTsCode = `import { Button } from "@/components/ui/button";
-
-export function ButtonDemo() {
-  return  
-
-  <Button loading variant="destructive" onClick={handleLoadingTest}>
-  Delete
-  </Button>
-           
-};`;
-
-export const loadingbuttonJsCode = `import { Button } from "@/components/ui/button";
-
-export function ButtonDemo() {
-  return   
-
-  <Button loading variant="destructive" onClick={handleLoadingTest}>
-  Delete
-  </Button>
-            
-};`;
+export function Example() {
+  return (
+    <Button as="a" href="/dashboard" variant="ghost" icon={<ExternalLink />}>
+      Go to Dashboard
+    </Button>
+  );
+}
+`;;
 
 
-export const DependencyCommand = `npm install lucide-react
-npm install class-variance-authority`;
-export const CommandTs = "npx screenui add button --lang ts --path src/components/ui";
-export const CommandJs = "npx screenui add button --lang js --path src/components/ui";
+// --- JavaScript Examples ---
+// Reuse TS code for examples that don't have type annotations
+export const JsCode1 = TsCode1;
+export const JsCode2 = TsCode2;
 
-export const Description = "Buttons support multiple variants and sizes. Use the appropriate variant based on the importance of the action.";
+// Adjust example with type annotations for JS
+export const JsCode3 = `
+import { Button } from "@/components/button";
+
+export default function Example({ isLoading }) {
+  return (
+    <Button 
+      className="bg-green-500 text-white" 
+      icon={<Plus />} 
+      loading={isLoading}
+    >
+      Add Item
+    </Button>
+  );
+}
+`;
+
+export const JsCode4 = TsCode4;
+
+
+// --- Commands ---
+export const CommandTs = "npx screenui@latest add button --lang ts --path src/components";
+export const CommandJs = "npx screenui@latest add button --lang js --path src/components";
+
+
+// --- Meta Data ---
 export const Component = "Button";
-export const Title = "Button Variants";
-export const Lastupdated = "Jul 17";
+export const Title = "Versatile Button Component";
+export const Description = "A customizable button component supporting multiple variants, sizes, icons, loading states, and anchor links.";
+export const Lastupdated = "2025-09-19";
+export const Version = "1.0.0";

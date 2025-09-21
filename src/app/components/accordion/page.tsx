@@ -1,16 +1,24 @@
+'use client';
 import { MainLayout } from '@/components/layout/main-layout';
 import { ComponentHeader } from '@/app/library/component/component-header';
 import { ComponentDemo } from '@/app/library/component/component-demo';
-import Accordion from '@/components/ui/Accordion';
-import { accordionItems } from '@/data/demo-data/accordion-items';
 import {
-  accordionTsCode,
-  accordionJsCode,
-  accordionMultipleTsCode,
-  accordionMultipleJsCode,
-} from '@/data/code-snippets/accordion';
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from "@/components/ui/Accordion";
+import { TsCode1, TsCode2, TsCode3, TsCode4, JsCode1, JsCode2, JsCode3, JsCode4, CommandTs, CommandJs, Component, Title, Description, Lastupdated, Version } from '@/data/code-snippets/accordion';
+import { UsageNotes } from '@/app/components/accordion/usage';
+import React, { useState } from 'react';
 
 export default function AccordionPage() {
+  const [value, setValue] = useState<string | undefined>(undefined);
+
+  function handleValueChange(newValue: string): void {
+    setValue(newValue);
+  }
+
   return (
     <MainLayout>
       <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
@@ -26,13 +34,36 @@ export default function AccordionPage() {
           dependencyCommand="npm install lucide-react"
           npmCommandTs="npm install @radix-ui/react-accordion"
           npmCommandJs="npm install @radix-ui/react-accordion"
-          tsCode={accordionTsCode}
-          jsCode={accordionJsCode}
+          tsCode={TsCode1}
+          jsCode={JsCode1}
           showJavascript={false}
           showTypescript={false}
         >
           <div className="flex flex-wrap gap-4">
-            <Accordion items={accordionItems} />
+            <Accordion type="single" collapsible className="w-full max-w-2xl">
+              <AccordionItem value="accessibility">
+                <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It adheres to the WAI-ARIA design pattern with proper focus management,
+                  keyboard navigation, and screen reader support.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="styling">
+                <AccordionTrigger>Is it styled?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It comes with default styles using CSS variables for theming,
+                  and can be fully customized with Tailwind CSS classes.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="animated">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It includes smooth height-based animations with proper timing
+                  and easing functions for a professional feel.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </ComponentDemo>
 
@@ -40,13 +71,43 @@ export default function AccordionPage() {
           title="Accordion with Multiple Items"
           description="Allow multiple items to be expanded at once."
           component="Accordion"
-          tsCode={accordionMultipleTsCode}
-          jsCode={accordionMultipleJsCode}
+          tsCode={TsCode2}
+          jsCode={JsCode2}
           showJavascript={false}
           showTypescript={false}
         >
           <div className="flex flex-wrap gap-4">
-            <Accordion items={accordionItems} allowMultiple />
+            <Accordion
+              type="multiple"
+              variant="separated"
+              className="space-y-3"
+              defaultValue={["tech-1", "tech-2"]}
+            >
+              <Accordion
+                type="single"
+                collapsible
+                value={value}
+                onValueChange={handleValueChange}
+                className="border-2 border-blue-200 rounded-xl"
+              >
+                <AccordionItem value="terms">
+                  <AccordionTrigger className="text-blue-700 hover:bg-blue-50">
+                    Terms of Service
+                  </AccordionTrigger>
+                  <AccordionContent className="text-blue-600">
+                    Please read our terms of service carefully before using our platform.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="privacy">
+                  <AccordionTrigger className="text-blue-700 hover:bg-blue-50">
+                    Privacy Policy
+                  </AccordionTrigger>
+                  <AccordionContent className="text-blue-600">
+                    Your privacy is important to us. Learn how we protect your data.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </Accordion>
           </div>
         </ComponentDemo>
 

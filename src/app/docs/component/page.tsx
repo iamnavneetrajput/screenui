@@ -23,7 +23,6 @@ export default function ComponentDocsPage() {
                     <Card className="bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] border border-[hsl(var(--border))]">
                         <CardHeader className="pb-6 sm:pb-8">
                             <CardTitle className="text-2xl sm:text-3xl flex items-center gap-3">
-                                <Zap className="h-8 w-8 text-[hsl(var(--primary))]" />
                                 Component Installation
                             </CardTitle>
                             <CardDescription className="text-base sm:text-lg">

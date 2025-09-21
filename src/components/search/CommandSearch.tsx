@@ -7,7 +7,7 @@ import {
   NAVIGATION_ITEMS, 
   Components_ITEMS, 
   SOCIAL_ITEMS 
-} from '@/components/data/command';
+} from '@/data/command';
 import NavigateTab from './tabs/NavigateTab';
 import ComponentTab from './tabs/Components';
 import ToolsTab from './tabs/SocialTab';

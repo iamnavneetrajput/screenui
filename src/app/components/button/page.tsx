@@ -3,21 +3,16 @@ import React, { useState } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { ComponentHeader } from '@/app/library/component/component-header';
 import { ComponentDemo } from '@/app/library/component/component-demo';
-import { Button } from '@/components/ui/button';
-import { ExternalLink } from 'lucide-react';
-import {
-  buttonTsCode, buttonJsCode, DependencyCommand, CommandTs, CommandJs, Component, Title, Lastupdated
-  , sizebuttonJsCode, sizebuttonTsCode, iconbuttonJsCode, iconbuttonTsCode, loadingbuttonTsCode, loadingbuttonJsCode
-} from '@/data/code-snippets/button';
+import { Button } from '@/components/ui/Button';
+import { Plus, Trash, ExternalLink } from 'lucide-react';
+import { TsCode1, TsCode2, JsCode1, JsCode2, CommandJs, CommandTs, Component, Title, Description, Lastupdated, Version, TsCode3, JsCode3, TsCode4, JsCode4 } from '@/data/code-snippets/button';
+
 import { UsageNotes } from '@/app/components/button/usage';
 
 export default function ButtonPage() {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleLoadingTest = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  };
+
   return (
     <MainLayout>
       <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
@@ -32,21 +27,23 @@ export default function ButtonPage() {
           showJavascript={false}
           showTypescript={false}
           category="Form"
-          version="0.1.0"
+          version={Version}
           lastUpdated={Lastupdated}
           title={Title}
           description={''}
           component={Component}
-          dependencyCommand={DependencyCommand}
+          dependencyCommand={''}
           npmCommandTs={CommandTs}
           npmCommandJs={CommandJs}
-          tsCode={buttonTsCode}
-          jsCode={buttonJsCode}
+          tsCode={TsCode1}
+          jsCode={JsCode1}
         >
           <div className='space-y-12'>
             <div className="space-y-6">
               <div className="flex flex-wrap gap-4">
-                <Button variant="default">Default</Button>
+                <Button className="bg-blue-500 text-white hover:bg-blue-600">
+                  Click Me
+                </Button>
               </div>
             </div>
           </div>
@@ -63,34 +60,17 @@ export default function ButtonPage() {
           dependencyCommand=""
           npmCommandTs=""
           npmCommandJs=""
-          tsCode={iconbuttonTsCode}
-          jsCode={iconbuttonJsCode}
+          tsCode={TsCode2}
+          jsCode={JsCode2}
         >
           <div className="flex flex-wrap gap-4">
-            <Button variant="outline" icon={<ExternalLink className="h-4 w-4" />}>
-              Open Link
+            <Button
+              icon={<Trash />}
+              variant="outline"
+              className="border-red-500 text-red-500 hover:bg-red-50"
+            >
+              Delete
             </Button>
-          </div>
-        </ComponentDemo>
-
-        <ComponentDemo
-          showInstallation={true}
-          showJavascript={false}
-          showTypescript={false}
-          showTabs={true}
-          title="Button Sizes"
-          description='Buttons can have different sizes to fit various use cases.'
-          component="Button"
-          dependencyCommand=""
-          npmCommandTs=""
-          npmCommandJs=""
-          tsCode={sizebuttonTsCode}
-          jsCode={sizebuttonJsCode}
-        >
-          <div className="space-y-4">
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg">Large</Button>
-            </div>
           </div>
         </ComponentDemo>
 
@@ -101,17 +81,48 @@ export default function ButtonPage() {
           showTabs={true}
           title="Button Loading State"
           description="Buttons can indicate loading states to inform users that an action is being processed."
-          component="Button"
+          component={Component}
           dependencyCommand=""
           npmCommandTs=""
           npmCommandJs=""
-          tsCode={loadingbuttonTsCode}
-          jsCode={loadingbuttonJsCode}
+          tsCode={TsCode3}
+          jsCode={JsCode3}
         >
           <div className="space-y-4">
             <div className="flex flex-wrap gap-4">
-              <Button loading variant="destructive" onClick={handleLoadingTest}>
-                Delete
+              <Button
+                className="bg-green-500 text-white"
+                icon={<Plus />}
+                loading={isLoading}
+                onClick={() => {
+                  setIsLoading(true);
+                  setTimeout(() => setIsLoading(false), 2000); // reset after 2s
+                }}
+              >
+                Add Item
+              </Button>
+            </div>
+          </div>
+        </ComponentDemo>
+
+        <ComponentDemo
+          showInstallation={true}
+          showJavascript={false}
+          showTypescript={false}
+          showTabs={true}
+          title="Button as Link"
+          description="Buttons can be rendered as anchor tags for navigation purposes."
+          component={Component}
+          dependencyCommand=""
+          npmCommandTs=""
+          npmCommandJs=""
+          tsCode={TsCode4}
+          jsCode={JsCode4}
+        >
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-4">
+              <Button as="a" href="/dashboard" variant="ghost" icon={<ExternalLink />}>
+                Go to Dashboard
               </Button>
             </div>
           </div>

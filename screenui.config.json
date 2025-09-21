@@ -1,0 +1,8 @@
+{
+  "language": "ts",
+  "componentsPath": "src/components/ui",
+  "utilsPath": "src/lib/utils.ts",
+  "templatesPath": "templates",
+  "organization": "screenui",
+  "version": "0.1.0"
+}
