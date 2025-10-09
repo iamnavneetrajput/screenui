@@ -313,8 +313,8 @@ export function Example() {
 `;
 
 // --- Commands ---
-export const CommandTs = "npx screenui@latest add accordion --lang ts --path src/components";
-export const CommandJs = "npx screenui@latest add accordion --lang js --path src/components";
+export const CommandTs = "npx screenui add accordion --lang ts --path src/components";
+export const CommandJs = "npx screenui add accordion --lang js --path src/components";
 
 // --- Meta Data ---
 export const Component = "Accordion";

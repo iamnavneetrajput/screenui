@@ -31,7 +31,7 @@ export default function ChatGPTButton() {
   return (
     <button
       onClick={handleClick}
-      className="p-1 ml-[-8px] rounded-lg hover:bg-green-400 transition-colors"
+      className="p-1 ml-[-4px] rounded-lg hover:bg-green-400 transition-colors"
       title="Ask ChatGPT how to use this component"
     >
       <svg

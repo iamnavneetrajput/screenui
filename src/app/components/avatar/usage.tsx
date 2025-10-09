@@ -1,5 +1,4 @@
 //src/app/components/avatar/usage.tsx
-//usage notes for Avatar component
 import { UsageNoteItem } from "@/components/ui/main/UsageNoteItem";
 
 export function UsageNotes() {

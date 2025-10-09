@@ -47,9 +47,12 @@ export function Example() {
 export const JsCode1 = TsCode1;
 
 
-// --- CLI Commands ---
-export const CommandTs = "npx screenui@latest add badge --lang ts --path src/components";
-export const CommandJs = "npx screenui@latest add badge --lang js --path src/components";
+// --- Installation Commands (structured) ---
+export const InstallCommands = {
+  dependency: '',
+  ts: "npx screenui add avatar --lang ts --path src/components",
+  js: "npx screenui add avatar --lang js --path src/components",
+};;
 
 
 // --- Metadata ---

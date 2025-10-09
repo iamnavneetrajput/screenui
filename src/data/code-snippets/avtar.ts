@@ -1,13 +1,10 @@
 // src/data/code-snippets/avatar.ts
-import { Star } from "lucide-react";
 
 // --- Installation Commands (structured) ---
 export const InstallCommands = {
-  npm: "npm install screenui",
-  yarn: "yarn add screenui",
-  pnpm: "pnpm add screenui",
-  ts: "npx screenui@latest add avatar --lang ts --path src/components",
-  js: "npx screenui@latest add avatar --lang js --path src/components",
+  dependency: '',
+  ts: "npx screenui add avatar --lang ts --path src/components",
+  js: "npx screenui add avatar --lang js --path src/components",
 };
 
 // --- TypeScript Examples ---
@@ -53,6 +50,6 @@ export const JsCode1 = TsCode1;
 export const Component = "Avatar";
 export const Title = "Avatar Component";
 export const Description =
-  "A versatile and accessible avatar component with support for variants, sizes, interactivity, fallbacks, custom placeholders, and skeleton loading states.";
+  "A customizable avatar component supporting images, fallback text, icons, and various styles.";
 export const Lastupdated = "2025-09-20";
 export const Version = "1.0.0";

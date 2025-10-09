@@ -64,8 +64,8 @@ export const JsCode3 = TsCode3;
 export const JsCode4 = TsCode4;
 
 // NPM Commands
-export const CommandTs = "npx screenui@latest add alert --lang ts --path src/components";
-export const CommandJs = "npx screenui@latest add alert --lang js --path src/components";
+export const CommandTs = "npx screenui add alert --lang ts --path src/components";
+export const CommandJs = "npx screenui add alert --lang js --path src/components";
 
 // Component Metadata
 export const Component = "Alert";

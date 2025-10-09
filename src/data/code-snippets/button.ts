@@ -84,8 +84,8 @@ export const JsCode4 = TsCode4;
 
 
 // --- Commands ---
-export const CommandTs = "npx screenui@latest add button --lang ts --path src/components";
-export const CommandJs = "npx screenui@latest add button --lang js --path src/components";
+export const CommandTs = "npx screenui add button --lang ts --path src/components";
+export const CommandJs = "npx screenui add button --lang js --path src/components";
 
 
 // --- Meta Data ---
