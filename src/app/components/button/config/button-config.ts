@@ -2,7 +2,7 @@
 import {
   TsCode1,
   JsCode1,
-//   InstallCommands,
+  InstallCommands,
   Component,
   Title,
   Description,
@@ -15,8 +15,8 @@ export const buttonConfig = {
   component: Component,
   description: Description,
   dependencyCommand: "",
-//   npmCommandTs: InstallCommands.ts,
-//   npmCommandJs: InstallCommands.js,
+  npmCommandTs: InstallCommands.ts,
+  npmCommandJs: InstallCommands.js,
   tsCode: TsCode1,
   jsCode: JsCode1,
   

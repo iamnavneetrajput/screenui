@@ -62,7 +62,7 @@ export default function IntroBanner({
                 </Link>
               ) : null}
 
-              {installCmd && <TerminalCommand command={installCmd} />}
+              {installCmd && <TerminalCommand command={installCmd} wrap="nowrap" />}
             </div>
           </div>
         </div>

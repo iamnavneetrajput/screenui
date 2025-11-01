@@ -1,5 +1,12 @@
 // src/data/code-snippets/button.ts
 
+// --- Installation Commands (structured) ---
+export const InstallCommands = {
+  dependency: '',
+  ts: "npx screenui add button --lang ts --path src/components",
+  js: "npx screenui add button --lang js --path src/components",
+};
+
 // --- TypeScript Examples ---
 export const TsCode1 = `
 import { Button } from "@/components/button";
@@ -8,6 +15,14 @@ export function Example() {
   return (
     <Button className="bg-blue-500 text-white hover:bg-blue-600">
       Click Me
+    </Button>
+
+      <Button 
+      variant="outline" 
+      icon={<Trash />}
+      className="border-red-500 text-red-500 hover:bg-red-50"
+    >
+      Delete
     </Button>
   );
 }
@@ -18,13 +33,7 @@ import { Button } from "@/components/button";
 
 export function Example() {
   return (
-    <Button 
-      variant="outline" 
-      icon={<Trash />}
-      className="border-red-500 text-red-500 hover:bg-red-50"
-    >
-      Delete
-    </Button>
+
   );
 }
 `;
@@ -81,12 +90,6 @@ export default function Example({ isLoading }) {
 `;
 
 export const JsCode4 = TsCode4;
-
-
-// --- Commands ---
-export const CommandTs = "npx screenui add button --lang ts --path src/components";
-export const CommandJs = "npx screenui add button --lang js --path src/components";
-
 
 // --- Meta Data ---
 export const Component = "Button";

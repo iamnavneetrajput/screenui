@@ -1,4 +1,3 @@
-// written by screenui team and enhanced by ai for seo and ai crawlers
 'use client';
 import React, { memo } from 'react';
 import { ComponentDocData } from '@/types/component-docs';

@@ -79,7 +79,7 @@ export default function ComponentDocsPage() {
     <main className="min-h-screen w-full bg-[hsl(var(--background))]">
       <div className="pt-12">
         <IntroBanner
-          title="ScreenUI CLI Documentation"
+          title="Component Docs"
           description="All commands and options for installing, managing, and upgrading components."
           customButton={<DocsSwitchButton />}
         />

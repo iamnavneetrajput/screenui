@@ -7,15 +7,15 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = mergeMetadata({
   title: 'screenui',
-  description: 'Craft components your way Plug-and-play components. Share, reuse, and build fast — all open source.',
+  description: 'Designed to be modified.',
 });
 
 export default function Home() {
   return (
     <main className="min-h-screen w-full pt-12 bg-[hsl(var(--background))]">
       <IntroBanner
-        title="Craft components your way"
-        description="Plug-and-play components. Share, reuse, and build fast — all open source."
+        title="Designed to be modified"
+        description="Drop them in, tweak what matters, and move on. All open source."
         installCmd="npx screenui add component-name"
         buttonLabel="Components"
         buttonLink="/library"
