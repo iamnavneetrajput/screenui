@@ -1,40 +1,40 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Search } from 'lucide-react';
+import { Input } from '@/packages/Input';
+import { Button } from '@/packages/Button';
 import { CommandSearchProps } from './types';
-import { 
-  MOCK_TEAM_MEMBERS, 
-  NAVIGATION_ITEMS, 
-  Components_ITEMS, 
-  SOCIAL_ITEMS 
+import {
+  MOCK_TEAM_MEMBERS,
+  NAVIGATION_ITEMS,
+  Components_ITEMS,
+  SOCIAL_ITEMS
 } from '@/data/command';
+
 import NavigateTab from './tabs/NavigateTab';
 import ComponentTab from './tabs/Components';
 import ToolsTab from './tabs/SocialTab';
 import TeamTab from './tabs/TeamTab';
 
-const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectComponent }) => {
+const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState<'navigate' | 'components' | 'team' | 'social'>('components');
-  
-  const handleKeyPress = useCallback(
-    (e: KeyboardEvent) => {
-      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setIsOpen((prev) => !prev);
-      } else if (e.key === 'Escape' && isOpen) {
-        setIsOpen(false);
-      }
-    },
-    [isOpen]
-  );
+
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    const isCmdK = (e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey);
+    if (isCmdK) {
+      e.preventDefault();
+      setIsOpen(prev => !prev);
+    }
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
-    return () => {
-      window.removeEventListener('keydown', handleKeyPress);
-    };
+    return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress]);
 
   const handleClose = () => {
@@ -42,40 +42,41 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
     setQuery('');
   };
 
-  const handleComponentClick = (component: string) => {
-    onSelectComponent(component);
-    handleClose();
-  };
-
-  const filteredTeamMembers = MOCK_TEAM_MEMBERS.filter(
-    member => !query || member.name.toLowerCase().includes(query.toLowerCase())
+  const filteredTeamMembers = MOCK_TEAM_MEMBERS.filter(member =>
+    member.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  const filteredNavigationItems = NAVIGATION_ITEMS.filter(
-    item => !query || item.title.toLowerCase().includes(query.toLowerCase()) || 
+  const filteredNavigationItems = NAVIGATION_ITEMS.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase()) ||
     item.description.toLowerCase().includes(query.toLowerCase())
   );
 
-  const filteredActionItems = Components_ITEMS.filter(
-    item => !query || item.title.toLowerCase().includes(query.toLowerCase()) || 
+  const filteredActionItems = Components_ITEMS.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase()) ||
     item.description.toLowerCase().includes(query.toLowerCase())
   );
 
-  const filteredToolItems = SOCIAL_ITEMS.filter(
-    item => !query || item.title.toLowerCase().includes(query.toLowerCase()) || 
+  const filteredToolItems = SOCIAL_ITEMS.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase()) ||
     item.description.toLowerCase().includes(query.toLowerCase())
   );
-  
+
   return (
     <div>
+      {/* === Trigger Button === */}
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full max-w-md px-4 float-end py-0.5 border border-[hsla(var(--border))] rounded-md bg-[hsla(var(--background))] text-[hsl(var(--foreground))] text-left flex items-center min-[375px]:min-w-[250px]"
+        className="md:w-full md:max-w-md md:px-4 md:py-0.5 md:border md:border-[hsla(var(--border),0.8)]
+         md:rounded-md md:bg-[hsla(var(--background))] md:text-left md:flex md:items-center md:gap-2
+         w-8 h-8 flex items-center justify-center rounded-md border border-[hsla(var(--border),0.8)] bg-[hsl(var(--background))]"
       >
-        <Search size={16} className="mr-2 text-[hsl(var(--foreground))]" />
-        <span className="text-[hsl(var(--foreground))]">Type a command...</span>
-        <span className="ml-auto text-xs text-[hsl(var(--foreground))]">⌘k</span>
+        <Search size={16} className="text-[hsl(var(--foreground))]" />
+
+        {/* Desktop text only */}
+        <span className="hidden md:inline text-[hsl(var(--foreground))]">Type a command...</span>
+        <span className="hidden md:inline ml-auto text-xs text-[hsl(var(--foreground))]">⌘k</span>
       </button>
+
 
       <AnimatePresence>
         {isOpen && (
@@ -94,58 +95,69 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ components, onSelectCompo
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* === Search Input === */}
               <div className="relative">
-                <Search size={16} className="absolute left-4 top-4 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Type a command or search..."
+                <Input
+                  type='text'
+                  placeholder='Type a command or search...'
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   className="w-full bg-gray-900 text-gray-200 pl-10 pr-10 py-3 border-b border-gray-800 focus:outline-none"
                   autoFocus
+                  leftIcon={<Search size={16} className='text-[hsl(var(--foreground))]' />}
                 />
-                <button 
-                  onClick={handleClose} 
-                  className="absolute right-4 top-4 text-gray-400 hover:text-gray-200 focus:outline-none"
+                <Button
+                  onClick={handleClose}
+                  className="absolute right-0 top-0 text-gray-400 hover:text-gray-200 focus:outline-none"
                 >
                   <X size={16} />
-                </button>
+                </Button>
               </div>
 
+              {/* === Tabs === */}
               <div className="flex border-b border-gray-800 overflow-x-auto">
                 {(['navigate', 'components', 'team', 'social'] as const).map((tab) => (
-                  <button
+                  <Button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-2 text-sm font-medium focus:outline-none ${
-                      activeTab === tab 
-                        ? 'text-white border-b-2 border-white' 
-                        : 'text-gray-400 hover:text-gray-300'
-                    }`}
+                    className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === tab
+                      ? 'text-white border-b-2 border-white'
+                      : 'text-gray-400 hover:text-gray-300'
+                      }`}
                   >
                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </button>
+                  </Button>
                 ))}
               </div>
 
+              {/* === Content === */}
               <div className="max-h-72 overflow-y-auto">
                 {activeTab === 'navigate' && (
                   <NavigateTab
                     items={filteredNavigationItems}
                     onSelect={(title) => {
                       console.log(`Navigated to: ${title}`);
-                      handleClose(); // ✅ added this line to close after select
+                      handleClose();
                     }}
                   />
                 )}
+
                 {activeTab === 'components' && (
-                  <ComponentTab items={filteredActionItems} onSelect={handleComponentClick} />
+                  <ComponentTab
+                    items={filteredActionItems}
+                    onSelect={(component) => {
+                      onSelectComponent(component);
+                      handleClose();
+                    }}
+                  />
                 )}
+
                 {activeTab === 'social' && (
-                  <ToolsTab items={filteredToolItems} onSelect={handleComponentClick} />
+                  <ToolsTab items={filteredToolItems} onSelect={() => handleClose()} />
                 )}
+
                 {activeTab === 'team' && (
-                  <TeamTab members={filteredTeamMembers} onSelect={handleComponentClick} />
+                  <TeamTab members={filteredTeamMembers} onSelect={() => handleClose()} />
                 )}
               </div>
             </motion.div>

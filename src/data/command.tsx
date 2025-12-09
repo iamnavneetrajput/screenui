@@ -1,7 +1,6 @@
 //components/data/command.tsx
 import { Icons } from '@/utils/icons';
-import { TeamMember, NavigationItem, Components, SocialItem } from '../components/search/types';
-import { Badge } from '@/components/ui/badge';
+import { TeamMember, NavigationItem, ComponentItem, SocialItem } from '../components/search/types';
 
 export const MOCK_TEAM_MEMBERS: TeamMember[] = [
   { id: 'n', name: 'Navneet', status: 'available', initials: 'N' },
@@ -41,28 +40,34 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/color'
   },
   {
-    id: 'awaken',
-    title: 'Awaken',
+    id: 'templates',
+    title: 'Templates',
     description: 'Discover new features and updates',
     icon: <Icons.layoutGrid size={16} />,
     shortcut: '⌘A',
-    href: '/awaken'
+    href: '/templates'
   },
 ];
 
-export const Components_ITEMS: Components[] = [
+export const Components_ITEMS: ComponentItem[] = [
+  // -----------------------
+  // Elements
+  // -----------------------
   {
     id: 'button',
     title: 'Button',
-    description: 'Buttons are used to trigger actions or events, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.',
+    description:
+      'Buttons trigger actions such as submitting forms, opening dialogs, or performing operations.',
     icon: <Icons.power size={16} />,
     category: 'Elements',
-    href: '/components/button'
+    href: '/components/button',
+    popular: true
   },
   {
     id: 'badge',
     title: 'Badge',
-    description: 'Badges are used to display small counts or status indicators, such as unread messages, notifications, or status labels.',
+    description:
+      'Badges show small counts or status indicators such as unread messages or notifications.',
     icon: <Icons.badge size={16} />,
     category: 'Elements',
     href: '/components/badge'
@@ -70,28 +75,145 @@ export const Components_ITEMS: Components[] = [
   {
     id: 'avatar',
     title: 'Avatar',
-    description: 'Avatars are used to represent users or entities, typically displaying a profile picture or initials.',
+    description:
+      'Avatars represent users with images, initials, or placeholders.',
     icon: <Icons.userCircle size={16} />,
     category: 'Elements',
-    href: '/components/avatar'
+    href: '/components/avatar',
+    isNew: true
+  },
+
+  // -----------------------
+  // Forms
+  // -----------------------
+  {
+    id: 'fileupload',
+    title: 'File Upload',
+    description:
+      'Allows users to upload one or more files from their device.',
+    icon: <Icons.fileUpload size={16} />,
+    category: 'Forms',
+    href: '/components/fileupload'
   },
   {
     id: 'checkbox',
     title: 'Checkbox',
-    description: 'Checkboxes allow users to select one or more options from a set. They are typically used in forms, settings, and filters.',
+    description:
+      'Checkboxes allow selecting one or multiple items.',
     icon: <Icons.squareCheck size={16} />,
     category: 'Forms',
     href: '/components/checkbox'
   },
   {
+    id: 'input',
+    title: 'Input',
+    description:
+      'Text inputs collect user information such as names, emails, or passwords.',
+    icon: <Icons.inputCursorText size={16} />,
+    category: 'Forms',
+    href: '/components/input'
+  },
+  {
+    id: 'textarea',
+    title: 'Textarea',
+    description:
+      'A multi-line text input for long-form content such as comments or descriptions.',
+    icon: <Icons.notepadTextDashed size={16} />,
+    category: 'Forms',
+    href: '/components/textarea'
+  },
+  {
+    id: 'select',
+    title: 'Select',
+    description:
+      'A dropdown for choosing one value from a list of options.',
+    icon: <Icons.chevronDown size={16} />,
+    category: 'Forms',
+    href: '/components/select'
+  },
+  {
+    id: 'toggle',
+    title: 'Toggle',
+    description:
+      'A switch UI to enable or disable a setting instantly.',
+    icon: <Icons.toggle size={16} />,
+    category: 'Forms',
+    href: '/components/toggle'
+  },
+
+  // -----------------------
+  // Feedback
+  // -----------------------
+  {
     id: 'alert',
     title: 'Alert',
-    description: 'Alerts display short, important messages that attract the user`s attention without interrupting their task.',
+    description:
+      'Lightweight banners used to communicate warnings, errors, or success messages.',
     icon: <Icons.badgeAlert size={16} />,
     category: 'Feedback',
-    href: '/components/alert'
+    href: '/components/alert',
+    popular: true
+  },
+
+  // -----------------------
+  // Overlay
+  // -----------------------
+  {
+    id: 'modal',
+    title: 'Modal',
+    description:
+      'Overlays used to display dialogs, confirmations, and forms without leaving the page.',
+    icon: <Icons.layoutGrid size={16} />,
+    category: 'Overlay',
+    href: '/components/modal'
+  },
+
+  // -----------------------
+  // Layout
+  // -----------------------
+  {
+    id: 'accordion',
+    title: 'Accordion',
+    description:
+      'Expandable sections that help organize and reduce page clutter.',
+    icon: <Icons.list size={16} />,
+    category: 'Layout',
+    href: '/components/accordion'
+  },
+  {
+    id: 'card',
+    title: 'Card',
+    description:
+      'Flexible containers for grouping related content and actions.',
+    icon: <Icons.IdCard size={16} />,
+    category: 'Layout',
+    href: '/components/card'
+  },
+  {
+    id: 'pagination',
+    title: 'Pagination',
+    description:
+      'Navigation used to move through large sets of content.',
+    icon: <Icons.pagination size={16} />,
+    category: 'Layout',
+    href: '/components/pagination'
+  },
+
+  // -----------------------
+  // Data Display
+  // -----------------------
+  {
+    id: 'table',
+    title: 'Table',
+    description:
+      'Displays structured data in rows and columns with sorting and interactive controls.',
+    icon: <Icons.table size={16} />,
+    category: 'Data Display',
+    href: '/components/table',
+    popular: true
   }
 ];
+
 
 export const SOCIAL_ITEMS: SocialItem[] = [
   {
@@ -110,9 +232,4 @@ export const SOCIAL_ITEMS: SocialItem[] = [
     category: 'Social',
     href: 'https://www.instagram.com/thescreenui'
   }
-];
-
-export const MOCK_RECENT_SEARCHES = [
-  'Dashboard analytics',
-  'User settings',
 ];

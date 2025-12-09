@@ -1,7 +1,5 @@
 "use client";
-
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 function titleCaseFromSlug(slug: string) {
   return slug
@@ -21,7 +19,7 @@ export default function ChatGPTButton() {
     const last = pathname.split("/").filter(Boolean).pop() ?? "component";
     const componentName = titleCaseFromSlug(last);
 
-    const prompt = `Please read all the details on this documentation page about the ScreenUI ${componentName} component: ${currentUrl}. After reading, explain step by step how I can use this component in my own project.`;
+    const prompt = `Read all the details on this documentation page about the ScreenUI ${componentName} component: ${currentUrl}. After reading, explain step by step how I can use this component in my own project.`;
 
     const chatgptUrl = `https://chatgpt.com/?prompt=${encodeURIComponent(prompt)}`;
 

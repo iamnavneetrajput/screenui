@@ -1,33 +1,25 @@
 "use client";
-
-import { MainLayout } from "@/components/layout/main-layout";
+import LibraryLayout from "@/app/library/layout";
 import { ComponentHeader } from "@/app/library/component/component-header";
-import { EnhancedComponentDemo } from "../../library/component/enhanced/EnhancedComponentDemo";
-import { BadgePreviewDemo } from "./components/BadgePreview";
-import { badgeConfig } from "./config/badge-config";
-import { badgeTabs } from "./config/badge-tabs";
-import { UsageNotes } from "./usage";
+import { BadgeFeatures } from "./sections/Features";
+import { PageClient } from "./demo/PageClient";
+import { Config } from "./config/config";
 
-export default function BadgePage() {
+export default function Page() {
   return (
-    <MainLayout>
-      <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
+    <LibraryLayout>
+      <div className=" max-w-5xl mx-auto space-y-10">
         <ComponentHeader
-          title={badgeConfig.component}
-          description='The Badge component is used to display status information, often in a compact and visually distinct format. It can be customized in size and shape to fit various design needs.'
+          title={Config.component}
+          description={Config.description}
         />
 
-        <EnhancedComponentDemo
-          {...badgeConfig}
-          additionalTabs={badgeTabs}
-        >
-          <BadgePreviewDemo />
-        </EnhancedComponentDemo>
+        <PageClient />
 
-        <div className="border border-[hsl(var(--border))] rounded-lg bg-[hsl(var(--background))]">
-          <UsageNotes />
+        <div className="border border-[hsl(var(--border))]">
+          <BadgeFeatures />
         </div>
       </div>
-    </MainLayout>
+    </LibraryLayout>
   );
 }

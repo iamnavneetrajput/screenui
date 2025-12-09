@@ -1,6 +1,6 @@
 {
   "button": {
     "version": "1.0.0",
-    "path": "src/components/ui/Button.tsx"
+    "path": "src/packages/Button.tsx"
   }
 }

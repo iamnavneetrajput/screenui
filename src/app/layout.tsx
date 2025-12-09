@@ -6,9 +6,10 @@ import SiteHeader from '@/components/layout/site-header';
 import { Analytics } from "@vercel/analytics/react";
 import { DEFAULT_SEO } from '@/lib/seo.config';
 import ErrorBoundary from '@/hooks/ErrorBoundary';
+import TopLoader from '@/components/loading/TopLoader';
 
 import DevPanel from '@/components/layout/wrapper/SettingWrapper';
-import Footer from '@/components/layout/wrapper/FooterWrapper';
+import Footer from '@/components/layout/footer'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,15 +21,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Favicon & Manifest */}
+        {/* Icons */}
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -36,7 +33,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="screenui" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        {/* Structured Data */}
+        {/* Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -54,28 +51,36 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} relative min-h-screen bg-background text-foreground`}>
+
+      <body className={`${inter.className} relative min-h-screen bg-(hsl(var(--background))) text-(hsl(var(--foreground)))`}>
         <ErrorBoundary>
           <ThemeProvider>
+
+            {/* Header */}
             <SiteHeader />
 
-            {/* Full-screen dotted vertical lines */}
-            <div className="hidden z-50 md:block absolute top-0 bottom-0 left-1/2 w-full -translate-x-1/2 pointer-events-none">
-              <div className="custom-container absolute left-0 right-0 mx-auto h-full">
-                <div className="absolute top-0 bottom-0 left-0 w-px border-l border-dashed border-[hsl(var(--border))] border-muted" />
-                <div className="absolute top-0 bottom-0 right-0 w-px border-l border-dashed border-[hsl(var(--border))] border-muted" />
+            {/* FIXED vertical dotted lines (frame layer, behind everything) */}
+            <div className="pointer-events-none fixed inset-0 z-50 hidden md:block">
+              <div className="custom-container mx-auto h-full relative">
+                <div className="absolute top-0 bottom-0 left-0 w-px border-l border-dashed border-[hsl(var(--border))]" />
+                <div className="absolute top-0 bottom-0 right-0 w-px border-l border-dashed border-[hsl(var(--border))]" />
               </div>
             </div>
 
-            <div className="custom-container relative mx-auto px-4 py-6">
-              <main>
-                {children}
-                <Analytics />
-              </main>
+            {/* <div className="fixed inset-0 z-0 pointer-events-none">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[hsl(var(--background))] blur-[120px] rounded-full" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
+            </div> */}
+
+            <div className="relative mx-auto px-4 py-6">
+              <TopLoader />
+              {children}
+              <Analytics />
             </div>
 
             <DevPanel />
             <Footer />
+
           </ThemeProvider>
         </ErrorBoundary>
       </body>

@@ -8,7 +8,7 @@ import {
   Description,
   Lastupdated,
   Version,
-} from "@/data/code-snippets/button";
+} from "@/app/components/button/config/button";
 
 export const buttonConfig = {
   title: Title,
@@ -19,21 +19,25 @@ export const buttonConfig = {
   npmCommandJs: InstallCommands.js,
   tsCode: TsCode1,
   jsCode: JsCode1,
-  
+
   // Display options
   showInstallation: true,
   showTabs: true,
   showJavascript: false,
   showTypescript: false,
-  
-  // Enhanced metadata for AI/SEO
-  category: "UI Components" as const,
+
+  // Proper metadata
+  category: "Actions" as const,  // Buttons trigger actions — this is the correct taxonomy
   version: Version,
   lastUpdated: Lastupdated,
-  dependencies: ['react', 'tailwindcss', 'lucide-react'],
-  tags: ['avatar', 'profile', 'user', 'image', 'fallback'],
-  
-  // Enhanced customization
+
+  // Real dependencies only
+  dependencies: ["react", "tailwindcss"],
+
+  // Accurate tags
+  tags: ["button", "action", "control", "cta", "interactive", "ui"],
+
+  // Preview customization
   previewBackground: "default" as const,
   previewPadding: "lg" as const,
   centerPreview: true,

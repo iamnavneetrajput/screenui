@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Package, Terminal, FileText, CheckCircle, ChevronDown } from 'lucide-react';
 import { CodeBlock } from './CodeBlock';
+import { Button } from '@/packages/Button';
 import { cn } from '@/lib/utils';
 
 interface InstallationGuideProps {
@@ -67,7 +68,7 @@ export function InstallationGuide({
       content: (
         <div className="space-y-4">
           <div className="flex space-x-2 mb-4">
-            <button
+            <Button
               onClick={() => setCodeLanguage('typescript')}
               className={cn(
                 'px-3 py-1.5 text-sm rounded-md transition-colors font-medium',
@@ -77,8 +78,8 @@ export function InstallationGuide({
               )}
             >
               TypeScript
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setCodeLanguage('javascript')}
               className={cn(
                 'px-3 py-1.5 text-sm rounded-md transition-colors font-medium',
@@ -88,7 +89,7 @@ export function InstallationGuide({
               )}
             >
               JavaScript
-            </button>
+            </Button>
           </div>
           <CodeBlock
             code={codeLanguage === 'typescript' ? (npmCommandTs || '') : (npmCommandJs || '')}
@@ -214,32 +215,6 @@ export function InstallationGuide({
           );
         })}
       </div>
-
-      {/* <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0">
-            <svg
-              className="w-5 h-5 text-blue-600 mt-0.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h4 className="text-sm font-medium text-blue-900">Need Help?</h4>
-            <p className="text-sm text-blue-700 mt-1">
-              Check our documentation or join our community for support and examples.
-            </p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

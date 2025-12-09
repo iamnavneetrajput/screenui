@@ -1,10 +1,10 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import { Components } from '../types';
+import { ComponentItem } from '../types';
 import Link from 'next/link';
 
 interface ActionsTabProps {
-  items: Components[];
+  items: ComponentItem[];
   onSelect: (title: string) => void;
 }
 

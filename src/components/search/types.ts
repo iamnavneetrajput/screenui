@@ -20,14 +20,17 @@ export interface NavigationItem {
 }
 
 // Action item interface
-export interface Components {
+export interface ComponentItem {
   id: string;
   title: string;
   description: string;
   icon: React.ReactNode;
   category: string;
-  href?: string; // Added href for navigation1
+  href: string;     // required
+  isNew?: boolean;  // optional
+  popular?: boolean; // optional
 }
+
 
 // Tool item interface
 export interface SocialItem {

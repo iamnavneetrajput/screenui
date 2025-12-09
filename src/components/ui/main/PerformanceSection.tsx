@@ -73,7 +73,7 @@ function MetricCard({
         {icon}
         <span>{label}</span>
       </div>
-      <div className="font-semibold text-sm">{value}</div>
+      <div className="font-semibold overflow-x-auto text-sm">{value}</div>
     </div>
   );
 }

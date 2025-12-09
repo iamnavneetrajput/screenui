@@ -10,7 +10,6 @@ import {
   ChevronDown,
   ChevronRight,
   MoveVertical,
-  Text,
   BarChart2,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -19,7 +18,6 @@ import { cn } from '@/lib/utils';
 import PerformanceSection from '@/components/ui/main/PerformanceSection';
 import ThemeSection from '@/components/ui/main/ThemeSection';
 import PlacementSection from '@/components/ui/main/PlacementSection';
-import FontSizeSection from '@/components/ui/main/FontSizeSection';
 
 type Placement = 'top-right' | 'bottom-right';
 
@@ -55,16 +53,11 @@ export default function DevPanel() {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [fontSize, setFontSize] = useState(14);
   const [placement, setPlacement] = useState<Placement>('bottom-right');
   const [fps, setFps] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setFontSize(Number(localStorage.getItem('dev-fontSize')) || 14);
-    setPlacement(
-      (localStorage.getItem('dev-placement') as Placement) || 'bottom-right'
-    );
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) setTheme(savedTheme);
     setMounted(true);
@@ -72,14 +65,9 @@ export default function DevPanel() {
 
   useEffect(() => {
     if (!mounted) return;
-    localStorage.setItem('dev-fontSize', fontSize.toString());
     localStorage.setItem('dev-placement', placement);
     if (theme) localStorage.setItem('theme', theme);
-  }, [fontSize, placement, theme, mounted]);
-
-  useEffect(() => {
-    document.body.style.fontSize = `${fontSize}px`;
-  }, [fontSize]);
+  }, [placement, theme, mounted]);
 
   useEffect(() => {
     let frame = 0;
@@ -181,10 +169,6 @@ export default function DevPanel() {
 
             <SectionItem title="Placement" icon={<MoveVertical className="w-4 h-4" />}>
               <PlacementSection placement={placement} setPlacement={setPlacement} />
-            </SectionItem>
-
-            <SectionItem title="Font Size" icon={<Text className="w-4 h-4" />}>
-              <FontSizeSection fontSize={fontSize} setFontSize={setFontSize} />
             </SectionItem>
           </div>
         )}

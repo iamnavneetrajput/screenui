@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import Button from '@/components/ui/main/button';
+import {Button} from '@/packages/Button';
 import TerminalCommand from '@/components/ui/main/TerminalCommand';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -13,7 +13,7 @@ interface IntroBannerProps {
   buttonLabel?: string;
   navText?: string;
   buttonLink?: string;
-  customButton?: ReactNode; // ✅ new prop for full JSX button
+  customButton?: ReactNode;
 }
 
 export default function IntroBanner({
@@ -26,13 +26,13 @@ export default function IntroBanner({
   customButton,
 }: IntroBannerProps) {
   return (
-    <div className="pb-2 border-b border-dashed border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+    <div className="pb-2 border-b border-dashed border-[hsl(var(--border))]">
       {/* Optional Navigation */}
       {navText && (
         <nav className="py-2 px-2">
           <div className="max-w-[1400px] mx-auto">
             <Link
-              href="https://tailwindcss.com/docs/installation/using-vite"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="text-inherit"
@@ -58,7 +58,7 @@ export default function IntroBanner({
                 customButton
               ) : buttonLabel ? (
                 <Link href={buttonLink}>
-                  <Button>{buttonLabel}</Button>
+                  <Button variant='solid' className='bg-[hsl(var(--button))] text-white cursor-pointer'>{buttonLabel}</Button>
                 </Link>
               ) : null}
 

@@ -1,33 +1,26 @@
 "use client";
 
-import { MainLayout } from "@/components/layout/main-layout";
+import LibraryLayout from '@/app/library/layout'
 import { ComponentHeader } from "@/app/library/component/component-header";
-import { EnhancedComponentDemo } from "../../library/component/enhanced/EnhancedComponentDemo";
-import { ButtonPreviewDemo } from "./components/ButtonPreview";
+import { ButtonFeatures } from "./sections/Features";
+import { PageClient } from "./demo/PageClient";
 import { buttonConfig } from "./config/button-config";
-import { buttonTabs } from "./config/button-tabs";
-import { UsageNotes } from "./usage";
 
-export default function ButtonPage() {
+export default function Page() {
   return (
-    <MainLayout>
-      <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
-        {/* <ComponentHeader
-          title={badgeConfig.component}
-          description='The Badge component is used to display status information, often in a compact and visually distinct format. It can be customized in size and shape to fit various design needs.'
-        /> */}
+    <LibraryLayout>
+      <div className="max-w-5xl mx-auto space-y-10">
+        <ComponentHeader
+          title={buttonConfig.component}
+          description={buttonConfig.description}
+        />
 
-        <EnhancedComponentDemo
-          {...buttonConfig}
-          additionalTabs={buttonTabs}
-        >
-          <ButtonPreviewDemo />
-        </EnhancedComponentDemo>
+       <PageClient />
 
-        <div className="border border-[hsl(var(--border))] rounded-lg bg-[hsl(var(--background))]">
-          <UsageNotes />
+        <div className="border overflow-auto border-[hsl(var(--border))]">
+          <ButtonFeatures />
         </div>
       </div>
-    </MainLayout>
+    </LibraryLayout>
   );
 }

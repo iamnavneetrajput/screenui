@@ -14,8 +14,18 @@ import {
   Palette,
   LayoutGrid,
   SquareCheck,
-  Star
+  Star,
+  IdCard,
+  List,
+  NotepadTextDashed,
+  FormInput,
+  FileUp,
+  ChevronDown,
+  Table,
+  ToggleLeft,
+  RectangleEllipsis
 } from "lucide-react";
+
 
 // central icon registry
 export const Icons = {
@@ -34,6 +44,15 @@ export const Icons = {
   instagram: Instagram,
   tool: Tool,
   star: Star,
+  IdCard: IdCard,
+  list: List,
+  notepadTextDashed: NotepadTextDashed,
+  inputCursorText: FormInput,
+  fileUpload: FileUp,
+  chevronDown: ChevronDown,
+  table: Table,
+  toggle: ToggleLeft,
+  pagination: RectangleEllipsis,
 };
 
 export type IconName = keyof typeof Icons;

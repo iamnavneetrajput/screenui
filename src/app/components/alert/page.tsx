@@ -1,24 +1,24 @@
-import { MainLayout } from '@/components/layout/main-layout';
+import LibraryLayout from "@/app/library/layout";
 import { ComponentHeader } from '@/app/library/component/component-header';
-import { AlertPageClient } from './components/AlertPageClient';
-import { alertConfig } from './config/alert-config';
-import { UsageNotes } from './usage';
+import { PageClient } from './demo/PageClient';
+import { alertConfig } from './config/config';
+import { AlertFeatures } from './sections/Features';
 
-export default function AlertPage() {
+export default function Page() {
   return (
-    <MainLayout>
-      <div className="pt-12 md:p-10 max-w-5xl mx-auto space-y-10">
+    <LibraryLayout>
+      <div className="max-w-5xl mx-auto space-y-10">
         <ComponentHeader
           title={alertConfig.component}
           description={alertConfig.description}
         />
 
-        <AlertPageClient />
+        <PageClient />
 
-        <div className="border border-[hsl(var(--border))] rounded-lg bg-[hsl(var(--background))]">
-          <UsageNotes />
+        <div className="border border-[hsl(var(--border))]">
+          <AlertFeatures />
         </div>
       </div>
-    </MainLayout>
+    </LibraryLayout>
   );
 }

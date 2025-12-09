@@ -1,6 +1,5 @@
 'use client';
-
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { GithubIcon, X, EllipsisVertical } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,135 +11,107 @@ const navItems = [
   { name: 'Docs', href: '/docs' },
   { name: 'Component', href: '/library' },
   { name: 'Colors', href: '/color' },
-  { name: 'Awaken', href: '/awaken' },
+  { name: 'Templates', href: '/templates' },
 ];
 
-// Filter out 'screen/ui' for desktop-only navigation/search.
-const desktopNavItems = navItems.filter(item => item.name !== 'screen/ui');
+const desktopNav = navItems.filter((x) => x.name !== 'screen/ui');
 
 export default function Navigation() {
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dashed border-[hsl(var(--border))] bg-[hsl(var(--background))] text-[hsla(var(--foreground))]">
-      <div className="custom-container mx-auto px-4 flex items-center justify-between h-12">
-        {/* Left Section: Logo + Nav */}
-        <div className="flex items-center gap-6 flex-1 md:flex-none">
-          {/* Logo visible from md down to 360px, hidden below 360px */}
-          <div className="text-lg font-semibold block max-[450px]:hidden">
-            <Link href="/" className="text-foreground">
-              screen/ui
-            </Link>
-          </div>
+    <header className="fixed top-0 left-0 right-0 z-40 border-b border-dashed 
+                       border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+      <div className="custom-container mx-auto px-4 h-12 flex items-center justify-between">
 
-          {/* Desktop Nav - excludes 'screen/ui' */}
-          <nav className="hidden md:flex items-center gap-6">
-            {desktopNavItems.map((item) => (
+        {/* LEFT SIDE — LOGO & DESKTOP NAV */}
+        <div className="flex items-center gap-6">
+          <Link href="/" className="text-lg font-semibold">screen/ui</Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex gap-6">
+            {desktopNav.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm transition-colors hover:text-foreground ${pathname === item.href
-                    ? 'text-foreground font-medium'
-                    : 'text-muted-foreground'
-                  }`}
+                className={`text-sm ${
+                  pathname === item.href ? 'text-foreground font-medium' : 'text-muted-foreground'
+                }`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
-
-          {/* Mobile Search replaces logo below md */}
-          <div className="block md:hidden flex-1">
-            <CommandSearch components={[]} onSelectComponent={function (component: string): void {
-            }} />
-          </div>
         </div>
 
-        {/* Right Section: Search (desktop), GitHub, Mobile Menu */}
-        <div className="flex items-center">
-          {/* Desktop Search - excludes 'screen/ui' */}
+        {/* RIGHT SIDE — SEARCH + GITHUB + MENU */}
+        <div className="flex items-center gap-3">
+
+          {/* Desktop search */}
           <div className="hidden md:block">
-            <CommandSearch components={[]} onSelectComponent={function (component: string): void {
-            }} />
+            <CommandSearch components={[]} onSelectComponent={() => {}} />
           </div>
 
-          {/* GitHub link */}
-          <div className='flex items-center gap-2 ml-4'>
+          {/* Mobile search icon-only */}
+          <div className="block md:hidden">
+            <CommandSearch components={[]} onSelectComponent={() => {}} />
+          </div>
+
+          {/* GitHub */}
           <a
             href="https://github.com/iamnavneetrajput"
             target="_blank"
-            rel="noopener noreferrer"
-            className=" hover:bg-accent rounded-full transition-colors"
-            aria-label="GitHub"
+            className="ml-1 hover:bg-accent rounded-md"
           >
             <GithubIcon size={18} />
           </a>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile menu toggle */}
           <button
+            className="md:hidden hover:bg-accent rounded-md"
             onClick={() => setOpen(true)}
-            className="md:hidden rounded-md hover:bg-accent transition-colors"
-            aria-label="Open menu"
           >
-            <EllipsisVertical size={18} />
+            <EllipsisVertical size={20} />
           </button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile Slide Menu */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-40 bg-[hsl(var(--background))] bg-opacity-50"
+              className="fixed inset-0 bg-black/40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
 
-            {/* Side Drawer */}
             <motion.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-72 bg-background shadow-lg z-40 px-4 py-6 flex flex-col space-y-4"
-              onClick={(e) => e.stopPropagation()}
+              className="fixed top-0 right-0 w-72 h-full bg-[hsl(var(--surface))] shadow-xl p-6"
             >
-              <div className="flex justify-between items-center border-b pb-2">
+              <div className="flex justify-between items-center mb-4">
                 <span className="font-medium">Menu</span>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="p-2 rounded-md hover:bg-accent transition-colors"
-                  aria-label="Close menu"
-                >
+                <button onClick={() => setOpen(false)}>
                   <X size={20} />
                 </button>
               </div>
 
-              {/* Mobile Links - uses full navItems */}
               <div className="flex flex-col space-y-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`py-2 px-1 text-sm transition-colors rounded-md ${pathname === item.href
-                        ? 'text-foreground font-medium bg-accent'
-                        : 'text-muted-foreground hover:text-foreground'
-                      }`}
                     onClick={() => setOpen(false)}
+                    className={`py-2 px-1 text-sm rounded-md ${
+                      pathname === item.href ? 'bg-accent text-foreground' : 'text-muted-foreground'
+                    }`}
                   >
                     {item.name}
                   </Link>
