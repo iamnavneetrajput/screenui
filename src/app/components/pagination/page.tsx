@@ -17,7 +17,7 @@ export default function Page() {
 
        <PageClient />
 
-        <div className="border-1 border-[hsl(var(--border))]">
+        <div className="border border-[hsl(var(--border))]">
           <PaginationFeatures />
         </div>
       </div>
