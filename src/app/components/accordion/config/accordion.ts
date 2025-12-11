@@ -1,7 +1,7 @@
 export const InstallCommands = {
   dependency: '',
-  ts: "npx screenui add accordion --lang ts --path src/components",
-  js: "npx screenui add accordion --lang js --path src/components",
+  ts: "npx screenui-cli@latest add accordion --lang ts --path src/components",
+  js: "npx screenui-cli@latest add accordion --lang js --path src/components",
 };
 
 // --- Main Examples ---

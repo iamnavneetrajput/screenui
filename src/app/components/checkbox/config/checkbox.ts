@@ -3,8 +3,8 @@
 // --- Installation Commands ---
 export const InstallCommands = {
   dependency: '',
-  ts: "npx screenui add checkbox --lang ts --path src/components",
-  js: "npx screenui add checkbox --lang js --path src/components",
+  ts: "npx screenui-cli@latest add checkbox --lang ts --path src/components",
+  js: "npx screenui-cli@latest add checkbox --lang js --path src/components",
 };
 
 // --- TypeScript Examples ---

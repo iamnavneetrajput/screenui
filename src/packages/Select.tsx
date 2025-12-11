@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";

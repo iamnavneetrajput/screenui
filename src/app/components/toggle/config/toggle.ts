@@ -1,8 +1,8 @@
 // --- Installation Commands (structured) ---
 export const InstallCommands = {
   dependency: "",
-  ts: "npx screenui add toggle --lang ts --path src/components",
-  js: "npx screenui add toggle --lang js --path src/components",
+  ts: "npx screenui-cli@latest add toggle --lang ts --path src/components",
+  js: "npx screenui-cli@latest add toggle --lang js --path src/components",
 };
 
 // --- TypeScript Examples ---

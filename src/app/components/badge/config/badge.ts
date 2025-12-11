@@ -50,8 +50,8 @@ export const JsCode1 = TsCode1;
 // --- Installation Commands (structured) ---
 export const InstallCommands = {
   dependency: '',
-  ts: "npx screenui add badge --lang ts --path src/components",
-  js: "npx screenui add badge --lang js --path src/components",
+  ts: "npx screenui-cli@latest add badge --lang ts --path src/components",
+  js: "npx screenui-cli@latest add badge --lang js --path src/components",
 };
 
 

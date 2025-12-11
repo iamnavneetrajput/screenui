@@ -3,8 +3,8 @@
 // --- Installation Commands (structured) ---
 export const InstallCommands = {
   dependency: '',
-  ts: "npx screenui add avatar --lang ts --path src/components",
-  js: "npx screenui add avatar --lang js --path src/components",
+  ts: "npx screenui-cli@latest add avatar --lang ts --path src/components",
+  js: "npx screenui-cli@latest add avatar --lang js --path src/components",
 };
 
 // --- TypeScript Examples ---

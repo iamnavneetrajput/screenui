@@ -5,7 +5,7 @@ export default function TemplatesHeader() {
     <header className="flex flex-col items-start gap-4 pb-6 sm:pb-8">
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-blue-400 text-xs font-medium">
         <Layers className="w-3.5 h-3.5" />
-        <span>Components v1.0</span>
+        <span>Templates v1.0</span>
       </div>
 
       <h1 className="text-3xl font-bold tracking-tight">

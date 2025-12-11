@@ -11,14 +11,14 @@ export interface Template {
 
 export const staticTemplates: Template[] = [
   {
-    title: "Chrono",
+    title: "Layout",
     description:
-      "A beautiful, modern clock application with multiple features including analog/digital clocks, world clock, stopwatch, and timer functionality.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+      "A beautiful, modern layout application with multiple features including responsive design, grid system, and customizable components.",
+    tags: ["Next.js", "React", "Vite", "TypeScript", "JavaScript", "Tailwind"],
     support: ["Dark Mode", "Light Mode", "Screenui Components"],
-    docs: "https://screenui/docs/awaken",
-    category: "Clock",
-    terminalCommand: "npx create-screenui clock",
+    docs: "/docs/templates",
+    category: "Layout",
+    terminalCommand: "npx screenui-cli@latest create layout",
     version: "v1.0.0",
   },
 ];

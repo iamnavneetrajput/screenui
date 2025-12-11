@@ -12,7 +12,7 @@ export default function TemplatesPage() {
         description="From forms to landing pages, everything is customizable and production-ready."
         buttonLabel="Docs"
         buttonLink="/docs/templates"
-        installCmd="npx screenui create layout"
+        installCmd="npx screenui-cli@latest create layout"
       />
 
       <section className="space-y-8 mt-4">

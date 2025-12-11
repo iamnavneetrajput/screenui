@@ -16,7 +16,7 @@ export default function Home() {
       <IntroBanner
         title="Designed to be modified"
         description="Drop them in, tweak what matters, and move on. All open source."
-        installCmd="npx screenui init"
+        installCmd="npx screenui-cli@latest init"
         buttonLabel="Components"
         buttonLink="/library"
       />

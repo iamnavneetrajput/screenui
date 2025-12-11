@@ -5,6 +5,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/packages/Card";
+import Link from "next/link";
 
 import { Template } from "@/data/templates";
 import { Clock, Layout, BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -64,14 +65,13 @@ export default function TemplateCard({ template }: { template: Template }) {
         )}
 
         <div className="flex items-center justify-between pt-2 border-t border-[hsl(var(--border))]">
-          <a
+          <Link
             href={template.docs}
-            target="_blank"
             className="flex items-center gap-2 text-xs"
           >
             <BookOpen className="w-3.5 h-3.5" />
             Documentation
-          </a>
+          </Link>
 
           <button className="flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300">
             Details <ArrowRight className="w-3.5 h-3.5" />
