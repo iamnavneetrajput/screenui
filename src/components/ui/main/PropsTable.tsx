@@ -27,7 +27,7 @@ const CodeBlock: React.FC<{ children: React.ReactNode; className?: string }> = (
 
 export function PropsTable({ title = 'Component Props', description, propsData, tip }: PropsTableProps) {
   return (
-    <Card className="bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+    <Card className="bg-[hsl(var(--background))] p-0 text-[hsl(var(--foreground))]">
       {/* Header */}
       <div className="border-b border-[hsl(var(--border))]">
         <h3 className="text-xl font-bold">{title}</h3>

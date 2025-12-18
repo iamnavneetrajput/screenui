@@ -102,13 +102,13 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
                   placeholder='Type a command or search...'
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-gray-900 text-gray-200 pl-10 pr-10 py-3 border-b border-gray-800 focus:outline-none"
+                  className="w-full bg-gray-900 text-gray-200 pl-10 pr-10 py-3 border-b border-gray-800 focus-visible:ring-0 focus-visible:ring-offset-0"
                   autoFocus
-                  leftIcon={<Search size={16} className='text-[hsl(var(--foreground))]' />}
+                  leftIcon={<Search size={16} className='text-white' />}
                 />
                 <Button
                   onClick={handleClose}
-                  className="absolute right-0 top-0 text-gray-400 hover:text-gray-200 focus:outline-none"
+                  className="absolute right-0 top-0 text-gray-400 hover:text-gray-200"
                 >
                   <X size={16} />
                 </Button>
@@ -120,8 +120,8 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
                   <Button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === tab
-                      ? 'text-white border-b-2 border-white'
+                    className={`px-4 rounded-none py-2 text-sm font-medium focus:outline-none ${activeTab === tab
+                      ? 'text-white border-b-1 border-white'
                       : 'text-gray-400 hover:text-gray-300'
                       }`}
                   >

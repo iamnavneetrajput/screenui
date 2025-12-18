@@ -47,7 +47,7 @@ export default function IntroBanner({
       )}
 
       {/* Hero Section */}
-      <main className="px-2">
+      <main className="">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-2xl py-2">
             <h1 className="text-2xl font-bold tracking-tight mb-2">{title}</h1>

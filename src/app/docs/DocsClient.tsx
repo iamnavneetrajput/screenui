@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -7,7 +6,7 @@ export default function DocsClient() {
   const router = useRouter();
 
   useEffect(() => {
-    const lastTab = localStorage.getItem('screenui-last-tab') || 'component';
+    const lastTab = localStorage.getItem('screenui-last-tab') || 'components';
     router.replace(`/docs/${lastTab}`);
   }, [router]);
 

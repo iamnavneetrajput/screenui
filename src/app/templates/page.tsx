@@ -9,7 +9,7 @@ export default function TemplatesPage() {
     <main className="min-h-screen custom-container mx-auto pt-12">
       <IntroBanner
         title="Build with templates."
-        description="From forms to landing pages, everything is customizable and production-ready."
+        description="Get started quickly using pre-built templates for various project types."
         buttonLabel="Docs"
         buttonLink="/docs/templates"
         installCmd="npx screenui-cli@latest create layout"

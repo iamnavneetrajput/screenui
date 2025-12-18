@@ -37,7 +37,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/prop-types": "^15.7.15",
-    "@types/react": "^19.1.15",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^9",

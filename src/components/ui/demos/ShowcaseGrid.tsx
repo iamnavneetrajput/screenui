@@ -31,7 +31,7 @@ export default function ShowcaseGrid() {
     <div className="
       w-full max-w-7xl mx-auto mt-10
       grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-      border border-[hsl(var(--border))]
+      border border-[hsl(var(--border))] bg-[hsl(var(--surface))]
       rounded-xl
       overflow-hidden
     ">

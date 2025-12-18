@@ -3,10 +3,10 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Package, Code2, FileText } from 'lucide-react';
 import { EnhancedTabs } from './Tabs';
-import { InstallationGuide } from '../InstallationGuide';
-import { CodeBlock } from '../CodeBlock';
+import { InstallationGuide } from './InstallationGuide';
+import { CodeBlock } from './CodeBlock';
 import { SEOContent } from './SEOContent';
-import ChatGPTButton from '../ChatGPTButton';
+import ChatGPTButton from './ChatGPTButton';
 import { cn } from '@/lib/utils';
 import { ComponentDocData, InstallationStep } from '@/types/component-docs';
 
