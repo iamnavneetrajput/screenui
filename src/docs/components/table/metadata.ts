@@ -8,6 +8,7 @@ export const tableMetadata = {
     'npx screenui-cli@latest add table --lang ts --path src/components',
     'npx screenui-cli@latest add table --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

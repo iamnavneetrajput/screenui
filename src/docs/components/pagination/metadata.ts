@@ -8,6 +8,7 @@ export const paginationMetadata = {
     'npx screenui-cli@latest add pagination --lang ts --path src/components',
     'npx screenui-cli@latest add pagination --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

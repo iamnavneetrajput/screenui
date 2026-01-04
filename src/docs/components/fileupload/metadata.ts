@@ -8,6 +8,7 @@ export const fileUploadMetadata = {
     'npx screenui-cli@latest add fileupload --lang ts --path src/components',
     'npx screenui-cli@latest add fileupload --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

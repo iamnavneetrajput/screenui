@@ -8,6 +8,7 @@ export const selectMetadata = {
     'npx screenui-cli@latest add select --lang ts --path src/components',
     'npx screenui-cli@latest add select --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

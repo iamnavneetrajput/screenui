@@ -8,6 +8,7 @@ export const toggleMetadata = {
     'npx screenui-cli@latest add toggle --lang ts --path src/components',
     'npx screenui-cli@latest add toggle --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

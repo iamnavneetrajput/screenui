@@ -7,6 +7,7 @@ export const accordionMetadata = {
     'npx screenui-cli@latest add accordion --lang ts --path src/components',
     'npx screenui-cli@latest add accordion --lang js --path src/components',
   ],
+   dependencyCommand: [],
   
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
   

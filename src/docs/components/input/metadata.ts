@@ -8,6 +8,7 @@ export const inputMetadata = {
     'npx screenui-cli@latest add input --lang ts --path src/components',
     'npx screenui-cli@latest add input --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

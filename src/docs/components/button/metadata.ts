@@ -8,6 +8,7 @@ export const buttonMetadata = {
     'npx screenui-cli@latest add button --lang ts --path src/components',
     'npx screenui-cli@latest add button --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

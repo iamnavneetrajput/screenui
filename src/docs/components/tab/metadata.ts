@@ -8,6 +8,7 @@ export const tabsMetadata = {
     'npx screenui-cli@latest add tabs --lang ts --path src/components',
     'npx screenui-cli@latest add tabs --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 

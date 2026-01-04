@@ -8,6 +8,7 @@ export const modalMetadata = {
     'npx screenui-cli@latest add modal --lang ts --path src/components',
     'npx screenui-cli@latest add modal --lang js --path src/components',
   ],
+   dependencyCommand: [],
 
   dependencies: ['react', 'react-dom', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 
