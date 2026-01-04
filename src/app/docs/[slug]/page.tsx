@@ -5,7 +5,7 @@ import TemplateDoc from "../renderers/TemplateDoc";
 import ThemeDocsPage from "../renderers/ThemeDoc";
 import { JSX } from "react";
 
-const DOC_RENDERERS: Record<DocType, () => JSX.Element> = {
+const DOC_RENDERERS: Record< DocType,() => JSX.Element | null> = {
   component: ComponentDoc,
   template: TemplateDoc,
   theme: ThemeDocsPage,
