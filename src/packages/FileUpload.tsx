@@ -9,10 +9,10 @@ const dropzoneVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-border bg-background hover:border-muted-foreground/40",
-        filled: "border-border bg-muted hover:bg-muted/90",
-        outlined: "border-2 border-border bg-transparent hover:border-muted-foreground/40",
-        ghost: "border-transparent bg-transparent hover:bg-muted/50"
+default: "border-border bg-background hover:border-border",
+filled: "border-border bg-muted hover:bg-muted",
+outlined: "border-2 border-border bg-transparent hover:border-border",
+ghost: "border-transparent bg-transparent hover:bg-muted",
       },
       size: { sm: "p-3", md: "p-4", lg: "p-6", xl: "p-8" },
       active: { true: "border-primary bg-primary/10", false: "" },
@@ -244,7 +244,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>((props, r
       {label && (
         <label htmlFor={dropzoneId} className={cn("block font-medium text-foreground mb-1.5", labelClassName)}>
           {label}
-          {required && <span className="text-destructive ml-0.5" aria-label="required">*</span>}
+          {required && <span className="text-danger ml-0.5" aria-label="required">*</span>}
         </label>
       )}
 
@@ -330,7 +330,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>((props, r
                     e.stopPropagation();
                     removeFile(f.id);
                   }}
-                  className="ml-2 text-sm text-destructive hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded px-2 py-1"
+                  className="ml-2 text-sm text-danger hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded px-2 py-1"
                   aria-label={`Remove ${f.name}`}
                 >
                   Remove
@@ -344,7 +344,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>((props, r
       {(displayError || helperText) && (
         <div className="mt-2">
           {displayError ? (
-            <p id={errorId} className="text-sm text-destructive" role="alert">{displayError}</p>
+            <p id={errorId} className="text-sm text-danger" role="alert">{displayError}</p>
           ) : (
             <p id={helperId} className="text-sm text-muted-foreground">{helperText}</p>
           )}

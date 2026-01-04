@@ -48,7 +48,7 @@ export function SidebarItem({
         data-side-interactive="true"
         className={cn(
           "flex items-center gap-1 px-1.5 py-[5px] rounded-sm text-[13px] cursor-default",
-          "hover:bg-[hsl(var(--surface))] focus:bg-[hsl(var(--surface))]",
+          "hover:bg-secondary focus:bg-secondary",
           isActive && "sidebar-row-active"
         )}
       >
@@ -86,7 +86,7 @@ export function SidebarItem({
             "truncate ml-1 text-[13px] flex-1",
             isActive
               ? "font-semibold text-indigo-500"
-              : "text-[hsl(var(--foreground))]"
+              : "text-foreground"
           )}
         >
           {item.title}
@@ -135,8 +135,8 @@ export function SidebarItem({
                     className={cn(
                       "block px-2 py-[5px] rounded-sm text-[12px] truncate",
                       isVariantActive
-                        ? "bg-[hsl(var(--button)/0.12)] text-indigo-500 font-medium"
-                        : "text-[hsl(var(--foreground)/0.88)] hover:bg-[hsl(var(--surface))]"
+                        ? "bg-primary/12 text-indigo-500 font-medium"
+                        : "text-foreground/88 hover:bg-secondary"
                     )}
                   >
                     {demo.title}

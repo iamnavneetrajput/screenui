@@ -94,6 +94,7 @@ export interface ComponentDoc {
   // Installation
   cli: string[];
   dependencies: string[];
+  dependencyCommand: string[];
   devDependencies?: string[];
   
   // API Documentation
@@ -135,6 +136,7 @@ export function isComponentDoc(obj: any): obj is ComponentDoc {
     typeof obj.name === 'string' &&
     typeof obj.description === 'string' &&
     Array.isArray(obj.cli) &&
+    Array.isArray(obj.dependencyCommand)&&
     Array.isArray(obj.dependencies) &&
     Array.isArray(obj.propGroups) &&
     Array.isArray(obj.features) &&

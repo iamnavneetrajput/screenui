@@ -86,17 +86,17 @@ export default function Sidebar() {
   return (
     <aside
       ref={containerRef}
-      className="hidden md:block w-64 shrink-0 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto bg-[hsl(var(--background))] border-r border-[hsl(var(--border))] px-2 py-3 text-[hsl(var(--foreground))]"
+      className="hidden md:block w-64 shrink-0 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto bg-background border-r border-border px-2 py-3 text-foreground"
     >
       <div className="px-1">
-        <h3 className="text-[12px] uppercase tracking-wide text-[hsl(var(--foreground)/0.55)] mb-4 border-b border-[hsl(var(--border))]">
+        <h3 className="text-[12px] uppercase tracking-wide text-foreground/55 mb-4 border-b border-border">
           Components
         </h3>
 
         <div role="tree" className="space-y-2">
           {categories.map(([category, items]) => (
             <div key={category} className="space-y-1">
-              <div className="text-[10px] uppercase tracking-wide text-[hsl(var(--foreground)/0.4)] px-1">
+              <div className="text-[10px] uppercase tracking-wide text-foreground/40 px-1">
                 {category}
               </div>
 

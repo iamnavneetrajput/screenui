@@ -16,11 +16,11 @@ export default function TemplateCard({ template }: { template: Template }) {
   const Icon = template.category === "Clock" ? Clock : Layout;
 
   return (
-    <Card className="border border-[hsl(var(--border))]">
+    <Card className="border border-border">
       <CardHeader className="flex flex-row justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 flex items-center justify-center rounded-lg border border-[hsl(var(--border))]">
-            <Icon className="w-5 h-5 text-[hsl(var(--foreground))]" />
+          <div className="w-10 h-10 flex items-center justify-center rounded-lg border border-border">
+            <Icon className="w-5 h-5 text-foreground" />
           </div>
 
           <div>
@@ -31,7 +31,7 @@ export default function TemplateCard({ template }: { template: Template }) {
           </div>
         </div>
 
-        <span className="text-[10px] font-mono px-2 py-1 rounded border border-[hsl(var(--border))]">
+        <span className="text-[10px] font-mono px-2 py-1 rounded border border-border">
           {template.version}
         </span>
       </CardHeader>
@@ -64,7 +64,7 @@ export default function TemplateCard({ template }: { template: Template }) {
           <TerminalCommand command={template.terminalCommand} />
         )}
 
-        <div className="flex items-center justify-between pt-2 border-t border-[hsl(var(--border))]">
+        <div className="flex items-center justify-between pt-2 border-t border-border">
           <Link
             href={template.docs}
             className="flex items-center gap-2 text-xs"

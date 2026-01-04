@@ -3,12 +3,12 @@
 import type { JSX } from 'react'
 import { useState } from 'react'
 import { Button } from '@/packages/Button'
-import { Plus } from 'lucide-react'
+import { CirclePlus } from 'lucide-react'
 
 export const buttonDemos: Record<string, () => JSX.Element> = {
 
   basic: () => (
-    <Button variant="solid" icon={<Plus />}>
+    <Button variant="solid" icon={<CirclePlus />}>
       Add Item
     </Button>
   ),

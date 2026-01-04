@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const toggleVariants = cva(
-  "relative inline-flex items-center rounded-full transition-colors duration-200 ease-in-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  "relative inline-flex items-center rounded-full transition-colors duration-200 ease-in-out cursor-pointer focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: { size: { sm: "h-5 w-9", md: "h-6 w-11", lg: "h-7 w-14", xl: "h-8 w-16" } },
     defaultVariants: { size: "md" }
@@ -12,7 +12,7 @@ const toggleVariants = cva(
 )
 
 const toggleThumbVariants = cva(
-  "inline-block rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out pointer-events-none",
+  "inline-block rounded-full bg-background shadow-sm transition-transform duration-200 ease-in-out pointer-events-none",
   {
     variants: { size: { sm: "h-4 w-4", md: "h-5 w-5", lg: "h-6 w-6", xl: "h-7 w-7" } },
     defaultVariants: { size: "md" }
@@ -21,7 +21,7 @@ const toggleThumbVariants = cva(
 
 const colorClasses = {
   primary: { checked: "bg-primary", unchecked: "bg-muted" },
-  success: { checked: "bg-green-600", unchecked: "bg-muted" }
+  success: { checked: "bg-success", unchecked: "bg-muted" }
 } as const
 
 const translateMap = { sm: "translate-x-4", md: "translate-x-5", lg: "translate-x-7", xl: "translate-x-8" }
@@ -131,7 +131,7 @@ const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, ref) => 
             className={cn("text-sm font-medium cursor-pointer select-none", disabled && "opacity-50 cursor-not-allowed")}
           >
             {label}
-            {required && <span className="text-destructive ml-0.5" aria-label="required">*</span>}
+            {required && <span className="text-danger ml-0.5" aria-label="required">*</span>}
           </label>
         )}
       </div>

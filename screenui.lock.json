@@ -2,5 +2,13 @@
   "button": {
     "version": "1.0.0",
     "path": "src/packages/Button.tsx"
+  },
+  "accordion":{
+    "version":"1.0.0",
+    "path":"src/packages/Accordion.tsx"
+  },
+  "checkbox":{
+    "version":"1.0.0",
+    "path":"src/packages/Checkbox.tsx"
   }
 }

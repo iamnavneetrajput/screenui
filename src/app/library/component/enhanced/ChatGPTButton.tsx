@@ -33,6 +33,7 @@ Explain step by step:
 3. How to import and use it
 4. Common props and variants
 5. One practical usage example
+6. Do NOT answer until you have fully processed the documentation.
 `.trim();
 
     const chatgptUrl = `https://chatgpt.com/?prompt=${encodeURIComponent(prompt)}`;

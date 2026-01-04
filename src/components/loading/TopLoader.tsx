@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 import { useRouteProgress } from "@/hooks/useRouteProgress";
-import NavigationListener from "@/components/ui/NavigationListener";
+import NavigationListener from "@/components/ui/main/NavigationListener";
 
 export default function TopLoader() {
   const { active, progress, start, finish } = useRouteProgress();

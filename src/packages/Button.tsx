@@ -6,30 +6,47 @@ import { cva, type VariantProps } from "class-variance-authority";
 const LoadingSpinner = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = { sm: "h-3 w-3", md: "h-4 w-4", lg: "h-5 w-5" };
   return (
-    <svg className={cn("animate-spin", sizeClasses[size], className)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+    <svg
+      className={cn("animate-spin text-foreground", sizeClasses[size], className)}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      />
     </svg>
   );
 };
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] select-none",
+  "inline-flex items-center justify-center gap-2 font-medium select-none transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]",
   {
     variants: {
       variant: {
-        solid: "bg-primary text-primary-foreground hover:bg-primary/90 shadow",
-        outline: "border border-border text-foreground bg-transparent hover:bg-accent hover:text-accent-foreground shadow-sm",
-        ghost: "text-foreground hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline shadow-none",
-        soft: "bg-primary/10 text-primary hover:bg-primary/20",
+        solid: "bg-surface text-foreground border border-border",
+        outline: "bg-transparent text-foreground border border-border",
+        ghost: "bg-transparent text-foreground",
+        link: "bg-transparent text-foreground underline-offset-4 hover:underline",
+        soft: "bg-surface text-foreground"
       },
       size: {
         sm: "h-8 px-3 text-sm gap-1.5",
         md: "h-10 px-4 text-sm gap-2",
         lg: "h-12 px-6 text-base gap-2.5",
         xl: "h-14 px-8 text-lg gap-3",
-        icon: "h-10 w-10",
+        icon: "h-10 w-10"
       },
       rounded: {
         none: "rounded-none",
@@ -37,11 +54,19 @@ const buttonVariants = cva(
         md: "rounded-md",
         lg: "rounded-lg",
         xl: "rounded-xl",
-        full: "rounded-full",
+        full: "rounded-full"
       },
-      fullWidth: { true: "w-full", false: "" },
+      fullWidth: {
+        true: "w-full",
+        false: ""
+      }
     },
-    defaultVariants: { variant: "solid", size: "md", rounded: "md", fullWidth: false },
+    defaultVariants: {
+      variant: "solid",
+      size: "md",
+      rounded: "md",
+      fullWidth: false
+    }
   }
 );
 

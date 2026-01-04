@@ -7,25 +7,25 @@ import { InfoIcon } from 'lucide-react'
 export const badgeDemos: Record<string, () => JSX.Element> = {
   basic: () => (
     <div className="flex flex-wrap gap-2">
-      <Badge>New</Badge>
-
       <Badge variant="dot" color="success">
         Active
       </Badge>
 
       <Badge
         as="button"
+        variant='soft'
+        color='info'
         interactive
         onClick={() => console.log('Clicked')}
       >
         Clickable
       </Badge>
 
-      <Badge icon={<InfoIcon />} variant="outline">
+      <Badge icon={<InfoIcon />} variant="soft" color='warning'>
         Warning
       </Badge>
 
-      <Badge onRemove={() => console.log('Removed')}>
+      <Badge color='danger' onRemove={() => console.log('Removed')}>
         Removable
       </Badge>
     </div>

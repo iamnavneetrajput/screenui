@@ -10,7 +10,7 @@ export const alertMetadata = {
     'npx screenui-cli@latest add alert --lang js --path src/components',
   ],
 
-  dependencies: ['react', 'tailwindcss'],
+  dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 
   version: '1.0.0',
   category: 'Feedback',

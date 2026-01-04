@@ -2,7 +2,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import dynamic from 'next/dynamic'
 import type { ComponentModule } from '@/docs/schema'
 import LibraryLayout from '@/app/library/layout'
 import { ComponentHeader } from '@/app/library/component/enhanced/component-header'
@@ -72,7 +71,7 @@ function ComponentPageContent({ module }: { module: ComponentModule }) {
     const timer = setTimeout(() => {
       window.dispatchEvent(new Event('demo-anchors-ready'))
     }, 100)
-    
+
     return () => clearTimeout(timer)
   }, [doc.id])
 
@@ -101,7 +100,7 @@ function ComponentPageContent({ module }: { module: ComponentModule }) {
                 component={doc.id}
                 npmCommandTs={index === 0 ? doc.cli[0] : ''}
                 npmCommandJs={index === 0 ? doc.cli[1] : ''}
-                dependencyCommand=""
+                dependencyCommand={index === 0 ? doc.dependencyCommand?.[0] ?? '' : ''}
                 tsCode={tsCode}
                 jsCode={jsCode}
                 showInstallation={index === 0 && config.showInstallation}
@@ -119,7 +118,7 @@ function ComponentPageContent({ module }: { module: ComponentModule }) {
                 centerPreview={config.centerPreview}
                 tabVariant="default"
                 tabSize="md"
-                
+
               >
                 <DemoComponent />
               </EnhancedComponentDemo>
@@ -128,7 +127,7 @@ function ComponentPageContent({ module }: { module: ComponentModule }) {
         })}
 
         {/* Features */}
-        <div className="border border-[hsl(var(--border))] rounded-xl p-6">
+        <div className="border border-border rounded-xl ">
           {renderFeatures(module)}
         </div>
       </div>

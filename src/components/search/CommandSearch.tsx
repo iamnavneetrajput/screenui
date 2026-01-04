@@ -4,6 +4,7 @@ import { X, Search } from 'lucide-react';
 import { Input } from '@/packages/Input';
 import { Button } from '@/packages/Button';
 import { CommandSearchProps } from './types';
+import { cn } from '@/lib/utils';
 import {
   MOCK_TEAM_MEMBERS,
   NAVIGATION_ITEMS,
@@ -66,9 +67,9 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
       {/* === Trigger Button === */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:w-full md:max-w-md md:px-4 md:py-0.5 md:border md:border-[hsla(var(--border),0.8)]
+        className="md:w-full md:max-w-md md:px-4 md:py-0.5 md:border md:border-border]
          md:rounded-md md:bg-[hsla(var(--background))] md:text-left md:flex md:items-center md:gap-2
-         w-8 h-8 flex items-center justify-center rounded-md border border-[hsla(var(--border),0.8)] bg-[hsl(var(--background))]"
+         w-8 h-8 flex items-center justify-center rounded-md border border-border bg-[hsl(var(--background))]"
       >
         <Search size={16} className="text-[hsl(var(--foreground))]" />
 
@@ -102,13 +103,14 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
                   placeholder='Type a command or search...'
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-gray-900 text-gray-200 pl-10 pr-10 py-3 border-b border-gray-800 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="w-full bg-gray-900 text-gray-200 pl-10 pr-10 py-3 border-b border-gray-800 focus:outline-none focus:ring-0 focus:border-transparent"
                   autoFocus
                   leftIcon={<Search size={16} className='text-white' />}
                 />
                 <Button
+                  variant='ghost'
                   onClick={handleClose}
-                  className="absolute right-0 top-0 text-gray-400 hover:text-gray-200"
+                  className="absolute right-0 top-0 bg-transparent text-white"
                 >
                   <X size={16} />
                 </Button>
@@ -118,15 +120,19 @@ const CommandSearch: React.FC<CommandSearchProps> = ({ onSelectComponent }) => {
               <div className="flex border-b border-gray-800 overflow-x-auto">
                 {(['navigate', 'components', 'team', 'social'] as const).map((tab) => (
                   <Button
+                  variant='ghost'
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 rounded-none py-2 text-sm font-medium focus:outline-none ${activeTab === tab
-                      ? 'text-white border-b-1 border-white'
-                      : 'text-gray-400 hover:text-gray-300'
-                      }`}
+                    className={cn(
+                      'px-4 py-2 rounded-none text-sm font-medium focus:outline-none bg-transparent',
+                      activeTab === tab
+                        ? 'border-b border-border text-red-400'
+                        : 'border-b border-transparent text-white'
+                    )}
                   >
                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
                   </Button>
+
                 ))}
               </div>
 

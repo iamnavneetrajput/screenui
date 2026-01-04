@@ -23,7 +23,9 @@ import {
   ChevronDown,
   Table,
   ToggleLeft,
-  RectangleEllipsis
+  RectangleEllipsis,
+  PanelTop,
+  Workflow,
 } from "lucide-react";
 
 
@@ -53,6 +55,8 @@ export const Icons = {
   table: Table,
   toggle: ToggleLeft,
   pagination: RectangleEllipsis,
+  panelTop: PanelTop,
+  workflow: Workflow,
 };
 
 export type IconName = keyof typeof Icons;

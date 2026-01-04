@@ -3,14 +3,14 @@ import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const cardVariants = cva(
-  'relative rounded-lg overflow-hidden transition-all duration-200 focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2',
+  'relative rounded-lg overflow-hidden transition-all duration-200 bg-surface',
   {
     variants: {
       variant: {
-        elevated: 'bg-card shadow-lg hover:shadow-xl',
-        outlined: 'bg-card border-2 border-border hover:border-accent',
-        filled: 'bg-muted hover:bg-muted/80',
-        ghost: 'bg-transparent hover:bg-accent'
+        elevated: 'shadow-sm',
+        outlined: 'border border-border',
+        filled: 'bg-surface',
+        ghost: 'bg-transparent'
       },
       padding: {
         none: 'p-0',
@@ -20,11 +20,11 @@ const cardVariants = cva(
         xl: 'p-10'
       },
       interactive: {
-        true: 'cursor-pointer active:scale-[0.98] focus-visible:outline-none',
+        true: 'cursor-pointer active:scale-[0.98]',
         false: ''
       },
       hover: {
-        true: 'hover:shadow-2xl',
+        true: 'hover:bg-surface-hover',
         false: ''
       },
       fullWidth: {
@@ -78,7 +78,14 @@ const cardContentVariants = cva('text-foreground', {
 const cardFooterVariants = cva('flex items-center', {
   variants: {
     spacing: { none: '', sm: 'mt-2', md: 'mt-4', lg: 'mt-6', xl: 'mt-8' },
-    align: { start: 'justify-start', center: 'justify-center', end: 'justify-end', between: 'justify-between', around: 'justify-around', evenly: 'justify-evenly' },
+    align: {
+      start: 'justify-start',
+      center: 'justify-center',
+      end: 'justify-end',
+      between: 'justify-between',
+      around: 'justify-around',
+      evenly: 'justify-evenly'
+    },
     direction: { row: 'flex-row', col: 'flex-col' },
     gap: { none: 'gap-0', xs: 'gap-1', sm: 'gap-2', md: 'gap-3', lg: 'gap-4', xl: 'gap-6' },
     wrap: { true: 'flex-wrap', false: 'flex-nowrap' }

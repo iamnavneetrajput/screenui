@@ -15,7 +15,7 @@ const textareaVariants = cva(
       },
       size: { sm: "px-3 py-2 text-sm", md: "px-4 py-2.5 text-base", lg: "px-5 py-3 text-lg" },
       resize: { none: "resize-none", vertical: "resize-y", horizontal: "resize-x", both: "resize" },
-      error: { true: "border-destructive focus-visible:ring-destructive focus:border-destructive", false: "" }
+      error: { true: "border-danger focus-visible:ring-danger focus:border-danger", false: "" }
     },
     defaultVariants: { variant: "default", size: "md", resize: "vertical", error: false }
   }
@@ -32,7 +32,7 @@ const labelVariants = cva("block font-medium text-foreground mb-1.5", {
 const textVariants = cva("", {
   variants: {
     size: { sm: "text-xs", md: "text-sm", lg: "text-base" },
-    error: { true: "text-destructive", false: "text-muted-foreground" }
+    error: { true: "text-danger", false: "text-muted-foreground" }
   },
   defaultVariants: { size: "md", error: false }
 });
@@ -165,7 +165,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label htmlFor={uid} className={cn(labelVariants({ size, disabled }), labelClassName)}>
             {label}
-            {required && <span className="text-destructive ml-0.5" aria-label="required">*</span>}
+            {required && <span className="text-danger ml-0.5" aria-label="required">*</span>}
           </label>
         )}
 

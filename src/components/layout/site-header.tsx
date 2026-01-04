@@ -22,7 +22,7 @@ export default function Navigation() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 border-b border-dashed 
-                       border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+                       border-border bg-background">
       <div className="custom-container mx-auto px-4 h-12 flex items-center justify-between">
 
         {/* LEFT SIDE — LOGO & DESKTOP NAV */}
@@ -36,7 +36,7 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 className={`text-sm ${
-                  pathname === item.href ? 'text-foreground font-medium' : 'text-muted-foreground'
+                  pathname === item.href ? 'text-foreground font-medium' : 'text-foreground'
                 }`}
               >
                 {item.name}
@@ -94,7 +94,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 w-72 h-full bg-[hsl(var(--surface))] shadow-xl p-6"
+              className="fixed top-0 right-0 w-72 h-full bg-background shadow-xl p-6"
             >
               <div className="flex justify-between items-center mb-4">
                 <span className="font-medium">Menu</span>
@@ -110,7 +110,7 @@ export default function Navigation() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={`py-2 px-1 text-sm rounded-md ${
-                      pathname === item.href ? 'bg-accent text-foreground' : 'text-muted-foreground'
+                      pathname === item.href ? 'bg-accent text-foreground' : 'text-foreground'
                     }`}
                   >
                     {item.name}

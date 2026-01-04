@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react';
 import { Check, Clipboard } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -8,116 +9,113 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface CodeBlockProps {
   code: string;
   language?: string;
-  showLineNumbers?: boolean;
   filename?: string;
+  showLineNumbers?: boolean;
   className?: string;
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
   language = 'tsx',
-  showLineNumbers = true,
   filename,
+  showLineNumbers = true,
   className = '',
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = async () => {
+  const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy code:', err);
+    } catch {
+      // intentionally silent — copy failures shouldn’t crash UI
     }
   };
 
   return (
-    <div className={`relative rounded-xl overflow-hidden border border-[hsl(var(--border))] bg-gray-900 shadow-2xl ${className}`}>
-      {/* Header with filename */}
-      {filename && (
-        <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-gray-700">
-          <div className="flex items-center space-x-2">
-            <div className="flex space-x-1">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <span className="text-sm text-gray-300 font-medium ml-3">{filename}</span>
+    <div
+      className={`relative overflow-hidden rounded-xl border border-border bg-neutral-900 shadow-xl ${className}`}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-neutral-900/70 ">
+        <div className="flex items-center gap-3">
+          <div className="flex gap-1.5">
+            <span className="h-3 w-3 rounded-full bg-red-500/80" />
+            <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
+            <span className="h-3 w-3 rounded-full bg-green-500/80" />
           </div>
-        </div>
-      )}
 
-      {/* Code content with copy button */}
-      <div className="relative">
-        {/* Perfect Copy Button */}
+          {filename && (
+            <span className="ml-2 text-xs font-mono text-muted-foreground select-none">
+              {filename}
+            </span>
+          )}
+        </div>
+
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          onClick={handleCopy}
           whileTap={{ scale: 0.95 }}
-          onClick={copyToClipboard}
-          className="absolute right-4 top-4 z-10 flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-800/90 backdrop-blur-sm border border-gray-600/50 text-gray-300 hover:bg-gray-700/90 hover:border-gray-500 transition-all duration-200 shadow-lg"
-          aria-label={copied ? 'Copied!' : 'Copy code'}
+          className="flex items-center justify-center rounded-md p-1.5 text-muted-foreground hover:text-white hover:bg-white/5 transition"
+          aria-label="Copy code"
         >
           <AnimatePresence mode="wait">
             {copied ? (
-              <motion.div
+              <motion.span
                 key="check"
-                initial={{ scale: 0, rotate: -180 }}
+                initial={{ scale: 0, rotate: -90 }}
                 animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: 180 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center space-x-1"
+                exit={{ scale: 0, rotate: 90 }}
               >
-                <Check className="h-4 w-4 text-green-400" />
-              </motion.div>
+                <Check size={14} className="text-green-400" />
+              </motion.span>
             ) : (
-              <motion.div
-                key="clipboard"
-                initial={{ scale: 0, rotate: 180 }}
+              <motion.span
+                key="copy"
+                initial={{ scale: 0, rotate: 90 }}
                 animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: -180 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center space-x-1"
+                exit={{ scale: 0, rotate: -90 }}
               >
-                <Clipboard className="h-4 w-4" />
-              </motion.div>
+                <Clipboard size={14} />
+              </motion.span>
             )}
           </AnimatePresence>
         </motion.button>
+      </div>
 
-        {/* Syntax Highlighter */}
-        <div className="overflow-x-auto">
-          <SyntaxHighlighter
-            language={language}
-            style={oneDark}
-            showLineNumbers={showLineNumbers}
-            customStyle={{
-              margin: 0,
-              padding: '1.5rem',
-              paddingTop: '2rem',
-              background: 'transparent',
-              fontSize: '0.875rem',
-              lineHeight: '1.5',
-              fontFamily: '"Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace',
-            }}
-            lineNumberStyle={{
-              color: '#6b7280',
-              paddingRight: '1.5em',
-              userSelect: 'none',
-              fontSize: '0.8rem',
-            }}
-            codeTagProps={{
-              style: {
-                fontFamily: '"Fira Code", "JetBrains Mono", "SF Mono", Consolas, monospace',
-              }
-            }}
-          >
-            {code}
-          </SyntaxHighlighter>
-        </div>
+      {/* Code */}
+      <div className="relative">
+        <SyntaxHighlighter
+          language={language}
+          style={oneDark}
+          showLineNumbers={showLineNumbers}
+          customStyle={{
+            margin: 0,
+            background: 'transparent',
+            padding: '1.25rem',
+            fontSize: '0.875rem',
+            lineHeight: '1.6',
+            fontFamily:
+              '"JetBrains Mono","Fira Code","SF Mono",Consolas,monospace',
+          }}
+          lineNumberStyle={{
+            color: '#6b7280',
+            paddingRight: '1.25em',
+            userSelect: 'none',
+            fontSize: '0.75rem',
+          }}
+          codeTagProps={{
+            style: {
+              fontFamily:
+                '"JetBrains Mono","Fira Code","SF Mono",Consolas,monospace',
+            },
+          }}
+        >
+          {code}
+        </SyntaxHighlighter>
 
-        {/* Gradient overlay for better copy button visibility */}
-        <div className="absolute top-0 right-0 w-32 h-20 bg-gradient-to-l from-gray-900 via-gray-900/50 to-transparent pointer-events-none" />
+        {/* subtle fade for header contrast */}
+        <div className="pointer-events-none absolute top-0 right-0 h-16 w-32 bg-gradient-to-l from-neutral-900 via-neutral-900/60 to-transparent" />
       </div>
     </div>
   );

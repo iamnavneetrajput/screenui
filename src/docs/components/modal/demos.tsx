@@ -33,11 +33,10 @@ export const modalDemos: Record<string, () => JSX.Element> = {
           open={isOpen}
           onClose={() => setIsOpen(false)}
           size="sm"
-          className="bg-white text-black"
         >
           <ModalHeader>Confirm Deletion</ModalHeader>
           <ModalBody>
-            <p className="text-gray-700">
+            <p>
               This action cannot be undone. Are you sure?
             </p>
           </ModalBody>

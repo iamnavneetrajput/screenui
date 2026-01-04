@@ -8,8 +8,9 @@ export const badgeMetadata = {
     'npx screenui-cli@latest add badge --lang ts --path src/components',
     'npx screenui-cli@latest add badge --lang js --path src/components',
   ],
+  dependencyCommand: [],
 
-  dependencies: ['react', 'tailwindcss'],
+  dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 
   version: '1.0.0',
   category: 'UI Components',

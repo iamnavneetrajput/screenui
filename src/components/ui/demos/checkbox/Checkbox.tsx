@@ -11,7 +11,7 @@ export default function CheckboxDemo() {
           label="Subscribe to newsletter"
           checked={checked}
           onChange={(e) => setChecked(e.target.checked)}
-          className="border-[hsl(var(--foreground))]"
+          className="border-border"
         />
 
   );

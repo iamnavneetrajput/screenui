@@ -5,17 +5,17 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-  "w-full rounded-md transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground/70",
+  "w-full rounded-md transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground/70",
   {
     variants: {
       variant: {
-        default: "border border-border bg-background hover:border-muted-foreground/30 focus:border-ring focus-visible:ring-ring",
-        filled: "border-0 bg-muted hover:bg-muted/70 focus-visible:ring-ring",
-        outlined: "border-2 border-border bg-transparent hover:border-muted-foreground/30 focus:border-ring focus-visible:ring-ring",
-        ghost: "border-0 bg-transparent hover:bg-muted/50"
+        default: "border border-border bg-surface hover:border-muted-foreground/30",
+        filled: "border-0 bg-surface hover:bg-surface-hover",
+        outlined: "border-2 border-border bg-transparent hover:border-muted-foreground/30",
+        ghost: "border-0 bg-transparent hover:bg-surface-hover"
       },
       size: { sm: "h-8 px-3 text-sm", md: "h-10 px-4 text-base", lg: "h-12 px-5 text-lg", xl: "h-14 px-6 text-xl" },
-      error: { true: "border-destructive focus-visible:ring-destructive focus:border-destructive", false: "" }
+      error: { true: "border-destructive", false: "" }
     },
     defaultVariants: { variant: "default", size: "md", error: false }
   }
@@ -117,7 +117,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const descId = `${uid}-desc`;
   const errorId = `${uid}-error`;
   const helperId = `${uid}-helper`;
-  
+
   const internalRef = useRef<HTMLInputElement | null>(null);
   const inputRef = (ref as React.RefObject<HTMLInputElement>) ?? internalRef;
 
@@ -214,7 +214,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                 onClick={clear}
                 tabIndex={-1}
                 aria-label="Clear input"
-                className="text-muted-foreground/70 hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring rounded p-0.5"
+                className="text-muted-foreground/70 hover:text-foreground transition-colors rounded p-0.5"
               >
                 <ClearIcon />
               </button>
@@ -227,7 +227,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                 tabIndex={-1}
                 aria-label={showPassword ? "Hide password" : "Show password"}
                 aria-pressed={showPassword}
-                className="text-muted-foreground/70 hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring rounded p-0.5"
+                className="text-muted-foreground/70 hover:text-foreground transition-colors rounded p-0.5"
               >
                 {showPassword ? <EyeOffIcon /> : <EyeIcon />}
               </button>

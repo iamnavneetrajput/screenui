@@ -9,9 +9,9 @@ export const fileUploadMetadata = {
     'npx screenui-cli@latest add fileupload --lang js --path src/components',
   ],
 
-  dependencies: ['react', 'tailwindcss'],
+  dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 
-  version: '1.0.0',
+  version: '1.0.1',
   category: 'Forms',
   tags: [
     'file-upload',

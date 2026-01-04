@@ -26,7 +26,7 @@ export default function IntroBanner({
   customButton,
 }: IntroBannerProps) {
   return (
-    <div className="pb-2 border-b border-dashed border-[hsl(var(--border))]">
+    <div className="pb-2 border-b border-dashed border-border">
       {/* Optional Navigation */}
       {navText && (
         <nav className="py-2 px-2">
@@ -58,7 +58,7 @@ export default function IntroBanner({
                 customButton
               ) : buttonLabel ? (
                 <Link href={buttonLink}>
-                  <Button variant='solid' className='bg-[hsl(var(--button))] text-white cursor-pointer'>{buttonLabel}</Button>
+                  <Button className='bg-gray-950 text-white border border-gray-800 h-11.5' variant='solid'>{buttonLabel}</Button>
                 </Link>
               ) : null}
 

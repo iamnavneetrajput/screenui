@@ -8,9 +8,9 @@ export default function Notfound() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 font-sans bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+    <div className="min-h-screen flex items-center justify-center p-4 font-sans">
       <div className="max-w-2xl w-full">
-        <div className="border border-dashed border-[hsl(var(--border))] p-8 md:p-12 bg-[hsl(var(--surface))]">
+        <div className="border border-dashed border-border p-8 md:p-12 bg-card">
           <div className="space-y-8">
             {/* HEADER */}
             <div className="space-y-4">
@@ -19,14 +19,14 @@ export default function Notfound() {
                   404
                 </span>
 
-                <div className="h-16 w-px bg-[hsl(var(--border))]" />
+                <div className="h-16 w-px bg-border" />
 
-                <span className="text-xl md:text-2xl font-light text-[hsl(var(--foreground))]/60">
+                <span className="text-xl md:text-2xl font-light text-foreground">
                   Page not found
                 </span>
               </div>
 
-              <p className="text-[hsl(var(--foreground))]/60 text-base max-w-md">
+              <p className="text-foreground text-base max-w-md">
                 The page you're looking for doesn't exist or has been moved.
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function Notfound() {
               {/* Primary */}
               <button
                 onClick={() => router.push("/")}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[hsl(var(--button))] text-white border-2 border-[hsl(var(--button))] hover:bg-transparent hover:text-[hsl(var(--button))] transition-colors"
+                className="inline-flex border-border items-center gap-2 px-5 py-2.5 text-sm font-medium border-2 hover:bg-transparent transition-colors"
               >
                 <Home size={16} />
                 Go home
@@ -45,7 +45,7 @@ export default function Notfound() {
               {/* Secondary */}
               <button
                 onClick={() => router.back()}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-transparent text-[hsl(var(--foreground))] border-2 border-[hsl(var(--border))] hover:border-[hsl(var(--foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                className="inline-flex border-border items-center gap-2 px-5 py-2.5 text-sm font-medium border-2 hover:bg-transparent transition-colors"
               >
                 <ArrowLeft size={16} />
                 Go back
@@ -53,7 +53,7 @@ export default function Notfound() {
             </div>
 
             {/* LINKS SECTION */}
-            <div className="pt-6 border-t-2 border-dashed border-[hsl(var(--border))]">
+            <div className="pt-6 border-t-2 border-dashed border-border">
               <div className="flex items-start gap-3">
                 <Search
                   size={18}
@@ -61,23 +61,23 @@ export default function Notfound() {
                 />
 
                 <div className="space-y-1">
-                  <p className="text-sm text-[hsl(var(--foreground))]/50">
+                  <p className="text-sm foreground">
                     Looking for something specific?
                   </p>
 
                   <div className="flex flex-wrap gap-2 text-xs">
                     <Link
                       href="/library"
-                      className="text-[hsl(var(--foreground))]/60 hover:text-[hsl(var(--foreground))] underline underline-offset-2"
+                      className="text-foreground foreground underline underline-offset-2"
                     >
                       Components
                     </Link>
 
-                    <span className="text-[hsl(var(--border))]">•</span>
+                    <span className="text-border">•</span>
 
                     <Link
                       href="/docs/component"
-                      className="text-[hsl(var(--foreground))]/60 hover:text-[hsl(var(--foreground))] underline underline-offset-2"
+                      className="text-foreground foreground underline underline-offset-2"
                     >
                       Documentation
                     </Link>
@@ -90,7 +90,7 @@ export default function Notfound() {
 
         {/* FOOTER */}
         <div className="mt-6 text-center">
-          <p className="text-xs text-[hsl(var(--foreground))]/50">
+          <p className="text-xs foreground">
             Error code: 404 • Not Found
           </p>
         </div>

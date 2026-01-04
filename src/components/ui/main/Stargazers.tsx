@@ -25,7 +25,6 @@ export default function Stargazers() {
             rounded="lg"
             size="md"
             icon={<Star className="h-4 w-4"/>}
-            className="bg-[hsl(var(--button))] text-white"
           >
             Star on GitHub
           </Button>
@@ -34,8 +33,8 @@ export default function Stargazers() {
 
       <div
         className="
-        relative rounded-2xl border border-[hsl(var(--border))]
-        bg-[hsl(var(--surface))] p-4 sm:p-6
+        relative rounded-2xl border border-border
+        bg-secondary p-4 sm:p-6
         shadow-sm
       "
       >

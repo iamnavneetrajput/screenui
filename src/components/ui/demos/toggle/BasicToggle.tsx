@@ -6,11 +6,12 @@ export default function BasicToggle() {
     const [basicToggle, setBasicToggle] = React.useState(false)
 
     return (
-        <Toggle size="md"
+        <Toggle
+            size="md"
             checked={basicToggle}
             onChange={setBasicToggle}
-            toggleClassName="bg-[hsl(var(--foreground))]"
-            thumbClassName="bg-[hsl(var(--background))]"
+            toggleClassName={basicToggle ? "bg-green-500" : "bg-zinc-300"}
+            thumbClassName="bg-white shadow"
         />
     )
 }

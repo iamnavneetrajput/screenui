@@ -3,14 +3,14 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center justify-center gap-1 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 select-none",
+  "inline-flex items-center justify-center gap-1 font-medium transition-all duration-200 select-none",
   {
     variants: {
       variant: {
-        solid: "shadow-sm hover:shadow",
+        solid: "shadow-sm",
         outline: "border-2 bg-transparent shadow-sm",
-        soft: "bg-opacity-10 hover:bg-opacity-20",
-        ghost: "hover:bg-opacity-10",
+        soft: "",
+        ghost: "",
         dot: "gap-2",
       },
       color: {
@@ -43,22 +43,25 @@ const badgeVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: "soft", color: "primary", class: "bg-primary/10 text-primary hover:bg-primary/20" },
-      { variant: "soft", color: "success", class: "bg-green-500/10 text-green-700 hover:bg-green-500/20" },
-      { variant: "soft", color: "warning", class: "bg-yellow-500/10 text-yellow-700 hover:bg-yellow-500/20" },
-      { variant: "soft", color: "danger", class: "bg-red-500/10 text-red-700 hover:bg-red-500/20" },
-      { variant: "soft", color: "info", class: "bg-blue-500/10 text-blue-700 hover:bg-blue-500/20" },
-      { variant: "ghost", color: "primary", class: "text-primary hover:bg-primary/10" },
-      { variant: "ghost", color: "success", class: "text-green-700 hover:bg-green-500/10" },
-      { variant: "ghost", color: "warning", class: "text-yellow-700 hover:bg-yellow-500/10" },
-      { variant: "ghost", color: "danger", class: "text-red-700 hover:bg-red-500/10" },
-      { variant: "ghost", color: "info", class: "text-blue-700 hover:bg-blue-500/10" },
-      { variant: "outline", color: "primary", class: "border-primary text-primary hover:bg-primary/5" },
-      { variant: "outline", color: "success", class: "border-green-500 text-green-700 hover:bg-green-500/5" },
-      { variant: "outline", color: "warning", class: "border-yellow-500 text-yellow-700 hover:bg-yellow-500/5" },
-      { variant: "outline", color: "danger", class: "border-red-500 text-red-700 hover:bg-red-500/5" },
-      { variant: "outline", color: "info", class: "border-blue-500 text-blue-700 hover:bg-blue-500/5" },
+      { variant: "soft", color: "primary", class: "bg-primary/10 text-primary" },
+      { variant: "soft", color: "success", class: "bg-green-500/10 text-green-700" },
+      { variant: "soft", color: "warning", class: "bg-yellow-500/10 text-yellow-700" },
+      { variant: "soft", color: "danger", class: "bg-red-500/10 text-red-700" },
+      { variant: "soft", color: "info", class: "bg-blue-500/10 text-blue-700" },
+
+      { variant: "ghost", color: "primary", class: "text-primary" },
+      { variant: "ghost", color: "success", class: "text-green-700" },
+      { variant: "ghost", color: "warning", class: "text-yellow-700" },
+      { variant: "ghost", color: "danger", class: "text-red-700" },
+      { variant: "ghost", color: "info", class: "text-blue-700" },
+
+      { variant: "outline", color: "primary", class: "border-primary text-primary" },
+      { variant: "outline", color: "success", class: "border-green-500 text-green-700" },
+      { variant: "outline", color: "warning", class: "border-yellow-500 text-yellow-700" },
+      { variant: "outline", color: "danger", class: "border-red-500 text-red-700" },
+      { variant: "outline", color: "info", class: "border-blue-500 text-blue-700" },
     ],
+
     defaultVariants: {
       variant: "solid",
       color: "default",
@@ -77,7 +80,10 @@ const getIconSize = (size?: string) => {
 const RemoveButton = ({ onRemove, size = "sm", disabled = false }: { onRemove: () => void; size?: string; disabled?: boolean }) => (
   <button
     onClick={(e) => { e.stopPropagation(); onRemove() }}
-    className={cn("ml-1 -mr-1 rounded-full p-0.5 hover:bg-black/10 focus:bg-black/10 focus:outline-none focus:ring-1 focus:ring-current/30 transition-colors", disabled && "cursor-not-allowed opacity-50")}
+    className={cn(
+      "ml-1 -mr-1 rounded-full p-0.5 transition-colors",
+      disabled && "cursor-not-allowed opacity-50"
+    )}
     aria-label="Remove"
     type="button"
     disabled={disabled}

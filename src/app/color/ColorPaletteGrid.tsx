@@ -3,11 +3,11 @@
 import React from 'react';
 import { Copy, Check } from 'lucide-react';
 
-type ColorFormat = 'rgb' | 'hex' | 'hsl';
+type ColorFormat = 'hex' | 'rgb' | 'hsl' | 'oklch';
 
 interface ColorPaletteCardProps {
   paletteName: string;
-  colors: { [key: string]: string };
+  colors: Record<string, string>;
   format: ColorFormat;
   copiedColor: string | null;
   handleCopyColor: (color: string) => void;
@@ -24,33 +24,57 @@ const ColorPaletteCard: React.FC<ColorPaletteCardProps> = ({
 }) => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold flex items-center gap-2 text-gray-400">
-        {paletteName}
-      </h2>
+      <h2 className="text-xl font-semibold text-gray-400">{paletteName}</h2>
+
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        {Object.entries(colors).map(([shade, color]) => (
-          <div key={`${paletteName}-${shade}`} className="flex flex-col">
-            <button
-              onClick={() => handleCopyColor(color)}
-              className="group relative h-32 w-full rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-black/30"
-              style={{ backgroundColor: color }}
+        {Object.entries(colors).map(([shade, color]) => {
+          const isCopied = copiedColor === color
+
+          return (
+            <div
+              key={`${paletteName}-${shade}`}
+              className="group flex flex-col gap-2"
             >
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300">
-                {copiedColor === color ? (
-                  <Check className="w-6 h-6 transform scale-110 transition-transform duration-200" />
-                ) : (
-                  <Copy className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200" />
-                )}
-              </div>
-            </button>
-            <div className="mt-2 px-1">
-              <div className="font-medium text-sm text-gray-400">{`${paletteName}-${shade}`}</div>
-              <div className="font-mono text-xs truncate" style={{ color }}>
-                {convertColor(color, format)}
+              {/* Color swatch */}
+              <button
+                onClick={() => handleCopyColor(color)}
+                className="
+            relative h-28 w-full
+            rounded-xl border border-border
+            overflow-hidden
+            focus:outline-none focus:ring-2 focus:ring-ring
+          "
+                style={{ backgroundColor: color }}
+              >
+                {/* Hover / copied overlay */}
+                <div
+                  className={`
+              absolute inset-0 flex items-center justify-center
+              bg-black/40 text-white
+              transition-opacity
+              ${isCopied ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
+            `}
+                >
+                  {isCopied ? (
+                    <Check className="h-5 w-5" />
+                  ) : (
+                    <Copy className="h-5 w-5 opacity-80" />
+                  )}
+                </div>
+              </button>
+
+              {/* Meta */}
+              <div className="px-0.5 space-y-0.5">
+                <div className="text-xs text-foreground/60">
+                  {paletteName}-{shade}
+                </div>
+                <div className="font-mono text-xs text-foreground truncate">
+                  {convertColor(color, format)}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   );

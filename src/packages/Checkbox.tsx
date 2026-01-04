@@ -19,13 +19,20 @@ const checkboxInputVariants = cva(
     variants: {
       size: { sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-7 h-7' },
       variant: {
-        default: 'border-2 border-gray-300 rounded checked:bg-blue-600 checked:border-blue-600 hover:border-gray-400 focus-visible:ring-blue-500',
-        outline: 'border-2 border-gray-400 rounded checked:border-blue-600 hover:border-gray-500 focus-visible:ring-blue-500',
-        filled: 'border-2 border-gray-300 rounded bg-gray-100 checked:bg-blue-600 checked:border-blue-600 hover:bg-gray-200 focus-visible:ring-blue-500',
-        soft: 'border-2 border-blue-200 rounded bg-blue-50 checked:bg-blue-600 checked:border-blue-600 hover:bg-blue-100 focus-visible:ring-blue-500'
+        default:
+          'border-2 border-border rounded checked:bg-primary checked:border-primary hover:border-border focus-visible:ring-primary',
+
+        outline:
+          'border-2 border-border rounded checked:border-primary hover:border-border focus-visible:ring-primary',
+
+        filled:
+          'border-2 border-border rounded bg-muted checked:bg-primary checked:border-primary hover:bg-muted focus-visible:ring-primary',
+
+        soft:
+          'border-2 border-border rounded bg-muted checked:bg-primary checked:border-primary hover:bg-muted focus-visible:ring-primary'
       },
       rounded: { none: 'rounded-none', sm: 'rounded-sm', md: 'rounded', lg: 'rounded-lg', full: 'rounded-full' },
-      error: { true: 'border-red-500 focus-visible:ring-red-500', false: '' },
+      error: { true: 'border-danger focus-visible:ring-danger', false: '' },
       disabled: { true: 'cursor-not-allowed', false: '' }
     },
     defaultVariants: { size: 'md', variant: 'default', rounded: 'md', error: false, disabled: false }
@@ -33,7 +40,7 @@ const checkboxInputVariants = cva(
 )
 
 const checkboxIconVariants = cva(
-  'absolute pointer-events-none text-white transition-all duration-200 opacity-0 peer-checked:opacity-100 flex items-center justify-center',
+  'absolute pointer-events-none text-primary-foreground transition-all duration-200 opacity-0 peer-checked:opacity-100 flex items-center justify-center',
   {
     variants: {
       size: { sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-7 h-7' }
@@ -50,7 +57,7 @@ const checkboxLabelVariants = cva('cursor-pointer select-none transition-colors 
   defaultVariants: { size: 'md', disabled: false }
 })
 
-const checkboxDescriptionVariants = cva('text-gray-600 select-none', {
+const checkboxDescriptionVariants = cva('text-muted-foreground select-none', {
   variants: {
     size: { sm: 'text-xs mt-0.5', md: 'text-sm mt-1', lg: 'text-base mt-1', xl: 'text-lg mt-1.5' },
     disabled: { true: 'cursor-not-allowed', false: '' }
@@ -58,7 +65,7 @@ const checkboxDescriptionVariants = cva('text-gray-600 select-none', {
   defaultVariants: { size: 'md', disabled: false }
 })
 
-const checkboxErrorVariants = cva('text-red-600 select-none', {
+const checkboxErrorVariants = cva('text-danger select-none', {
   variants: {
     size: { sm: 'text-xs mt-0.5', md: 'text-sm mt-1', lg: 'text-base mt-1', xl: 'text-lg mt-1.5' }
   },
@@ -223,14 +230,14 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
     return (
       <div ref={ref} className={cn('space-y-2', className)} role="group" aria-labelledby={label ? `${groupId}-label` : undefined} aria-describedby={[description && descId, error && errorId].filter(Boolean).join(' ') || undefined}>
         {label && (
-          <label id={`${groupId}-label`} className="text-sm font-medium text-gray-900">
+          <label id={`${groupId}-label`} className="text-sm font-medium text-foreground">
             {label}
-            {required && <span className="text-red-500 ml-1" aria-label="required">*</span>}
+            {required && <span className="text-danger ml-1" aria-label="required">*</span>}
           </label>
         )}
-        {description && <p id={descId} className="text-sm text-gray-600">{description}</p>}
+        {description && <p id={descId} className="text-sm text-muted-foreground">{description}</p>}
         <div className={checkboxGroupVariants({ orientation, gap })}>{children}</div>
-        {error && <p id={errorId} className="text-sm text-red-600" role="alert">{error}</p>}
+        {error && <p id={errorId} className="text-sm text-danger" role="alert">{error}</p>}
       </div>
     )
   }

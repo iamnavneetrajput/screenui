@@ -31,12 +31,12 @@ export default function ShowcaseGrid() {
     <div className="
       w-full max-w-7xl mx-auto mt-10
       grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-      border border-[hsl(var(--border))] bg-[hsl(var(--surface))]
+      border border-border bg-secondary
       rounded-xl
       overflow-hidden
     ">
       {/* BUTTONS */}
-      <div className="border-b border-[hsl(var(--border))] md:border-r">
+      <div className="border-b border-border md:border-r">
         <Panel
           label="Buttons"
           variants={[
@@ -48,7 +48,7 @@ export default function ShowcaseGrid() {
       </div>
 
       {/* ALERT */}
-      <div className="border-b border-[hsl(var(--border))] lg:border-r md:border-r">
+      <div className="border-b border-border lg:border-r md:border-r">
         <Panel
           label="Alert"
           variants={[
@@ -60,7 +60,7 @@ export default function ShowcaseGrid() {
       </div>
 
       {/* AVATAR GROUP */}
-      <div className="border-b border-[hsl(var(--border))]">
+      <div className="border-b border-border">
         <Panel
           label="Avatar"
           variants={[
@@ -72,14 +72,14 @@ export default function ShowcaseGrid() {
       </div>
 
       {/* BADGES */}
-      <div className="border-b border-[hsl(var(--border))] md:border-r lg:border-r">
+      <div className="border-b border-border md:border-r lg:border-r">
         <Panel label="Toggle">
           <BasicToggle />
         </Panel>
       </div>
 
       {/* PAGINATION */}
-      <div className="border-b border-[hsl(var(--border))] md:border-r">
+      <div className="border-b border-border md:border-r">
         <Panel
           label="Pagination"
           variants={[

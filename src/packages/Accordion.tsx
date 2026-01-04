@@ -48,11 +48,11 @@ const accordionVariants = cva("w-full", {
   },
 });
 
-const accordionItemVariants = cva("group", {
+const accordionItemVariants = cva("group bg-surface", {
   variants: {
     variant: {
       default: "border border-border rounded-lg overflow-hidden",
-      separated: "border border-border rounded-lg shadow-sm overflow-hidden",
+      separated: "border border-border rounded-lg overflow-hidden",
       bordered: "",
       ghost: "overflow-hidden",
     },
@@ -66,17 +66,15 @@ const accordionTriggerVariants = cva(
   `
     flex items-center justify-between w-full
     text-left font-medium transition-all duration-200
-    focus-visible:outline-none
-    focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring
     disabled:opacity-50 disabled:cursor-not-allowed
   `,
   {
     variants: {
       variant: {
-        default: "px-4 py-3 hover:bg-accent",
-        separated: "px-5 py-4 hover:bg-accent",
-        bordered: "px-4 py-3 hover:bg-accent",
-        ghost: "px-2 py-2 hover:bg-accent rounded",
+        default: "px-4 py-3 hover:bg-surface-hover",
+        separated: "px-5 py-4 hover:bg-surface-hover",
+        bordered: "px-4 py-3 hover:bg-surface-hover",
+        ghost: "px-2 py-2 hover:bg-surface-hover rounded",
       },
       size: {
         sm: "text-sm py-2",

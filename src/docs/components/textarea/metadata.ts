@@ -9,7 +9,7 @@ export const textareaMetadata = {
     'npx screenui-cli@latest add textarea --lang js --path src/components',
   ],
 
-  dependencies: ['react', 'tailwindcss'],
+  dependencies: ['react', 'clsx', 'tailwind-merge', 'tailwindcss', 'class-variance-authority'],
 
   version: '1.0.0',
   category: 'Form',

@@ -1,12 +1,11 @@
 'use client';
-
 import React, { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const modalOverlayVariants = cva(
-  'fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 animate-in fade-in-0 duration-200',
+  'fixed inset-0 z-50 bg-foreground/50 flex items-center justify-center p-4 animate-in fade-in-0 duration-200',
   {
     variants: {
       blur: { true: 'backdrop-blur-sm', false: '' }
@@ -158,10 +157,10 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         const originalOverflow = document.body.style.overflow;
         const originalPaddingRight = document.body.style.paddingRight;
-        
+
         document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = `${scrollbarWidth}px`;
-        
+
         return () => {
           document.body.style.overflow = originalOverflow;
           document.body.style.paddingRight = originalPaddingRight;
@@ -181,7 +180,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     useEffect(() => {
       if (open) {
         previousActiveElement.current = document.activeElement as HTMLElement;
-        
+
         requestAnimationFrame(() => {
           const focusable = contentRef.current?.querySelectorAll<HTMLElement>(
             'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
@@ -201,14 +200,14 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     // Focus trap
     useEffect(() => {
       if (!open) return;
-      
+
       const handleTabKey = (e: KeyboardEvent) => {
         if (e.key !== 'Tab') return;
 
         const focusableElements = contentRef.current?.querySelectorAll<HTMLElement>(
           'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
         );
-        
+
         if (!focusableElements?.length) return;
 
         const first = focusableElements[0];
@@ -247,7 +246,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           {showCloseButton && (
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded focus:outline-none focus:ring-2 focus:ring-ring"
+              className="absolute top-4 right-4 z-10 p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               aria-label="Close dialog"
               type="button"
             >
@@ -345,9 +344,9 @@ export const ConfirmDialog = React.forwardRef<HTMLDivElement, ConfirmDialogProps
     };
 
     const variantStyles = {
-      danger: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
-      warning: 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500',
-      info: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
+      danger: 'bg-danger text-danger-foreground hover:bg-danger focus:ring-danger',
+      warning: 'bg-warning text-warning-foreground hover:bg-warning focus:ring-warning',
+      info: 'bg-primary text-primary-foreground hover:bg-primary focus:ring-primary'
     };
 
     return (
@@ -368,7 +367,7 @@ export const ConfirmDialog = React.forwardRef<HTMLDivElement, ConfirmDialogProps
             ref={confirmButtonRef}
             onClick={handleConfirm}
             className={cn(
-              'px-4 py-2 text-white rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+              'px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
               variantStyles[variant]
             )}
             type="button"

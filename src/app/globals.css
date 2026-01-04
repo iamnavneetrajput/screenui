@@ -1,39 +1,94 @@
 @import "tailwindcss";
-/* Import Tailwind */
 
-/* globals.css */
-:root {
-  --background: 0, 0%, 90%;
-  --foreground: 0, 0%, 10%;
-  --border: 0, 0%, 60%;
-  --surface: 0, 0%, 88%;
-  --button: 240, 100%, 40%;
-  --blue: 220, 100%, 50%;
-  --success: 120, 100%, 40%;
-  --warning: 60, 100%, 40%;
-  --error: 0, 100%, 40%;
+@theme {
+  /* Layout (LOCKED) */
+  --color-background: oklch(92.49% 0 0);
+  --color-secondary: oklch(90.67% 0 0);
+  --color-foreground: oklch(21.78% 0 0);
+  --color-border: oklch(68.3% 0 0);
+
+  /* Surfaces */
+  --color-surface: oklch(90.67% 0 0);
+  --color-surface-foreground: oklch(0.15 0.02 255);
+  --color-surface-hover: oklch(88% 0 0);
+
+  /* Primary intent */
+  --color-primary: oklch(0.2 0.02 255);
+  --color-primary-foreground: oklch(0.98 0.005 255);
+
+  /* Muted */
+  --color-muted: oklch(0.96 0.005 255);
+  --color-muted-foreground: oklch(0.55 0.015 255);
+
+  /* Danger (future-safe) */
+  --color-danger: oklch(0.6 0.2 25);
+  --color-danger-foreground: oklch(0.98 0.005 255);
 }
 
-[data-theme='dark'] {
-  --background: 0, 0%, 10%;
-  --foreground: 0, 0%, 90%;
-  --border: 0, 0%, 20%;
-  --surface: 0, 0%, 12%;
-  --button: 240, 100%, 25%;
-  --blue: 220, 100%, 40%;
-  --success: 120, 100%, 25%;
-  --warning: 60, 100%, 25%;
-  --error: 0, 100%, 25%;
+/* DARK MODE */
+@layer base {
+  .dark {
+    /* Layout (LOCKED) */
+    --color-background: oklch(21.78% 0 0);
+    --color-secondary: oklch(25.93% 0 0);
+    --color-foreground: oklch(92.49% 0 0);
+    --color-border: oklch(32.11% 0 0);
+
+    /* Surfaces */
+    --color-surface: oklch(23.93% 0 0);
+    --color-surface-foreground: oklch(0.98 0.005 255);
+    --color-surface-hover: oklch(28% 0 0);
+
+    /* Primary intent */
+    --color-primary: oklch(0.98 0.005 255);
+    --color-primary-foreground: oklch(0.2 0.02 255);
+
+    /* Muted */
+    --color-muted: oklch(0.25 0.02 255);
+    --color-muted-foreground: oklch(0.7 0.01 255);
+
+    /* Danger (future-safe) */
+    --color-danger: oklch(0.35 0.15 25);
+    --color-danger-foreground: oklch(0.98 0.005 255);
+  }
 }
 
+[data-variant="default"] {
+  background: var(--color-surface);
+  color: var(--color-surface-foreground);
+}
+
+[data-variant="primary"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+[data-variant="secondary"] {
+  background: var(--color-muted);
+  color: var(--color-muted-foreground);
+}
+
+[data-variant="danger"] {
+  background: var(--color-danger);
+  color: var(--color-danger-foreground);
+}
+
+[data-variant="success"] {
+  background: var(--color-success);
+  color: var(--color-success-foreground);
+}
+
+[data-variant="warning"] {
+  background: var(--color-warning);
+  color: var(--color-warning-foreground);
+}
 
 /* Custom container */
 .custom-container {
   max-width: 90rem;
-  /* 1440px */
 }
 
-/* Custom scrollbar for the command palette */
+/* Scrollbar (unchanged) */
 ::-webkit-scrollbar {
   width: 1px;
   height: 1px !important;
@@ -51,10 +106,9 @@
   @apply bg-gray-500;
 }
 
-
 /* Global body styles */
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

@@ -24,12 +24,12 @@ export function ExpandSection({
   }, [children]);
 
   return (
-    <div className="relative bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+    <div className="relative">
 
       {/* Collapsible content */}
       <div
         ref={contentRef}
-        className="relative overflow-hidden transition-[max-height] duration-700 ease-in-out"
+        className="relative overflow-hidden transition-[max-height] duration-300 ease-in-out"
         style={{
           maxHeight: isExpanded ? `${fullHeight}px` : `${previewHeight}px`
         }}
@@ -37,12 +37,12 @@ export function ExpandSection({
         {children}
 
         {!isExpanded && (
-          <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none bg-gradient-to-t from-[hsl(var(--background))] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none bg-gradient-to-t from-background to-transparent" />
         )}
       </div>
 
       {/* Toggle button */}
-      <div className="flex justify-center py-6 border-t border-[hsl(var(--border))]">
+      <div className="flex justify-center py-6 border-border">
         <Button
           variant="ghost"
           iconPosition="right"
@@ -55,8 +55,8 @@ export function ExpandSection({
           }
           onClick={() => setIsExpanded(!isExpanded)}
           className="flex items-center justify-center px-6 py-2 rounded-full text-sm font-medium
-                     text-[hsl(var(--foreground))] bg-[hsl(var(--surface))] cursor-pointer
-                     hover:bg-[hsl(var(--surface))]/80 transition-all duration-300"
+                      bg-card cursor-pointer
+                     hover:bg-card/80 transition-all duration-300"
         >
           <span>{isExpanded ? 'Show Less' : 'View Full'}</span>
         </Button>

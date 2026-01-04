@@ -11,20 +11,12 @@ const stringToColor = (str: string): string => {
     "bg-violet-500", "bg-purple-500", "bg-fuchsia-500", "bg-pink-500"
   ]
   let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash)
-  }
+  for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash)
   return colors[Math.abs(hash) % colors.length]
 }
 
-const getInitials = (name: string): string => {
-  return name
-    .split(" ")
-    .map(part => part.charAt(0))
-    .join("")
-    .toUpperCase()
-    .slice(0, 2)
-}
+const getInitials = (name: string): string =>
+  name.split(" ").map(p => p.charAt(0)).join("").toUpperCase().slice(0, 2)
 
 const UserIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
@@ -34,7 +26,7 @@ const UserIcon = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 const avatarVariants = cva(
-  "relative inline-flex items-center justify-center overflow-visible select-none flex-shrink-0 transition-all duration-200",
+  "relative inline-flex items-center justify-center select-none flex-shrink-0 transition-all duration-200",
   {
     variants: {
       size: {
@@ -47,7 +39,7 @@ const avatarVariants = cva(
         square: "rounded-lg",
       },
       clickable: {
-        true: "cursor-pointer hover:opacity-80 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+        true: "cursor-pointer hover:opacity-80 active:scale-95",
         false: "",
       },
     },
@@ -64,9 +56,9 @@ const badgeVariants = cva(
   {
     variants: {
       size: {
-        sm: "w-2 h-2",      // 8px
-        md: "w-2.5 h-2.5",  // ~10px
-        lg: "w-3 h-3",      // 12px
+        sm: "w-2 h-2",
+        md: "w-2.5 h-2.5",
+        lg: "w-3 h-3",
       },
       position: {
         "top-left": "-top-0.5 -left-0.5",
@@ -80,10 +72,10 @@ const badgeVariants = cva(
       position: "bottom-right",
     },
   }
-);
+)
 
 const notificationBadgeVariants = cva(
-  "absolute rounded-full border-2 border-background flex items-center justify-center font-semibold text-white px-1",
+  "absolute rounded-full border-2 border-border flex items-center justify-center font-semibold text-white px-1",
   {
     variants: {
       size: {
@@ -103,9 +95,9 @@ const notificationBadgeVariants = cva(
       position: "top-right",
     },
   }
-);
+)
 
-export interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
+export interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "color"> {
   src?: string
   alt?: string
   name?: string
@@ -114,8 +106,6 @@ export interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   shape?: "circle" | "square"
   color?: string
   textColor?: string
-  ring?: boolean | string
-  ringColor?: string
   status?: boolean | string
   statusColor?: string
   statusPosition?: "top-left" | "top-right" | "bottom-left" | "bottom-right"
@@ -141,8 +131,6 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
       shape = "circle",
       color,
       textColor = "text-white",
-      ring,
-      ringColor = "ring-white",
       status,
       statusColor,
       statusPosition = "bottom-right",
@@ -170,16 +158,6 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
       }
     }, [src])
 
-    const handleImageLoad = () => {
-      setImageLoaded(true)
-      onImageLoad?.()
-    }
-
-    const handleImageError = () => {
-      setImageError(true)
-      onImageError?.()
-    }
-
     const showImage = src && imageLoaded && !imageError && !loading
     const showFallback = !src || imageError || loading
 
@@ -191,8 +169,8 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
       return <UserIcon className={iconSizes[size]} />
     }
 
-    const bgColor = color || (name ? stringToColor(name) : "bg-surface-muted")
-    const textColorClass = color ? textColor : name ? "text-foreground-contrast" : "text-muted"
+    const bgColor = color || (name ? stringToColor(name) : "bg-surface")
+    const textColorClass = color ? textColor : name ? "text-foreground-contrast" : "text-muted-foreground"
 
     const statusColors: Record<string, string> = {
       online: "bg-green-500",
@@ -202,12 +180,8 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
     }
     const finalStatusColor = statusColor || (typeof status === "string" ? statusColors[status] : "bg-green-500")
 
-    const ringClass = ring === true ? "ring-2 ring-offset-2" : typeof ring === "string" ? ring : ""
-
     const avatarClasses = cn(
       avatarVariants({ size, shape, clickable: clickable || as === "button" }),
-      ringClass,
-      ring && ringColor,
       disabled && "opacity-50 cursor-not-allowed pointer-events-none",
       className
     )
@@ -223,8 +197,8 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
               shape === "circle" ? "rounded-full" : "rounded-lg",
               showImage ? "opacity-100" : "opacity-0"
             )}
-            onLoad={handleImageLoad}
-            onError={handleImageError}
+            onLoad={() => { setImageLoaded(true); onImageLoad?.() }}
+            onError={() => { setImageError(true); onImageError?.() }}
             loading="lazy"
           />
         )}
@@ -234,7 +208,7 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
             className={cn(
               "w-full h-full flex items-center justify-center font-semibold",
               shape === "circle" ? "rounded-full" : "rounded-lg",
-              loading ? "bg-surface-muted animate-pulse" : bgColor,
+              loading ? "bg-surface animate-pulse" : bgColor,
               !loading && textColorClass
             )}
           >
@@ -244,20 +218,14 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
 
         {status && (
           <span
-            className={cn(
-              badgeVariants({ size, position: statusPosition }),
-              finalStatusColor
-            )}
+            className={cn(badgeVariants({ size, position: statusPosition }), finalStatusColor)}
             aria-label={typeof status === "string" ? `Status: ${status}` : "Online"}
           />
         )}
 
         {notification !== undefined && notification !== null && notification !== false && (
           <span
-            className={cn(
-              notificationBadgeVariants({ size, position: notificationPosition }),
-              notificationColor
-            )}
+            className={cn(notificationBadgeVariants({ size, position: notificationPosition }), notificationColor)}
             aria-label={`${notification} notifications`}
           >
             {notification === true ? "" : typeof notification === "number" && notification > 99 ? "99+" : notification}
@@ -282,11 +250,7 @@ export const Avatar = React.forwardRef<HTMLDivElement | HTMLButtonElement, Avata
     }
 
     return (
-      <div
-        ref={ref as React.ForwardedRef<HTMLDivElement>}
-        className={avatarClasses}
-        {...props}
-      >
+      <div ref={ref as React.ForwardedRef<HTMLDivElement>} className={avatarClasses} {...props}>
         {content}
       </div>
     )
@@ -315,29 +279,21 @@ export const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
     }
 
     return (
-      <div
-        ref={ref}
-        className={cn("flex items-center", spacingClasses[spacing], className)}
-        {...props}
-      >
+      <div ref={ref} className={cn("flex items-center", spacingClasses[spacing], className)} {...props}>
         {visible.map((child, i) => (
-          <div key={i} className="ring-2 ring-white rounded-full">
+          <div key={i} className="rounded-full">
             {React.isValidElement(child) && React.cloneElement(child as any, { size })}
           </div>
         ))}
 
         {remaining > 0 && (
-          <Avatar
-            size={size}
-            fallback={`+${remaining}`}
-            color="bg-surface-muted"
-            textColor="text-muted"
-            ring="ring-2"
-          />
+          <Avatar size={size} fallback={`+${remaining}`} color="bg-surface" textColor="text-muted-foreground" />
         )}
       </div>
     )
   }
 )
+
 AvatarGroup.displayName = "AvatarGroup"
+
 export { stringToColor, getInitials }
